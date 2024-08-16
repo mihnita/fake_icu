@@ -1,0 +1,16 @@
+com/ibm/icu/dev/test/TestFmwk$TestParams.class
+com/ibm/icu/dev/test/TestUtil.class
+com/ibm/icu/dev/test/AbstractTestLog.class
+com/ibm/icu/dev/test/TestFmwk$1.class
+com/ibm/icu/dev/test/TestUtil$JavaVendor.class
+com/ibm/icu/dev/test/TestUtil$Lock.class
+com/ibm/icu/dev/test/TestUtil$JavaRuntimeName.class
+com/ibm/icu/dev/test/UnicodeKnownIssues$Consumer.class
+com/ibm/icu/dev/util/Timer.class
+com/ibm/icu/dev/test/TestLog.class
+com/ibm/icu/dev/test/UTF16Util.class
+com/ibm/icu/dev/test/TestUtil$TestThread.class
+com/ibm/icu/dev/test/TestFmwk.class
+com/ibm/icu/dev/test/TestFmwk$ICU_Rand.class
+com/ibm/icu/dev/test/UnicodeKnownIssues.class
+com/ibm/icu/dev/util/Timer$Loop.class

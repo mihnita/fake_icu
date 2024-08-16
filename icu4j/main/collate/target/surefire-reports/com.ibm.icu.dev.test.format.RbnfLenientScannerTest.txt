@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.ibm.icu.dev.test.format.RbnfLenientScannerTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.511 s -- in com.ibm.icu.dev.test.format.RbnfLenientScannerTest

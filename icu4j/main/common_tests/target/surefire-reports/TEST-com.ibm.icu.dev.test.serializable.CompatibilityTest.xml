@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.347" tests="366" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="gopherProxySet" value="false"/>
+    <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/mnita/xx/fake_icu/icu4j/main/common_tests/target/test-classes:/Users/mnita/xx/fake_icu/icu4j/main/common_tests/target/classes:/Users/mnita/xx/fake_icu/icu4j/main/core/target/core-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/core/target/core-76.0.1-SNAPSHOT-tests.jar:/Users/mnita/xx/fake_icu/icu4j/main/framework/target/framework-76.0.1-SNAPSHOT-tests.jar:/Users/mnita/xx/fake_icu/icu4j/main/currdata/target/currdata-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/translit/target/translit-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/langdata/target/langdata-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/collate/target/collate-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/regiondata/target/regiondata-76.0.1-SNAPSHOT.jar:/Users/mnita/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/mnita/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/mnita/.m2/repository/pl/pragmatists/JUnitParams/1.1.1/JUnitParams-1.1.1.jar:/Users/mnita/.m2/repository/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar:"/>
+    <property name="java.vm.vendor" value="Azul Systems, Inc."/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="http://www.azul.com/"/>
+    <property name="user.timezone" value=""/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib"/>
+    <property name="sun.java.command" value="/Users/mnita/xx/fake_icu/icu4j/main/common_tests/target/surefire/surefirebooter-20240816120754016_46.jar /Users/mnita/xx/fake_icu/icu4j/main/common_tests/target/surefire 2024-08-16T12-05-30_488-jvmRun1 surefire-20240816120754016_44tmp surefire_5-20240816120754016_45tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="surefire.test.class.path" value="/Users/mnita/xx/fake_icu/icu4j/main/common_tests/target/test-classes:/Users/mnita/xx/fake_icu/icu4j/main/common_tests/target/classes:/Users/mnita/xx/fake_icu/icu4j/main/core/target/core-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/core/target/core-76.0.1-SNAPSHOT-tests.jar:/Users/mnita/xx/fake_icu/icu4j/main/framework/target/framework-76.0.1-SNAPSHOT-tests.jar:/Users/mnita/xx/fake_icu/icu4j/main/currdata/target/currdata-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/translit/target/translit-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/langdata/target/langdata-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/collate/target/collate-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/regiondata/target/regiondata-76.0.1-SNAPSHOT.jar:/Users/mnita/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/mnita/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/mnita/.m2/repository/pl/pragmatists/JUnitParams/1.1.1/JUnitParams-1.1.1.jar:/Users/mnita/.m2/repository/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/mnita"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre"/>
+    <property name="basedir" value="/Users/mnita/xx/fake_icu/icu4j/main/common_tests"/>
+    <property name="file.separator" value="/"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="jdk.vendor.version" value="Zulu 8.78.0.19-CA-macos-aarch64"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="/Users/mnita/xx/fake_icu/icu4j/main/common_tests/target/surefire/surefirebooter-20240816120754016_46.jar"/>
+    <property name="sun.boot.class.path" value="/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/resources.jar:/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/rt.jar:/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/sunrsasign.jar:/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/jsse.jar:/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/jce.jar:/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/charsets.jar:/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/jfr.jar:/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/cat.jar:/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/classes"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.runtime.version" value="1.8.0_412-b08"/>
+    <property name="user.name" value="mnita"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="14.6.1"/>
+    <property name="java.endorsed.dirs" value="/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/endorsed"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="/Users/mnita/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="http://www.azul.com/support/"/>
+    <property name="java.io.tmpdir" value="/var/folders/rj/sw4bjg6932v2vyh_xbrql1_w0000gn/T/"/>
+    <property name="java.version" value="1.8.0_412"/>
+    <property name="user.dir" value="/Users/mnita/xx/fake_icu/icu4j/main/common_tests"/>
+    <property name="os.arch" value="aarch64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value="/Users/mnita/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Azul Systems, Inc."/>
+    <property name="java.vm.version" value="25.412-b08"/>
+    <property name="java.specification.maintenance.version" value="5"/>
+    <property name="java.ext.dirs" value="/Users/mnita/Library/Java/Extensions:/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+  </properties>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.Calendar]) [0]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.RuleBasedNumberFormat]) [1]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.01"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.DateInterval]) [2]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.EthiopicCalendar]) [3]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.PersianCalendar]) [4]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.Currency]) [5]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.TimeZone]) [6]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.NumberFormat$Field]) [7]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.JapaneseCalendar]) [8]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.MessageFormat$Field]) [9]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.DateIntervalFormat]) [10]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.SimpleTimeZone]) [11]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.number.NumberRangeFormatter$SpanField]) [12]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.impl.TimeZoneNamesImpl]) [13]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.impl.locale.LocaleSyntaxException]) [14]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.TaiwanCalendar]) [15]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.CopticCalendar]) [16]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.RelativeDateTimeFormatter$Field]) [17]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.impl.number.DecimalFormatProperties]) [18]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.DateFormat]) [19]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.002"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.InitialTimeZoneRule]) [20]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.IndianCalendar]) [21]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.DecimalFormatSymbols]) [22]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.RuleBasedTimeZone]) [23]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.HebrewCalendar]) [24]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.AnnualTimeZoneRule]) [25]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.TimeZoneFormat]) [26]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.impl.number.CustomSymbolCurrency]) [27]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.impl.TimeZoneAdapter]) [28]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.StringPrepParseException]) [29]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.DangiCalendar]) [30]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.008"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.message2.Mf2DataModel$OrderedMap]) [31]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.impl.InvalidFormatException]) [32]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.BuddhistCalendar]) [33]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.ChineseDateFormatSymbols]) [34]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.PluralRules]) [35]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.ArabicShapingException]) [36]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.TimeArrayTimeZoneRule]) [37]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.ListFormatter$SpanField]) [38]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.DateTimeRule]) [39]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.ListFormatter$Field]) [40]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.PluralFormat]) [41]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.DateFormatSymbols]) [42]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.ICUException]) [43]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.impl.IllegalIcuArgumentException]) [44]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.UResourceTypeMismatchException]) [45]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.GregorianCalendar]) [46]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.impl.TZDBTimeZoneNames]) [47]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.ICUUncheckedIOException]) [48]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.DateIntervalInfo$PatternInfo]) [49]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.impl.DateNumberFormat]) [50]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.impl.RelativeDateFormat]) [51]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.SimpleDateFormat]) [52]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.002"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.IslamicCalendar]) [53]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.NumberFormat]) [54]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.DateIntervalFormat$SpanField]) [55]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.TimeUnitFormat]) [56]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.ChineseDateFormat]) [57]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.032"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.TimeUnit]) [58]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.VTimeZone]) [59]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.SelectFormat]) [60]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.impl.OlsonTimeZone]) [61]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.impl.number.Properties]) [62]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.DateIntervalInfo]) [63]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.math.MathContext]) [64]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.DecimalFormat]) [65]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.MessageFormat]) [66]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.math.BigDecimal]) [67]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.ChineseCalendar]) [68]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.008"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.impl.JavaTimeZone]) [69]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.ULocale]) [70]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.ChineseDateFormat$Field]) [71]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.impl.TimeZoneGenericNames]) [72]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.number.SkeletonSyntaxException]) [73]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.ICUCloneNotSupportedException]) [74]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.impl.number.LocalizedNumberFormatterAsFormat]) [75]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.MeasureUnit]) [76]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.impl.duration.BasicDurationFormat]) [77]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.MeasureFormat]) [78]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.CompactDecimalFormat]) [79]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.IllformedLocaleException]) [80]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.util.ICUInputTooLongException]) [81]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.CurrencyPluralInfo]) [82]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_74.1[com.ibm.icu.text.DateFormat$Field]) [83]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.Calendar]) [84]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.RuleBasedNumberFormat]) [85]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.005"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.DateInterval]) [86]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.EthiopicCalendar]) [87]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.PersianCalendar]) [88]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.Currency]) [89]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.TimeZone]) [90]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.NumberFormat$Field]) [91]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.JapaneseCalendar]) [92]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.MessageFormat$Field]) [93]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.DateIntervalFormat]) [94]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.SimpleTimeZone]) [95]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.number.NumberRangeFormatter$SpanField]) [96]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.impl.TimeZoneNamesImpl]) [97]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.impl.locale.LocaleSyntaxException]) [98]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.TaiwanCalendar]) [99]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.CopticCalendar]) [100]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.RelativeDateTimeFormatter$Field]) [101]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.impl.number.DecimalFormatProperties]) [102]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.DateFormat]) [103]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.InitialTimeZoneRule]) [104]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.IndianCalendar]) [105]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.DecimalFormatSymbols]) [106]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.RuleBasedTimeZone]) [107]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.HebrewCalendar]) [108]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.AnnualTimeZoneRule]) [109]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.TimeZoneFormat]) [110]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.impl.number.CustomSymbolCurrency]) [111]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.impl.TimeZoneAdapter]) [112]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.StringPrepParseException]) [113]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.DangiCalendar]) [114]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.007"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.message2.Mf2DataModel$OrderedMap]) [115]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.impl.InvalidFormatException]) [116]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.BuddhistCalendar]) [117]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.ChineseDateFormatSymbols]) [118]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.PluralRules]) [119]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.ArabicShapingException]) [120]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.TimeArrayTimeZoneRule]) [121]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.ListFormatter$SpanField]) [122]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.DateTimeRule]) [123]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.ListFormatter$Field]) [124]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.PluralFormat]) [125]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.DateFormatSymbols]) [126]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.ICUException]) [127]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.impl.IllegalIcuArgumentException]) [128]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.UResourceTypeMismatchException]) [129]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.GregorianCalendar]) [130]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.impl.TZDBTimeZoneNames]) [131]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.ICUUncheckedIOException]) [132]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.DateIntervalInfo$PatternInfo]) [133]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.impl.DateNumberFormat]) [134]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.impl.RelativeDateFormat]) [135]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.SimpleDateFormat]) [136]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.IslamicCalendar]) [137]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.NumberFormat]) [138]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.DateIntervalFormat$SpanField]) [139]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.TimeUnitFormat]) [140]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.ChineseDateFormat]) [141]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.027"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.TimeUnit]) [142]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.VTimeZone]) [143]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.SelectFormat]) [144]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.impl.OlsonTimeZone]) [145]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.impl.number.Properties]) [146]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.DateIntervalInfo]) [147]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.math.MathContext]) [148]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.DecimalFormat]) [149]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.MessageFormat]) [150]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.math.BigDecimal]) [151]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.ChineseCalendar]) [152]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.007"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.impl.JavaTimeZone]) [153]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.ULocale]) [154]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.ChineseDateFormat$Field]) [155]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.impl.TimeZoneGenericNames]) [156]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.number.SkeletonSyntaxException]) [157]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.ICUCloneNotSupportedException]) [158]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.impl.number.LocalizedNumberFormatterAsFormat]) [159]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.MeasureUnit]) [160]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.impl.duration.BasicDurationFormat]) [161]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.MeasureFormat]) [162]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.CompactDecimalFormat]) [163]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.IllformedLocaleException]) [164]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.util.ICUInputTooLongException]) [165]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.CurrencyPluralInfo]) [166]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_73.1[com.ibm.icu.text.DateFormat$Field]) [167]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.Calendar]) [168]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.RuleBasedNumberFormat]) [169]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.004"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.DateInterval]) [170]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.EthiopicCalendar]) [171]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.PersianCalendar]) [172]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.Currency]) [173]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.TimeZone]) [174]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.NumberFormat$Field]) [175]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.JapaneseCalendar]) [176]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.MessageFormat$Field]) [177]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.DateIntervalFormat]) [178]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.SimpleTimeZone]) [179]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.number.NumberRangeFormatter$SpanField]) [180]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.impl.TimeZoneNamesImpl]) [181]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.impl.locale.LocaleSyntaxException]) [182]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.TaiwanCalendar]) [183]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.CopticCalendar]) [184]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.RelativeDateTimeFormatter$Field]) [185]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.impl.number.DecimalFormatProperties]) [186]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.DateFormat]) [187]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.InitialTimeZoneRule]) [188]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.IndianCalendar]) [189]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.DecimalFormatSymbols]) [190]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.RuleBasedTimeZone]) [191]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.HebrewCalendar]) [192]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.AnnualTimeZoneRule]) [193]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.TimeZoneFormat]) [194]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.impl.number.CustomSymbolCurrency]) [195]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.impl.TimeZoneAdapter]) [196]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.StringPrepParseException]) [197]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.DangiCalendar]) [198]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.007"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.message2.Mf2DataModel$OrderedMap]) [199]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.impl.InvalidFormatException]) [200]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.BuddhistCalendar]) [201]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.ChineseDateFormatSymbols]) [202]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.PluralRules]) [203]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.ArabicShapingException]) [204]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.TimeArrayTimeZoneRule]) [205]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.ListFormatter$SpanField]) [206]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.DateTimeRule]) [207]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.ListFormatter$Field]) [208]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.PluralFormat]) [209]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.DateFormatSymbols]) [210]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.ICUException]) [211]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.impl.IllegalIcuArgumentException]) [212]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.UResourceTypeMismatchException]) [213]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.GregorianCalendar]) [214]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.impl.TZDBTimeZoneNames]) [215]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.ICUUncheckedIOException]) [216]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.DateIntervalInfo$PatternInfo]) [217]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.impl.DateNumberFormat]) [218]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.impl.RelativeDateFormat]) [219]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.SimpleDateFormat]) [220]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.IslamicCalendar]) [221]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.NumberFormat]) [222]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.DateIntervalFormat$SpanField]) [223]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.TimeUnitFormat]) [224]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.ChineseDateFormat]) [225]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.027"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.TimeUnit]) [226]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.VTimeZone]) [227]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.SelectFormat]) [228]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.impl.OlsonTimeZone]) [229]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.impl.number.Properties]) [230]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.DateIntervalInfo]) [231]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.math.MathContext]) [232]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.DecimalFormat]) [233]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.MessageFormat]) [234]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.math.BigDecimal]) [235]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.ChineseCalendar]) [236]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.007"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.impl.JavaTimeZone]) [237]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.ULocale]) [238]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.ChineseDateFormat$Field]) [239]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.impl.TimeZoneGenericNames]) [240]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.number.SkeletonSyntaxException]) [241]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.ICUCloneNotSupportedException]) [242]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.impl.number.LocalizedNumberFormatterAsFormat]) [243]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.MeasureUnit]) [244]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.impl.duration.BasicDurationFormat]) [245]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.MeasureFormat]) [246]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.CompactDecimalFormat]) [247]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.IllformedLocaleException]) [248]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.util.ICUInputTooLongException]) [249]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.CurrencyPluralInfo]) [250]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_72.1[com.ibm.icu.text.DateFormat$Field]) [251]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.util.Calendar]) [252]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.text.RuleBasedNumberFormat]) [253]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.util.EthiopicCalendar]) [254]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.util.Currency]) [255]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.util.TimeZone]) [256]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.util.JapaneseCalendar]) [257]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.util.SimpleTimeZone]) [258]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.util.CopticCalendar]) [259]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.text.DateFormat]) [260]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.003"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.text.DecimalFormatSymbols]) [261]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.util.HebrewCalendar]) [262]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.impl.TimeZoneAdapter]) [263]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.text.StringPrepParseException]) [264]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.util.BuddhistCalendar]) [265]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.text.ChineseDateFormatSymbols]) [266]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.text.ArabicShapingException]) [267]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.text.DateFormatSymbols]) [268]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.util.UResourceTypeMismatchException]) [269]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.util.GregorianCalendar]) [270]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.text.SimpleDateFormat]) [271]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.007"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.util.IslamicCalendar]) [272]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.text.NumberFormat]) [273]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.text.ChineseDateFormat]) [274]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.037"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.impl.OlsonTimeZone]) [275]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.math.MathContext]) [276]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.text.DecimalFormat]) [277]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.text.MessageFormat]) [278]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.math.BigDecimal]) [279]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.util.ChineseCalendar]) [280]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.007"/>
+  <testcase name="testCompatibility(ICU_3.6[com.ibm.icu.util.ULocale]) [281]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.Calendar]) [282]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.RuleBasedNumberFormat]) [283]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.003"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.DateInterval]) [284]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.EthiopicCalendar]) [285]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.PersianCalendar]) [286]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.Currency]) [287]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.TimeZone]) [288]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.NumberFormat$Field]) [289]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.JapaneseCalendar]) [290]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.MessageFormat$Field]) [291]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.DateIntervalFormat]) [292]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.message2.MFParseException]) [293]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.SimpleTimeZone]) [294]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.number.NumberRangeFormatter$SpanField]) [295]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.impl.TimeZoneNamesImpl]) [296]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.impl.locale.LocaleSyntaxException]) [297]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.TaiwanCalendar]) [298]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.CopticCalendar]) [299]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.RelativeDateTimeFormatter$Field]) [300]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.impl.number.DecimalFormatProperties]) [301]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.DateFormat]) [302]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.002"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.InitialTimeZoneRule]) [303]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.IndianCalendar]) [304]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.DecimalFormatSymbols]) [305]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.RuleBasedTimeZone]) [306]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.HebrewCalendar]) [307]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.AnnualTimeZoneRule]) [308]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.TimeZoneFormat]) [309]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.impl.number.CustomSymbolCurrency]) [310]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.impl.TimeZoneAdapter]) [311]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.StringPrepParseException]) [312]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.DangiCalendar]) [313]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.007"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.impl.InvalidFormatException]) [314]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.BuddhistCalendar]) [315]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.ChineseDateFormatSymbols]) [316]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.002"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.PluralRules]) [317]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.ArabicShapingException]) [318]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.TimeArrayTimeZoneRule]) [319]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.ListFormatter$SpanField]) [320]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.DateTimeRule]) [321]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.ListFormatter$Field]) [322]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.PluralFormat]) [323]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.DateFormatSymbols]) [324]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.ICUException]) [325]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.impl.IllegalIcuArgumentException]) [326]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.UResourceTypeMismatchException]) [327]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.GregorianCalendar]) [328]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.impl.TZDBTimeZoneNames]) [329]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.ICUUncheckedIOException]) [330]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.DateIntervalInfo$PatternInfo]) [331]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.impl.DateNumberFormat]) [332]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.impl.RelativeDateFormat]) [333]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.SimpleDateFormat]) [334]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.002"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.IslamicCalendar]) [335]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.NumberFormat]) [336]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.DateIntervalFormat$SpanField]) [337]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.TimeUnitFormat]) [338]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.ChineseDateFormat]) [339]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.029"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.TimeUnit]) [340]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.VTimeZone]) [341]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.SelectFormat]) [342]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.impl.OlsonTimeZone]) [343]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.impl.number.Properties]) [344]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.DateIntervalInfo]) [345]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.math.MathContext]) [346]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.DecimalFormat]) [347]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.003"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.MessageFormat]) [348]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.math.BigDecimal]) [349]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.ChineseCalendar]) [350]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.007"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.impl.JavaTimeZone]) [351]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.001"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.ULocale]) [352]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.ChineseDateFormat$Field]) [353]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.impl.TimeZoneGenericNames]) [354]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.number.SkeletonSyntaxException]) [355]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.ICUCloneNotSupportedException]) [356]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.impl.number.LocalizedNumberFormatterAsFormat]) [357]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.MeasureUnit]) [358]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.impl.duration.BasicDurationFormat]) [359]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.MeasureFormat]) [360]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.CompactDecimalFormat]) [361]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.IllformedLocaleException]) [362]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.util.ICUInputTooLongException]) [363]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.CurrencyPluralInfo]) [364]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+  <testcase name="testCompatibility(ICU_75.1[com.ibm.icu.text.DateFormat$Field]) [365]" classname="com.ibm.icu.dev.test.serializable.CompatibilityTest" time="0.0"/>
+</testsuite>

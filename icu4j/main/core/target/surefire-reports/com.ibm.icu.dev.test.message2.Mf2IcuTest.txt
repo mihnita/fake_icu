@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.ibm.icu.dev.test.message2.Mf2IcuTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in com.ibm.icu.dev.test.message2.Mf2IcuTest

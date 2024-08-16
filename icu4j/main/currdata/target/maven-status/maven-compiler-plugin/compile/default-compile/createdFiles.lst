@@ -1,0 +1,15 @@
+com/ibm/icu/impl/ICUCurrencyMetaInfo$Collector.class
+com/ibm/icu/impl/ICUCurrencyDisplayInfoProvider$ICUCurrencyDisplayInfo$VariantSymbol.class
+com/ibm/icu/impl/ICUCurrencyDisplayInfoProvider$ICUCurrencyDisplayInfo$FormattingData.class
+com/ibm/icu/impl/ICUCurrencyMetaInfo$CurrencyCollector.class
+com/ibm/icu/impl/ICUCurrencyDisplayInfoProvider.class
+com/ibm/icu/impl/ICUCurrencyMetaInfo$UniqueList.class
+com/ibm/icu/impl/ICUCurrencyMetaInfo.class
+com/ibm/icu/impl/ICUCurrencyDisplayInfoProvider$1.class
+com/ibm/icu/impl/ICUCurrencyDisplayInfoProvider$ICUCurrencyDisplayInfo.class
+com/ibm/icu/impl/ICUCurrencyMetaInfo$InfoCollector.class
+com/ibm/icu/impl/ICUCurrencyMetaInfo$1.class
+com/ibm/icu/impl/ICUCurrencyDisplayInfoProvider$ICUCurrencyDisplayInfo$CurrencySink$EntrypointTable.class
+com/ibm/icu/impl/ICUCurrencyDisplayInfoProvider$ICUCurrencyDisplayInfo$CurrencySink.class
+com/ibm/icu/impl/ICUCurrencyDisplayInfoProvider$ICUCurrencyDisplayInfo$ParsingData.class
+com/ibm/icu/impl/ICUCurrencyMetaInfo$RegionCollector.class

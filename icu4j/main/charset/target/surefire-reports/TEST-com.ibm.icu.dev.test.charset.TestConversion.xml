@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.ibm.icu.dev.test.charset.TestConversion" time="5.292" tests="299" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="gopherProxySet" value="false"/>
+    <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/mnita/xx/fake_icu/icu4j/main/charset/target/test-classes:/Users/mnita/xx/fake_icu/icu4j/main/charset/target/classes:/Users/mnita/xx/fake_icu/icu4j/main/icu4j/target/icu4j-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/core/target/core-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/collate/target/collate-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/currdata/target/currdata-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/langdata/target/langdata-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/regiondata/target/regiondata-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/translit/target/translit-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/core/target/core-76.0.1-SNAPSHOT-tests.jar:/Users/mnita/xx/fake_icu/icu4j/main/framework/target/framework-76.0.1-SNAPSHOT-tests.jar:/Users/mnita/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/mnita/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/mnita/.m2/repository/pl/pragmatists/JUnitParams/1.1.1/JUnitParams-1.1.1.jar:"/>
+    <property name="java.vm.vendor" value="Azul Systems, Inc."/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="http://www.azul.com/"/>
+    <property name="user.timezone" value=""/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib"/>
+    <property name="sun.java.command" value="/Users/mnita/xx/fake_icu/icu4j/main/charset/target/surefire/surefirebooter-20240816120746970_43.jar /Users/mnita/xx/fake_icu/icu4j/main/charset/target/surefire 2024-08-16T12-05-30_488-jvmRun1 surefire-20240816120746970_41tmp surefire_4-20240816120746970_42tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="surefire.test.class.path" value="/Users/mnita/xx/fake_icu/icu4j/main/charset/target/test-classes:/Users/mnita/xx/fake_icu/icu4j/main/charset/target/classes:/Users/mnita/xx/fake_icu/icu4j/main/icu4j/target/icu4j-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/core/target/core-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/collate/target/collate-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/currdata/target/currdata-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/langdata/target/langdata-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/regiondata/target/regiondata-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/translit/target/translit-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/core/target/core-76.0.1-SNAPSHOT-tests.jar:/Users/mnita/xx/fake_icu/icu4j/main/framework/target/framework-76.0.1-SNAPSHOT-tests.jar:/Users/mnita/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/mnita/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/mnita/.m2/repository/pl/pragmatists/JUnitParams/1.1.1/JUnitParams-1.1.1.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/mnita"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre"/>
+    <property name="basedir" value="/Users/mnita/xx/fake_icu/icu4j/main/charset"/>
+    <property name="file.separator" value="/"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="jdk.vendor.version" value="Zulu 8.78.0.19-CA-macos-aarch64"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="/Users/mnita/xx/fake_icu/icu4j/main/charset/target/surefire/surefirebooter-20240816120746970_43.jar"/>
+    <property name="sun.boot.class.path" value="/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/resources.jar:/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/rt.jar:/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/sunrsasign.jar:/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/jsse.jar:/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/jce.jar:/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/charsets.jar:/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/jfr.jar:/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/cat.jar:/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/classes"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.runtime.version" value="1.8.0_412-b08"/>
+    <property name="user.name" value="mnita"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="14.6.1"/>
+    <property name="java.endorsed.dirs" value="/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/endorsed"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="/Users/mnita/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="http://www.azul.com/support/"/>
+    <property name="java.io.tmpdir" value="/var/folders/rj/sw4bjg6932v2vyh_xbrql1_w0000gn/T/"/>
+    <property name="java.version" value="1.8.0_412"/>
+    <property name="user.dir" value="/Users/mnita/xx/fake_icu/icu4j/main/charset"/>
+    <property name="os.arch" value="aarch64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value="/Users/mnita/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Azul Systems, Inc."/>
+    <property name="java.vm.version" value="25.412-b08"/>
+    <property name="java.specification.maintenance.version" value="5"/>
+    <property name="java.ext.dirs" value="/Users/mnita/Library/Java/Extensions:/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+  </properties>
+  <testcase name="conversionTest(TestDataPair) [0]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.078"/>
+  <testcase name="conversionTest(TestDataPair) [1]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.035"/>
+  <testcase name="conversionTest(TestDataPair) [2]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.03"/>
+  <testcase name="conversionTest(TestDataPair) [3]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.029"/>
+  <testcase name="conversionTest(TestDataPair) [4]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.022"/>
+  <testcase name="conversionTest(TestDataPair) [5]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.024"/>
+  <testcase name="conversionTest(TestDataPair) [6]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.02"/>
+  <testcase name="conversionTest(TestDataPair) [7]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.02"/>
+  <testcase name="conversionTest(TestDataPair) [8]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.022"/>
+  <testcase name="conversionTest(TestDataPair) [9]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.02"/>
+  <testcase name="conversionTest(TestDataPair) [10]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.022"/>
+  <testcase name="conversionTest(TestDataPair) [11]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.023"/>
+  <testcase name="conversionTest(TestDataPair) [12]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.024"/>
+  <testcase name="conversionTest(TestDataPair) [13]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [14]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [15]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.02"/>
+  <testcase name="conversionTest(TestDataPair) [16]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.022"/>
+  <testcase name="conversionTest(TestDataPair) [17]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [18]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [19]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.02"/>
+  <testcase name="conversionTest(TestDataPair) [20]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [21]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.022"/>
+  <testcase name="conversionTest(TestDataPair) [22]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.022"/>
+  <testcase name="conversionTest(TestDataPair) [23]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [24]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.02"/>
+  <testcase name="conversionTest(TestDataPair) [25]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.021"/>
+  <testcase name="conversionTest(TestDataPair) [26]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.016"/>
+  <testcase name="conversionTest(TestDataPair) [27]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.015"/>
+  <testcase name="conversionTest(TestDataPair) [28]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.015"/>
+  <testcase name="conversionTest(TestDataPair) [29]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [30]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.016"/>
+  <testcase name="conversionTest(TestDataPair) [31]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.015"/>
+  <testcase name="conversionTest(TestDataPair) [32]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.015"/>
+  <testcase name="conversionTest(TestDataPair) [33]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.017"/>
+  <testcase name="conversionTest(TestDataPair) [34]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.017"/>
+  <testcase name="conversionTest(TestDataPair) [35]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [36]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [37]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [38]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [39]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [40]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.015"/>
+  <testcase name="conversionTest(TestDataPair) [41]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [42]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.015"/>
+  <testcase name="conversionTest(TestDataPair) [43]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.017"/>
+  <testcase name="conversionTest(TestDataPair) [44]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [45]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [46]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [47]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [48]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [49]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [50]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [51]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [52]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.016"/>
+  <testcase name="conversionTest(TestDataPair) [53]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [54]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [55]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [56]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [57]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [58]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.013"/>
+  <testcase name="conversionTest(TestDataPair) [59]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [60]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.013"/>
+  <testcase name="conversionTest(TestDataPair) [61]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.015"/>
+  <testcase name="conversionTest(TestDataPair) [62]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.015"/>
+  <testcase name="conversionTest(TestDataPair) [63]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.016"/>
+  <testcase name="conversionTest(TestDataPair) [64]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.016"/>
+  <testcase name="conversionTest(TestDataPair) [65]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.015"/>
+  <testcase name="conversionTest(TestDataPair) [66]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.015"/>
+  <testcase name="conversionTest(TestDataPair) [67]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.015"/>
+  <testcase name="conversionTest(TestDataPair) [68]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.017"/>
+  <testcase name="conversionTest(TestDataPair) [69]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.02"/>
+  <testcase name="conversionTest(TestDataPair) [70]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.013"/>
+  <testcase name="conversionTest(TestDataPair) [71]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [72]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.013"/>
+  <testcase name="conversionTest(TestDataPair) [73]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [74]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.013"/>
+  <testcase name="conversionTest(TestDataPair) [75]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.013"/>
+  <testcase name="conversionTest(TestDataPair) [76]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.013"/>
+  <testcase name="conversionTest(TestDataPair) [77]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.013"/>
+  <testcase name="conversionTest(TestDataPair) [78]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [79]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [80]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [81]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.015"/>
+  <testcase name="conversionTest(TestDataPair) [82]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [83]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.013"/>
+  <testcase name="conversionTest(TestDataPair) [84]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [85]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.016"/>
+  <testcase name="conversionTest(TestDataPair) [86]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [87]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.016"/>
+  <testcase name="conversionTest(TestDataPair) [88]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [89]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.017"/>
+  <testcase name="conversionTest(TestDataPair) [90]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [91]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.017"/>
+  <testcase name="conversionTest(TestDataPair) [92]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.017"/>
+  <testcase name="conversionTest(TestDataPair) [93]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [94]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [95]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [96]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [97]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.02"/>
+  <testcase name="conversionTest(TestDataPair) [98]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.022"/>
+  <testcase name="conversionTest(TestDataPair) [99]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [100]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [101]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [102]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.013"/>
+  <testcase name="conversionTest(TestDataPair) [103]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.013"/>
+  <testcase name="conversionTest(TestDataPair) [104]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.013"/>
+  <testcase name="conversionTest(TestDataPair) [105]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [106]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.013"/>
+  <testcase name="conversionTest(TestDataPair) [107]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.013"/>
+  <testcase name="conversionTest(TestDataPair) [108]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [109]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.013"/>
+  <testcase name="conversionTest(TestDataPair) [110]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [111]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [112]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.013"/>
+  <testcase name="conversionTest(TestDataPair) [113]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [114]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [115]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.013"/>
+  <testcase name="conversionTest(TestDataPair) [116]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.015"/>
+  <testcase name="conversionTest(TestDataPair) [117]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.014"/>
+  <testcase name="conversionTest(TestDataPair) [118]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.021"/>
+  <testcase name="conversionTest(TestDataPair) [119]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.013"/>
+  <testcase name="conversionTest(TestDataPair) [120]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.012"/>
+  <testcase name="conversionTest(TestDataPair) [121]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.012"/>
+  <testcase name="conversionTest(TestDataPair) [122]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.011"/>
+  <testcase name="conversionTest(TestDataPair) [123]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.011"/>
+  <testcase name="conversionTest(TestDataPair) [124]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.011"/>
+  <testcase name="conversionTest(TestDataPair) [125]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.011"/>
+  <testcase name="conversionTest(TestDataPair) [126]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.011"/>
+  <testcase name="conversionTest(TestDataPair) [127]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.011"/>
+  <testcase name="conversionTest(TestDataPair) [128]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.011"/>
+  <testcase name="conversionTest(TestDataPair) [129]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.01"/>
+  <testcase name="conversionTest(TestDataPair) [130]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.011"/>
+  <testcase name="conversionTest(TestDataPair) [131]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.01"/>
+  <testcase name="conversionTest(TestDataPair) [132]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.011"/>
+  <testcase name="conversionTest(TestDataPair) [133]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.011"/>
+  <testcase name="conversionTest(TestDataPair) [134]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.01"/>
+  <testcase name="conversionTest(TestDataPair) [135]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.011"/>
+  <testcase name="conversionTest(TestDataPair) [136]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.011"/>
+  <testcase name="conversionTest(TestDataPair) [137]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.01"/>
+  <testcase name="conversionTest(TestDataPair) [138]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.011"/>
+  <testcase name="conversionTest(TestDataPair) [139]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.01"/>
+  <testcase name="conversionTest(TestDataPair) [140]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.011"/>
+  <testcase name="conversionTest(TestDataPair) [141]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.01"/>
+  <testcase name="conversionTest(TestDataPair) [142]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.01"/>
+  <testcase name="conversionTest(TestDataPair) [143]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.01"/>
+  <testcase name="conversionTest(TestDataPair) [144]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.011"/>
+  <testcase name="conversionTest(TestDataPair) [145]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.011"/>
+  <testcase name="conversionTest(TestDataPair) [146]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.011"/>
+  <testcase name="conversionTest(TestDataPair) [147]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.036"/>
+  <testcase name="conversionTest(TestDataPair) [148]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.033"/>
+  <testcase name="conversionTest(TestDataPair) [149]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.021"/>
+  <testcase name="conversionTest(TestDataPair) [150]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [151]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.02"/>
+  <testcase name="conversionTest(TestDataPair) [152]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.022"/>
+  <testcase name="conversionTest(TestDataPair) [153]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.02"/>
+  <testcase name="conversionTest(TestDataPair) [154]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.02"/>
+  <testcase name="conversionTest(TestDataPair) [155]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.02"/>
+  <testcase name="conversionTest(TestDataPair) [156]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.02"/>
+  <testcase name="conversionTest(TestDataPair) [157]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [158]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [159]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [160]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [161]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [162]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.02"/>
+  <testcase name="conversionTest(TestDataPair) [163]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [164]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [165]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [166]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [167]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.02"/>
+  <testcase name="conversionTest(TestDataPair) [168]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.02"/>
+  <testcase name="conversionTest(TestDataPair) [169]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.021"/>
+  <testcase name="conversionTest(TestDataPair) [170]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [171]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.022"/>
+  <testcase name="conversionTest(TestDataPair) [172]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [173]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [174]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [175]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [176]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [177]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [178]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [179]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [180]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [181]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [182]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [183]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [184]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [185]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [186]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [187]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [188]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [189]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [190]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [191]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [192]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.022"/>
+  <testcase name="conversionTest(TestDataPair) [193]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [194]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [195]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [196]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [197]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [198]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [199]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [200]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [201]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [202]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.017"/>
+  <testcase name="conversionTest(TestDataPair) [203]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.017"/>
+  <testcase name="conversionTest(TestDataPair) [204]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [205]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [206]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.017"/>
+  <testcase name="conversionTest(TestDataPair) [207]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.017"/>
+  <testcase name="conversionTest(TestDataPair) [208]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [209]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [210]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.017"/>
+  <testcase name="conversionTest(TestDataPair) [211]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [212]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.022"/>
+  <testcase name="conversionTest(TestDataPair) [213]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [214]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.017"/>
+  <testcase name="conversionTest(TestDataPair) [215]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [216]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [217]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [218]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [219]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [220]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [221]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [222]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [223]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [224]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [225]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [226]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [227]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.017"/>
+  <testcase name="conversionTest(TestDataPair) [228]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [229]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [230]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [231]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.022"/>
+  <testcase name="conversionTest(TestDataPair) [232]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [233]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.017"/>
+  <testcase name="conversionTest(TestDataPair) [234]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [235]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [236]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [237]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [238]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [239]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.017"/>
+  <testcase name="conversionTest(TestDataPair) [240]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [241]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [242]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [243]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.017"/>
+  <testcase name="conversionTest(TestDataPair) [244]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [245]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.02"/>
+  <testcase name="conversionTest(TestDataPair) [246]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.02"/>
+  <testcase name="conversionTest(TestDataPair) [247]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.022"/>
+  <testcase name="conversionTest(TestDataPair) [248]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.021"/>
+  <testcase name="conversionTest(TestDataPair) [249]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [250]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.024"/>
+  <testcase name="conversionTest(TestDataPair) [251]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [252]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [253]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [254]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [255]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [256]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.02"/>
+  <testcase name="conversionTest(TestDataPair) [257]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [258]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.02"/>
+  <testcase name="conversionTest(TestDataPair) [259]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [260]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.02"/>
+  <testcase name="conversionTest(TestDataPair) [261]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [262]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [263]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [264]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [265]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [266]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [267]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.021"/>
+  <testcase name="conversionTest(TestDataPair) [268]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [269]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [270]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.017"/>
+  <testcase name="conversionTest(TestDataPair) [271]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [272]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.017"/>
+  <testcase name="conversionTest(TestDataPair) [273]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.017"/>
+  <testcase name="conversionTest(TestDataPair) [274]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.017"/>
+  <testcase name="conversionTest(TestDataPair) [275]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [276]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.017"/>
+  <testcase name="conversionTest(TestDataPair) [277]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.017"/>
+  <testcase name="conversionTest(TestDataPair) [278]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [279]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [280]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [281]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.017"/>
+  <testcase name="conversionTest(TestDataPair) [282]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [283]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.017"/>
+  <testcase name="conversionTest(TestDataPair) [284]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.021"/>
+  <testcase name="conversionTest(TestDataPair) [285]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [286]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [287]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [288]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [289]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [290]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [291]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [292]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [293]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [294]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [295]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [296]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.019"/>
+  <testcase name="conversionTest(TestDataPair) [297]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+  <testcase name="conversionTest(TestDataPair) [298]" classname="com.ibm.icu.dev.test.charset.TestConversion" time="0.018"/>
+</testsuite>

@@ -1,0 +1,10 @@
+com/ibm/icu/dev/test/localespi/LocaleNameTest.class
+com/ibm/icu/dev/test/localespi/CurrencyNameTest.class
+com/ibm/icu/dev/test/localespi/DecimalFormatSymbolsTest.class
+com/ibm/icu/dev/test/localespi/TimeZoneNameTest.class
+com/ibm/icu/dev/test/localespi/BreakIteratorTest.class
+com/ibm/icu/dev/test/localespi/CollatorTest.class
+com/ibm/icu/dev/test/localespi/DateFormatSymbolsTest.class
+com/ibm/icu/dev/test/localespi/DateFormatTest.class
+com/ibm/icu/dev/test/localespi/TestUtil.class
+com/ibm/icu/dev/test/localespi/NumberFormatTest.class

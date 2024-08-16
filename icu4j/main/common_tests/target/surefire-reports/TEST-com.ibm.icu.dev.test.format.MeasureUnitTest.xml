@@ -1,0 +1,2789 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.047" tests="66" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="gopherProxySet" value="false"/>
+    <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/mnita/xx/fake_icu/icu4j/main/common_tests/target/test-classes:/Users/mnita/xx/fake_icu/icu4j/main/common_tests/target/classes:/Users/mnita/xx/fake_icu/icu4j/main/core/target/core-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/core/target/core-76.0.1-SNAPSHOT-tests.jar:/Users/mnita/xx/fake_icu/icu4j/main/framework/target/framework-76.0.1-SNAPSHOT-tests.jar:/Users/mnita/xx/fake_icu/icu4j/main/currdata/target/currdata-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/translit/target/translit-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/langdata/target/langdata-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/collate/target/collate-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/regiondata/target/regiondata-76.0.1-SNAPSHOT.jar:/Users/mnita/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/mnita/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/mnita/.m2/repository/pl/pragmatists/JUnitParams/1.1.1/JUnitParams-1.1.1.jar:/Users/mnita/.m2/repository/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar:"/>
+    <property name="java.vm.vendor" value="Azul Systems, Inc."/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="http://www.azul.com/"/>
+    <property name="user.timezone" value=""/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib"/>
+    <property name="sun.java.command" value="/Users/mnita/xx/fake_icu/icu4j/main/common_tests/target/surefire/surefirebooter-20240816120754016_46.jar /Users/mnita/xx/fake_icu/icu4j/main/common_tests/target/surefire 2024-08-16T12-05-30_488-jvmRun1 surefire-20240816120754016_44tmp surefire_5-20240816120754016_45tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="surefire.test.class.path" value="/Users/mnita/xx/fake_icu/icu4j/main/common_tests/target/test-classes:/Users/mnita/xx/fake_icu/icu4j/main/common_tests/target/classes:/Users/mnita/xx/fake_icu/icu4j/main/core/target/core-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/core/target/core-76.0.1-SNAPSHOT-tests.jar:/Users/mnita/xx/fake_icu/icu4j/main/framework/target/framework-76.0.1-SNAPSHOT-tests.jar:/Users/mnita/xx/fake_icu/icu4j/main/currdata/target/currdata-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/translit/target/translit-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/langdata/target/langdata-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/collate/target/collate-76.0.1-SNAPSHOT.jar:/Users/mnita/xx/fake_icu/icu4j/main/regiondata/target/regiondata-76.0.1-SNAPSHOT.jar:/Users/mnita/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/mnita/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/mnita/.m2/repository/pl/pragmatists/JUnitParams/1.1.1/JUnitParams-1.1.1.jar:/Users/mnita/.m2/repository/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/mnita"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.home" value="/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre"/>
+    <property name="basedir" value="/Users/mnita/xx/fake_icu/icu4j/main/common_tests"/>
+    <property name="file.separator" value="/"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="jdk.vendor.version" value="Zulu 8.78.0.19-CA-macos-aarch64"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="/Users/mnita/xx/fake_icu/icu4j/main/common_tests/target/surefire/surefirebooter-20240816120754016_46.jar"/>
+    <property name="sun.boot.class.path" value="/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/resources.jar:/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/rt.jar:/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/sunrsasign.jar:/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/jsse.jar:/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/jce.jar:/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/charsets.jar:/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/jfr.jar:/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/cat.jar:/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/classes"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.runtime.version" value="1.8.0_412-b08"/>
+    <property name="user.name" value="mnita"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="14.6.1"/>
+    <property name="java.endorsed.dirs" value="/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/endorsed"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="/Users/mnita/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="http://www.azul.com/support/"/>
+    <property name="java.io.tmpdir" value="/var/folders/rj/sw4bjg6932v2vyh_xbrql1_w0000gn/T/"/>
+    <property name="java.version" value="1.8.0_412"/>
+    <property name="user.dir" value="/Users/mnita/xx/fake_icu/icu4j/main/common_tests"/>
+    <property name="os.arch" value="aarch64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value="/Users/mnita/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Azul Systems, Inc."/>
+    <property name="java.vm.version" value="25.412-b08"/>
+    <property name="java.specification.maintenance.version" value="5"/>
+    <property name="java.ext.dirs" value="/Users/mnita/Library/Java/Extensions:/Users/mnita/apps/zulu8.78.0.19-ca-jdk8.0.412-macosx_aarch64/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+  </properties>
+  <testcase name="TestCompatible53" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="TestCompatible54" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="TestCompatible55" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="TestCompatible56" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="TestCompatible57" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="TestCompatible58" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="TestCompatible59" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="TestCompatible63" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="TestCompatible64" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="TestCompatible65" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="TestCompatible68" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="TestCompatible69" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="TestCompatible70" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="TestCompatible72" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="TestCompatible73" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="TestCompatible74" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.001"/>
+  <testcase name="testFieldPosition" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="TestCompoundUnitOperations" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="testCurrencyFormatStandInForMeasureFormat" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="testCurrencies" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.001"/>
+  <testcase name="testDisplayNames" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.001"/>
+  <testcase name="TestNumericTime" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="TestKilogramIdentifier" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="testParseObject" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="testSimplePer" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.008"/>
+  <testcase name="testZZZ" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.014">
+    <system-out><![CDATA[// Start generated code for measunit.cpp
+
+// Maps from Type ID to offset in gSubTypes.
+static const int32_t gOffsets[] = {
+    0,
+    2,
+    7,
+    17,
+    28,
+    32,
+    359,
+    370,
+    388,
+    392,
+    401,
+    404,
+    408,
+    416,
+    438,
+    442,
+    457,
+    458,
+    464,
+    475,
+    481,
+    485,
+    487,
+    521
+};
+
+static const int32_t kCurrencyOffset = 5;
+
+// Must be sorted alphabetically.
+static const char * const gTypes[] = {
+    "acceleration",
+    "angle",
+    "area",
+    "concentr",
+    "consumption",
+    "currency",
+    "digital",
+    "duration",
+    "electric",
+    "energy",
+    "force",
+    "frequency",
+    "graphics",
+    "length",
+    "light",
+    "mass",
+    "none",
+    "power",
+    "pressure",
+    "speed",
+    "temperature",
+    "torque",
+    "volume"
+};
+
+// Must be grouped by type and sorted alphabetically within each type.
+static const char * const gSubTypes[] = {
+    "g-force",
+    "meter-per-square-second",
+    "arc-minute",
+    "arc-second",
+    "degree",
+    "radian",
+    "revolution",
+    "acre",
+    "dunam",
+    "hectare",
+    "square-centimeter",
+    "square-foot",
+    "square-inch",
+    "square-kilometer",
+    "square-meter",
+    "square-mile",
+    "square-yard",
+    "item",
+    "karat",
+    "milligram-ofglucose-per-deciliter",
+    "milligram-per-deciliter",
+    "millimole-per-liter",
+    "mole",
+    "percent",
+    "permille",
+    "permillion",
+    "permyriad",
+    "portion-per-1e9",
+    "liter-per-100-kilometer",
+    "liter-per-kilometer",
+    "mile-per-gallon",
+    "mile-per-gallon-imperial",
+    "ADP",
+    "AED",
+    "AFA",
+    "AFN",
+    "ALK",
+    "ALL",
+    "AMD",
+    "ANG",
+    "AOA",
+    "AOK",
+    "AON",
+    "AOR",
+    "ARA",
+    "ARL",
+    "ARM",
+    "ARP",
+    "ARS",
+    "ARY",
+    "ATS",
+    "AUD",
+    "AWG",
+    "AYM",
+    "AZM",
+    "AZN",
+    "BAD",
+    "BAM",
+    "BAN",
+    "BBD",
+    "BDT",
+    "BEC",
+    "BEF",
+    "BEL",
+    "BGJ",
+    "BGK",
+    "BGL",
+    "BGM",
+    "BGN",
+    "BGO",
+    "BHD",
+    "BIF",
+    "BMD",
+    "BND",
+    "BOB",
+    "BOL",
+    "BOP",
+    "BOV",
+    "BRB",
+    "BRC",
+    "BRE",
+    "BRL",
+    "BRN",
+    "BRR",
+    "BRZ",
+    "BSD",
+    "BTN",
+    "BUK",
+    "BWP",
+    "BYB",
+    "BYN",
+    "BYR",
+    "BZD",
+    "CAD",
+    "CDF",
+    "CHC",
+    "CHE",
+    "CHF",
+    "CHW",
+    "CLE",
+    "CLF",
+    "CLP",
+    "CNH",
+    "CNX",
+    "CNY",
+    "COP",
+    "COU",
+    "CRC",
+    "CSD",
+    "CSJ",
+    "CSK",
+    "CUC",
+    "CUP",
+    "CVE",
+    "CYP",
+    "CZK",
+    "DDM",
+    "DEM",
+    "DJF",
+    "DKK",
+    "DOP",
+    "DZD",
+    "ECS",
+    "ECV",
+    "EEK",
+    "EGP",
+    "ERN",
+    "ESA",
+    "ESB",
+    "ESP",
+    "ETB",
+    "EUR",
+    "FIM",
+    "FJD",
+    "FKP",
+    "FRF",
+    "GBP",
+    "GEK",
+    "GEL",
+    "GHC",
+    "GHP",
+    "GHS",
+    "GIP",
+    "GMD",
+    "GNE",
+    "GNF",
+    "GNS",
+    "GQE",
+    "GRD",
+    "GTQ",
+    "GWE",
+    "GWP",
+    "GYD",
+    "HKD",
+    "HNL",
+    "HRD",
+    "HRK",
+    "HTG",
+    "HUF",
+    "IDR",
+    "IEP",
+    "ILP",
+    "ILR",
+    "ILS",
+    "INR",
+    "IQD",
+    "IRR",
+    "ISJ",
+    "ISK",
+    "ITL",
+    "JMD",
+    "JOD",
+    "JPY",
+    "KES",
+    "KGS",
+    "KHR",
+    "KMF",
+    "KPW",
+    "KRH",
+    "KRO",
+    "KRW",
+    "KWD",
+    "KYD",
+    "KZT",
+    "LAJ",
+    "LAK",
+    "LBP",
+    "LKR",
+    "LRD",
+    "LSL",
+    "LSM",
+    "LTL",
+    "LTT",
+    "LUC",
+    "LUF",
+    "LUL",
+    "LVL",
+    "LVR",
+    "LYD",
+    "MAD",
+    "MAF",
+    "MCF",
+    "MDC",
+    "MDL",
+    "MGA",
+    "MGF",
+    "MKD",
+    "MKN",
+    "MLF",
+    "MMK",
+    "MNT",
+    "MOP",
+    "MRO",
+    "MRU",
+    "MTL",
+    "MTP",
+    "MUR",
+    "MVP",
+    "MVQ",
+    "MVR",
+    "MWK",
+    "MXN",
+    "MXP",
+    "MXV",
+    "MYR",
+    "MZE",
+    "MZM",
+    "MZN",
+    "NAD",
+    "NGN",
+    "NIC",
+    "NIO",
+    "NLG",
+    "NOK",
+    "NPR",
+    "NZD",
+    "OMR",
+    "PAB",
+    "PEH",
+    "PEI",
+    "PEN",
+    "PES",
+    "PGK",
+    "PHP",
+    "PKR",
+    "PLN",
+    "PLZ",
+    "PTE",
+    "PYG",
+    "QAR",
+    "QQQ",
+    "RHD",
+    "ROK",
+    "ROL",
+    "RON",
+    "RSD",
+    "RUB",
+    "RUR",
+    "RWF",
+    "SAR",
+    "SBD",
+    "SCR",
+    "SDD",
+    "SDG",
+    "SDP",
+    "SEK",
+    "SGD",
+    "SHP",
+    "SIT",
+    "SKK",
+    "SLE",
+    "SLL",
+    "SOS",
+    "SRD",
+    "SRG",
+    "SSP",
+    "STD",
+    "STN",
+    "SUR",
+    "SVC",
+    "SYP",
+    "SZL",
+    "THB",
+    "TJR",
+    "TJS",
+    "TMM",
+    "TMT",
+    "TND",
+    "TOP",
+    "TPE",
+    "TRL",
+    "TRY",
+    "TTD",
+    "TWD",
+    "TZS",
+    "UAH",
+    "UAK",
+    "UGS",
+    "UGW",
+    "UGX",
+    "USD",
+    "USN",
+    "USS",
+    "USX",
+    "UYI",
+    "UYN",
+    "UYP",
+    "UYU",
+    "UYW",
+    "UZS",
+    "VEB",
+    "VED",
+    "VEF",
+    "VES",
+    "VNC",
+    "VND",
+    "VNN",
+    "VUV",
+    "WST",
+    "XAF",
+    "XAG",
+    "XAU",
+    "XBA",
+    "XBB",
+    "XBC",
+    "XBD",
+    "XCD",
+    "XCG",
+    "XDR",
+    "XEU",
+    "XFO",
+    "XFU",
+    "XOF",
+    "XPD",
+    "XPF",
+    "XPT",
+    "XRE",
+    "XSU",
+    "XTS",
+    "XUA",
+    "XXX",
+    "YDD",
+    "YER",
+    "YUD",
+    "YUM",
+    "YUN",
+    "YUR",
+    "ZAL",
+    "ZAR",
+    "ZMK",
+    "ZMW",
+    "ZRN",
+    "ZRZ",
+    "ZWC",
+    "ZWD",
+    "ZWL",
+    "ZWN",
+    "ZWR",
+    "ZZZ",
+    "bit",
+    "byte",
+    "gigabit",
+    "gigabyte",
+    "kilobit",
+    "kilobyte",
+    "megabit",
+    "megabyte",
+    "petabyte",
+    "terabit",
+    "terabyte",
+    "century",
+    "day",
+    "day-person",
+    "decade",
+    "hour",
+    "microsecond",
+    "millisecond",
+    "minute",
+    "month",
+    "month-person",
+    "nanosecond",
+    "night",
+    "quarter",
+    "second",
+    "week",
+    "week-person",
+    "year",
+    "year-person",
+    "ampere",
+    "milliampere",
+    "ohm",
+    "volt",
+    "british-thermal-unit",
+    "calorie",
+    "electronvolt",
+    "foodcalorie",
+    "joule",
+    "kilocalorie",
+    "kilojoule",
+    "kilowatt-hour",
+    "therm-us",
+    "kilowatt-hour-per-100-kilometer",
+    "newton",
+    "pound-force",
+    "gigahertz",
+    "hertz",
+    "kilohertz",
+    "megahertz",
+    "dot",
+    "dot-per-centimeter",
+    "dot-per-inch",
+    "em",
+    "megapixel",
+    "pixel",
+    "pixel-per-centimeter",
+    "pixel-per-inch",
+    "astronomical-unit",
+    "centimeter",
+    "decimeter",
+    "earth-radius",
+    "fathom",
+    "foot",
+    "furlong",
+    "inch",
+    "kilometer",
+    "light-year",
+    "meter",
+    "micrometer",
+    "mile",
+    "mile-scandinavian",
+    "millimeter",
+    "nanometer",
+    "nautical-mile",
+    "parsec",
+    "picometer",
+    "point",
+    "solar-radius",
+    "yard",
+    "candela",
+    "lumen",
+    "lux",
+    "solar-luminosity",
+    "carat",
+    "dalton",
+    "earth-mass",
+    "grain",
+    "gram",
+    "kilogram",
+    "microgram",
+    "milligram",
+    "ounce",
+    "ounce-troy",
+    "pound",
+    "solar-mass",
+    "stone",
+    "ton",
+    "tonne",
+    "",
+    "gigawatt",
+    "horsepower",
+    "kilowatt",
+    "megawatt",
+    "milliwatt",
+    "watt",
+    "atmosphere",
+    "bar",
+    "gasoline-energy-density",
+    "hectopascal",
+    "inch-ofhg",
+    "kilopascal",
+    "megapascal",
+    "millibar",
+    "millimeter-ofhg",
+    "pascal",
+    "pound-force-per-square-inch",
+    "beaufort",
+    "kilometer-per-hour",
+    "knot",
+    "light-speed",
+    "meter-per-second",
+    "mile-per-hour",
+    "celsius",
+    "fahrenheit",
+    "generic",
+    "kelvin",
+    "newton-meter",
+    "pound-force-foot",
+    "acre-foot",
+    "barrel",
+    "bushel",
+    "centiliter",
+    "cubic-centimeter",
+    "cubic-foot",
+    "cubic-inch",
+    "cubic-kilometer",
+    "cubic-meter",
+    "cubic-mile",
+    "cubic-yard",
+    "cup",
+    "cup-metric",
+    "deciliter",
+    "dessert-spoon",
+    "dessert-spoon-imperial",
+    "dram",
+    "drop",
+    "fluid-ounce",
+    "fluid-ounce-imperial",
+    "gallon",
+    "gallon-imperial",
+    "hectoliter",
+    "jigger",
+    "liter",
+    "megaliter",
+    "milliliter",
+    "pinch",
+    "pint",
+    "pint-metric",
+    "quart",
+    "quart-imperial",
+    "tablespoon",
+    "teaspoon"
+};
+
+// Shortcuts to the base unit in order to make the default constructor fast
+static const int32_t kBaseTypeIdx = 16;
+static const int32_t kBaseSubTypeIdx = 0;
+
+MeasureUnit *MeasureUnit::createGForce(UErrorCode &status) {
+    return MeasureUnit::create(0, 0, status);
+}
+
+MeasureUnit MeasureUnit::getGForce() {
+    return MeasureUnit(0, 0);
+}
+
+MeasureUnit *MeasureUnit::createMeterPerSecondSquared(UErrorCode &status) {
+    return MeasureUnit::create(0, 1, status);
+}
+
+MeasureUnit MeasureUnit::getMeterPerSecondSquared() {
+    return MeasureUnit(0, 1);
+}
+
+MeasureUnit *MeasureUnit::createArcMinute(UErrorCode &status) {
+    return MeasureUnit::create(1, 0, status);
+}
+
+MeasureUnit MeasureUnit::getArcMinute() {
+    return MeasureUnit(1, 0);
+}
+
+MeasureUnit *MeasureUnit::createArcSecond(UErrorCode &status) {
+    return MeasureUnit::create(1, 1, status);
+}
+
+MeasureUnit MeasureUnit::getArcSecond() {
+    return MeasureUnit(1, 1);
+}
+
+MeasureUnit *MeasureUnit::createDegree(UErrorCode &status) {
+    return MeasureUnit::create(1, 2, status);
+}
+
+MeasureUnit MeasureUnit::getDegree() {
+    return MeasureUnit(1, 2);
+}
+
+MeasureUnit *MeasureUnit::createRadian(UErrorCode &status) {
+    return MeasureUnit::create(1, 3, status);
+}
+
+MeasureUnit MeasureUnit::getRadian() {
+    return MeasureUnit(1, 3);
+}
+
+MeasureUnit *MeasureUnit::createRevolutionAngle(UErrorCode &status) {
+    return MeasureUnit::create(1, 4, status);
+}
+
+MeasureUnit MeasureUnit::getRevolutionAngle() {
+    return MeasureUnit(1, 4);
+}
+
+MeasureUnit *MeasureUnit::createAcre(UErrorCode &status) {
+    return MeasureUnit::create(2, 0, status);
+}
+
+MeasureUnit MeasureUnit::getAcre() {
+    return MeasureUnit(2, 0);
+}
+
+MeasureUnit *MeasureUnit::createDunam(UErrorCode &status) {
+    return MeasureUnit::create(2, 1, status);
+}
+
+MeasureUnit MeasureUnit::getDunam() {
+    return MeasureUnit(2, 1);
+}
+
+MeasureUnit *MeasureUnit::createHectare(UErrorCode &status) {
+    return MeasureUnit::create(2, 2, status);
+}
+
+MeasureUnit MeasureUnit::getHectare() {
+    return MeasureUnit(2, 2);
+}
+
+MeasureUnit *MeasureUnit::createSquareCentimeter(UErrorCode &status) {
+    return MeasureUnit::create(2, 3, status);
+}
+
+MeasureUnit MeasureUnit::getSquareCentimeter() {
+    return MeasureUnit(2, 3);
+}
+
+MeasureUnit *MeasureUnit::createSquareFoot(UErrorCode &status) {
+    return MeasureUnit::create(2, 4, status);
+}
+
+MeasureUnit MeasureUnit::getSquareFoot() {
+    return MeasureUnit(2, 4);
+}
+
+MeasureUnit *MeasureUnit::createSquareInch(UErrorCode &status) {
+    return MeasureUnit::create(2, 5, status);
+}
+
+MeasureUnit MeasureUnit::getSquareInch() {
+    return MeasureUnit(2, 5);
+}
+
+MeasureUnit *MeasureUnit::createSquareKilometer(UErrorCode &status) {
+    return MeasureUnit::create(2, 6, status);
+}
+
+MeasureUnit MeasureUnit::getSquareKilometer() {
+    return MeasureUnit(2, 6);
+}
+
+MeasureUnit *MeasureUnit::createSquareMeter(UErrorCode &status) {
+    return MeasureUnit::create(2, 7, status);
+}
+
+MeasureUnit MeasureUnit::getSquareMeter() {
+    return MeasureUnit(2, 7);
+}
+
+MeasureUnit *MeasureUnit::createSquareMile(UErrorCode &status) {
+    return MeasureUnit::create(2, 8, status);
+}
+
+MeasureUnit MeasureUnit::getSquareMile() {
+    return MeasureUnit(2, 8);
+}
+
+MeasureUnit *MeasureUnit::createSquareYard(UErrorCode &status) {
+    return MeasureUnit::create(2, 9, status);
+}
+
+MeasureUnit MeasureUnit::getSquareYard() {
+    return MeasureUnit(2, 9);
+}
+
+MeasureUnit *MeasureUnit::createItem(UErrorCode &status) {
+    return MeasureUnit::create(3, 0, status);
+}
+
+MeasureUnit MeasureUnit::getItem() {
+    return MeasureUnit(3, 0);
+}
+
+MeasureUnit *MeasureUnit::createKarat(UErrorCode &status) {
+    return MeasureUnit::create(3, 1, status);
+}
+
+MeasureUnit MeasureUnit::getKarat() {
+    return MeasureUnit(3, 1);
+}
+
+MeasureUnit *MeasureUnit::createMilligramOfglucosePerDeciliter(UErrorCode &status) {
+    return MeasureUnit::create(3, 2, status);
+}
+
+MeasureUnit MeasureUnit::getMilligramOfglucosePerDeciliter() {
+    return MeasureUnit(3, 2);
+}
+
+MeasureUnit *MeasureUnit::createMilligramPerDeciliter(UErrorCode &status) {
+    return MeasureUnit::create(3, 3, status);
+}
+
+MeasureUnit MeasureUnit::getMilligramPerDeciliter() {
+    return MeasureUnit(3, 3);
+}
+
+MeasureUnit *MeasureUnit::createMillimolePerLiter(UErrorCode &status) {
+    return MeasureUnit::create(3, 4, status);
+}
+
+MeasureUnit MeasureUnit::getMillimolePerLiter() {
+    return MeasureUnit(3, 4);
+}
+
+MeasureUnit *MeasureUnit::createMole(UErrorCode &status) {
+    return MeasureUnit::create(3, 5, status);
+}
+
+MeasureUnit MeasureUnit::getMole() {
+    return MeasureUnit(3, 5);
+}
+
+MeasureUnit *MeasureUnit::createPercent(UErrorCode &status) {
+    return MeasureUnit::create(3, 6, status);
+}
+
+MeasureUnit MeasureUnit::getPercent() {
+    return MeasureUnit(3, 6);
+}
+
+MeasureUnit *MeasureUnit::createPermille(UErrorCode &status) {
+    return MeasureUnit::create(3, 7, status);
+}
+
+MeasureUnit MeasureUnit::getPermille() {
+    return MeasureUnit(3, 7);
+}
+
+MeasureUnit *MeasureUnit::createPartPerMillion(UErrorCode &status) {
+    return MeasureUnit::create(3, 8, status);
+}
+
+MeasureUnit MeasureUnit::getPartPerMillion() {
+    return MeasureUnit(3, 8);
+}
+
+MeasureUnit *MeasureUnit::createPermyriad(UErrorCode &status) {
+    return MeasureUnit::create(3, 9, status);
+}
+
+MeasureUnit MeasureUnit::getPermyriad() {
+    return MeasureUnit(3, 9);
+}
+
+MeasureUnit *MeasureUnit::createPortionPer1E9(UErrorCode &status) {
+    return MeasureUnit::create(3, 10, status);
+}
+
+MeasureUnit MeasureUnit::getPortionPer1E9() {
+    return MeasureUnit(3, 10);
+}
+
+MeasureUnit *MeasureUnit::createLiterPer100Kilometers(UErrorCode &status) {
+    return MeasureUnit::create(4, 0, status);
+}
+
+MeasureUnit MeasureUnit::getLiterPer100Kilometers() {
+    return MeasureUnit(4, 0);
+}
+
+MeasureUnit *MeasureUnit::createLiterPerKilometer(UErrorCode &status) {
+    return MeasureUnit::create(4, 1, status);
+}
+
+MeasureUnit MeasureUnit::getLiterPerKilometer() {
+    return MeasureUnit(4, 1);
+}
+
+MeasureUnit *MeasureUnit::createMilePerGallon(UErrorCode &status) {
+    return MeasureUnit::create(4, 2, status);
+}
+
+MeasureUnit MeasureUnit::getMilePerGallon() {
+    return MeasureUnit(4, 2);
+}
+
+MeasureUnit *MeasureUnit::createMilePerGallonImperial(UErrorCode &status) {
+    return MeasureUnit::create(4, 3, status);
+}
+
+MeasureUnit MeasureUnit::getMilePerGallonImperial() {
+    return MeasureUnit(4, 3);
+}
+
+MeasureUnit *MeasureUnit::createBit(UErrorCode &status) {
+    return MeasureUnit::create(6, 0, status);
+}
+
+MeasureUnit MeasureUnit::getBit() {
+    return MeasureUnit(6, 0);
+}
+
+MeasureUnit *MeasureUnit::createByte(UErrorCode &status) {
+    return MeasureUnit::create(6, 1, status);
+}
+
+MeasureUnit MeasureUnit::getByte() {
+    return MeasureUnit(6, 1);
+}
+
+MeasureUnit *MeasureUnit::createGigabit(UErrorCode &status) {
+    return MeasureUnit::create(6, 2, status);
+}
+
+MeasureUnit MeasureUnit::getGigabit() {
+    return MeasureUnit(6, 2);
+}
+
+MeasureUnit *MeasureUnit::createGigabyte(UErrorCode &status) {
+    return MeasureUnit::create(6, 3, status);
+}
+
+MeasureUnit MeasureUnit::getGigabyte() {
+    return MeasureUnit(6, 3);
+}
+
+MeasureUnit *MeasureUnit::createKilobit(UErrorCode &status) {
+    return MeasureUnit::create(6, 4, status);
+}
+
+MeasureUnit MeasureUnit::getKilobit() {
+    return MeasureUnit(6, 4);
+}
+
+MeasureUnit *MeasureUnit::createKilobyte(UErrorCode &status) {
+    return MeasureUnit::create(6, 5, status);
+}
+
+MeasureUnit MeasureUnit::getKilobyte() {
+    return MeasureUnit(6, 5);
+}
+
+MeasureUnit *MeasureUnit::createMegabit(UErrorCode &status) {
+    return MeasureUnit::create(6, 6, status);
+}
+
+MeasureUnit MeasureUnit::getMegabit() {
+    return MeasureUnit(6, 6);
+}
+
+MeasureUnit *MeasureUnit::createMegabyte(UErrorCode &status) {
+    return MeasureUnit::create(6, 7, status);
+}
+
+MeasureUnit MeasureUnit::getMegabyte() {
+    return MeasureUnit(6, 7);
+}
+
+MeasureUnit *MeasureUnit::createPetabyte(UErrorCode &status) {
+    return MeasureUnit::create(6, 8, status);
+}
+
+MeasureUnit MeasureUnit::getPetabyte() {
+    return MeasureUnit(6, 8);
+}
+
+MeasureUnit *MeasureUnit::createTerabit(UErrorCode &status) {
+    return MeasureUnit::create(6, 9, status);
+}
+
+MeasureUnit MeasureUnit::getTerabit() {
+    return MeasureUnit(6, 9);
+}
+
+MeasureUnit *MeasureUnit::createTerabyte(UErrorCode &status) {
+    return MeasureUnit::create(6, 10, status);
+}
+
+MeasureUnit MeasureUnit::getTerabyte() {
+    return MeasureUnit(6, 10);
+}
+
+MeasureUnit *MeasureUnit::createCentury(UErrorCode &status) {
+    return MeasureUnit::create(7, 0, status);
+}
+
+MeasureUnit MeasureUnit::getCentury() {
+    return MeasureUnit(7, 0);
+}
+
+MeasureUnit *MeasureUnit::createDay(UErrorCode &status) {
+    return MeasureUnit::create(7, 1, status);
+}
+
+MeasureUnit MeasureUnit::getDay() {
+    return MeasureUnit(7, 1);
+}
+
+MeasureUnit *MeasureUnit::createDayPerson(UErrorCode &status) {
+    return MeasureUnit::create(7, 2, status);
+}
+
+MeasureUnit MeasureUnit::getDayPerson() {
+    return MeasureUnit(7, 2);
+}
+
+MeasureUnit *MeasureUnit::createDecade(UErrorCode &status) {
+    return MeasureUnit::create(7, 3, status);
+}
+
+MeasureUnit MeasureUnit::getDecade() {
+    return MeasureUnit(7, 3);
+}
+
+MeasureUnit *MeasureUnit::createHour(UErrorCode &status) {
+    return MeasureUnit::create(7, 4, status);
+}
+
+MeasureUnit MeasureUnit::getHour() {
+    return MeasureUnit(7, 4);
+}
+
+MeasureUnit *MeasureUnit::createMicrosecond(UErrorCode &status) {
+    return MeasureUnit::create(7, 5, status);
+}
+
+MeasureUnit MeasureUnit::getMicrosecond() {
+    return MeasureUnit(7, 5);
+}
+
+MeasureUnit *MeasureUnit::createMillisecond(UErrorCode &status) {
+    return MeasureUnit::create(7, 6, status);
+}
+
+MeasureUnit MeasureUnit::getMillisecond() {
+    return MeasureUnit(7, 6);
+}
+
+MeasureUnit *MeasureUnit::createMinute(UErrorCode &status) {
+    return MeasureUnit::create(7, 7, status);
+}
+
+MeasureUnit MeasureUnit::getMinute() {
+    return MeasureUnit(7, 7);
+}
+
+MeasureUnit *MeasureUnit::createMonth(UErrorCode &status) {
+    return MeasureUnit::create(7, 8, status);
+}
+
+MeasureUnit MeasureUnit::getMonth() {
+    return MeasureUnit(7, 8);
+}
+
+MeasureUnit *MeasureUnit::createMonthPerson(UErrorCode &status) {
+    return MeasureUnit::create(7, 9, status);
+}
+
+MeasureUnit MeasureUnit::getMonthPerson() {
+    return MeasureUnit(7, 9);
+}
+
+MeasureUnit *MeasureUnit::createNanosecond(UErrorCode &status) {
+    return MeasureUnit::create(7, 10, status);
+}
+
+MeasureUnit MeasureUnit::getNanosecond() {
+    return MeasureUnit(7, 10);
+}
+
+MeasureUnit *MeasureUnit::createNight(UErrorCode &status) {
+    return MeasureUnit::create(7, 11, status);
+}
+
+MeasureUnit MeasureUnit::getNight() {
+    return MeasureUnit(7, 11);
+}
+
+MeasureUnit *MeasureUnit::createQuarter(UErrorCode &status) {
+    return MeasureUnit::create(7, 12, status);
+}
+
+MeasureUnit MeasureUnit::getQuarter() {
+    return MeasureUnit(7, 12);
+}
+
+MeasureUnit *MeasureUnit::createSecond(UErrorCode &status) {
+    return MeasureUnit::create(7, 13, status);
+}
+
+MeasureUnit MeasureUnit::getSecond() {
+    return MeasureUnit(7, 13);
+}
+
+MeasureUnit *MeasureUnit::createWeek(UErrorCode &status) {
+    return MeasureUnit::create(7, 14, status);
+}
+
+MeasureUnit MeasureUnit::getWeek() {
+    return MeasureUnit(7, 14);
+}
+
+MeasureUnit *MeasureUnit::createWeekPerson(UErrorCode &status) {
+    return MeasureUnit::create(7, 15, status);
+}
+
+MeasureUnit MeasureUnit::getWeekPerson() {
+    return MeasureUnit(7, 15);
+}
+
+MeasureUnit *MeasureUnit::createYear(UErrorCode &status) {
+    return MeasureUnit::create(7, 16, status);
+}
+
+MeasureUnit MeasureUnit::getYear() {
+    return MeasureUnit(7, 16);
+}
+
+MeasureUnit *MeasureUnit::createYearPerson(UErrorCode &status) {
+    return MeasureUnit::create(7, 17, status);
+}
+
+MeasureUnit MeasureUnit::getYearPerson() {
+    return MeasureUnit(7, 17);
+}
+
+MeasureUnit *MeasureUnit::createAmpere(UErrorCode &status) {
+    return MeasureUnit::create(8, 0, status);
+}
+
+MeasureUnit MeasureUnit::getAmpere() {
+    return MeasureUnit(8, 0);
+}
+
+MeasureUnit *MeasureUnit::createMilliampere(UErrorCode &status) {
+    return MeasureUnit::create(8, 1, status);
+}
+
+MeasureUnit MeasureUnit::getMilliampere() {
+    return MeasureUnit(8, 1);
+}
+
+MeasureUnit *MeasureUnit::createOhm(UErrorCode &status) {
+    return MeasureUnit::create(8, 2, status);
+}
+
+MeasureUnit MeasureUnit::getOhm() {
+    return MeasureUnit(8, 2);
+}
+
+MeasureUnit *MeasureUnit::createVolt(UErrorCode &status) {
+    return MeasureUnit::create(8, 3, status);
+}
+
+MeasureUnit MeasureUnit::getVolt() {
+    return MeasureUnit(8, 3);
+}
+
+MeasureUnit *MeasureUnit::createBritishThermalUnit(UErrorCode &status) {
+    return MeasureUnit::create(9, 0, status);
+}
+
+MeasureUnit MeasureUnit::getBritishThermalUnit() {
+    return MeasureUnit(9, 0);
+}
+
+MeasureUnit *MeasureUnit::createCalorie(UErrorCode &status) {
+    return MeasureUnit::create(9, 1, status);
+}
+
+MeasureUnit MeasureUnit::getCalorie() {
+    return MeasureUnit(9, 1);
+}
+
+MeasureUnit *MeasureUnit::createElectronvolt(UErrorCode &status) {
+    return MeasureUnit::create(9, 2, status);
+}
+
+MeasureUnit MeasureUnit::getElectronvolt() {
+    return MeasureUnit(9, 2);
+}
+
+MeasureUnit *MeasureUnit::createFoodcalorie(UErrorCode &status) {
+    return MeasureUnit::create(9, 3, status);
+}
+
+MeasureUnit MeasureUnit::getFoodcalorie() {
+    return MeasureUnit(9, 3);
+}
+
+MeasureUnit *MeasureUnit::createJoule(UErrorCode &status) {
+    return MeasureUnit::create(9, 4, status);
+}
+
+MeasureUnit MeasureUnit::getJoule() {
+    return MeasureUnit(9, 4);
+}
+
+MeasureUnit *MeasureUnit::createKilocalorie(UErrorCode &status) {
+    return MeasureUnit::create(9, 5, status);
+}
+
+MeasureUnit MeasureUnit::getKilocalorie() {
+    return MeasureUnit(9, 5);
+}
+
+MeasureUnit *MeasureUnit::createKilojoule(UErrorCode &status) {
+    return MeasureUnit::create(9, 6, status);
+}
+
+MeasureUnit MeasureUnit::getKilojoule() {
+    return MeasureUnit(9, 6);
+}
+
+MeasureUnit *MeasureUnit::createKilowattHour(UErrorCode &status) {
+    return MeasureUnit::create(9, 7, status);
+}
+
+MeasureUnit MeasureUnit::getKilowattHour() {
+    return MeasureUnit(9, 7);
+}
+
+MeasureUnit *MeasureUnit::createThermUs(UErrorCode &status) {
+    return MeasureUnit::create(9, 8, status);
+}
+
+MeasureUnit MeasureUnit::getThermUs() {
+    return MeasureUnit(9, 8);
+}
+
+MeasureUnit *MeasureUnit::createKilowattHourPer100Kilometer(UErrorCode &status) {
+    return MeasureUnit::create(10, 0, status);
+}
+
+MeasureUnit MeasureUnit::getKilowattHourPer100Kilometer() {
+    return MeasureUnit(10, 0);
+}
+
+MeasureUnit *MeasureUnit::createNewton(UErrorCode &status) {
+    return MeasureUnit::create(10, 1, status);
+}
+
+MeasureUnit MeasureUnit::getNewton() {
+    return MeasureUnit(10, 1);
+}
+
+MeasureUnit *MeasureUnit::createPoundForce(UErrorCode &status) {
+    return MeasureUnit::create(10, 2, status);
+}
+
+MeasureUnit MeasureUnit::getPoundForce() {
+    return MeasureUnit(10, 2);
+}
+
+MeasureUnit *MeasureUnit::createGigahertz(UErrorCode &status) {
+    return MeasureUnit::create(11, 0, status);
+}
+
+MeasureUnit MeasureUnit::getGigahertz() {
+    return MeasureUnit(11, 0);
+}
+
+MeasureUnit *MeasureUnit::createHertz(UErrorCode &status) {
+    return MeasureUnit::create(11, 1, status);
+}
+
+MeasureUnit MeasureUnit::getHertz() {
+    return MeasureUnit(11, 1);
+}
+
+MeasureUnit *MeasureUnit::createKilohertz(UErrorCode &status) {
+    return MeasureUnit::create(11, 2, status);
+}
+
+MeasureUnit MeasureUnit::getKilohertz() {
+    return MeasureUnit(11, 2);
+}
+
+MeasureUnit *MeasureUnit::createMegahertz(UErrorCode &status) {
+    return MeasureUnit::create(11, 3, status);
+}
+
+MeasureUnit MeasureUnit::getMegahertz() {
+    return MeasureUnit(11, 3);
+}
+
+MeasureUnit *MeasureUnit::createDot(UErrorCode &status) {
+    return MeasureUnit::create(12, 0, status);
+}
+
+MeasureUnit MeasureUnit::getDot() {
+    return MeasureUnit(12, 0);
+}
+
+MeasureUnit *MeasureUnit::createDotPerCentimeter(UErrorCode &status) {
+    return MeasureUnit::create(12, 1, status);
+}
+
+MeasureUnit MeasureUnit::getDotPerCentimeter() {
+    return MeasureUnit(12, 1);
+}
+
+MeasureUnit *MeasureUnit::createDotPerInch(UErrorCode &status) {
+    return MeasureUnit::create(12, 2, status);
+}
+
+MeasureUnit MeasureUnit::getDotPerInch() {
+    return MeasureUnit(12, 2);
+}
+
+MeasureUnit *MeasureUnit::createEm(UErrorCode &status) {
+    return MeasureUnit::create(12, 3, status);
+}
+
+MeasureUnit MeasureUnit::getEm() {
+    return MeasureUnit(12, 3);
+}
+
+MeasureUnit *MeasureUnit::createMegapixel(UErrorCode &status) {
+    return MeasureUnit::create(12, 4, status);
+}
+
+MeasureUnit MeasureUnit::getMegapixel() {
+    return MeasureUnit(12, 4);
+}
+
+MeasureUnit *MeasureUnit::createPixel(UErrorCode &status) {
+    return MeasureUnit::create(12, 5, status);
+}
+
+MeasureUnit MeasureUnit::getPixel() {
+    return MeasureUnit(12, 5);
+}
+
+MeasureUnit *MeasureUnit::createPixelPerCentimeter(UErrorCode &status) {
+    return MeasureUnit::create(12, 6, status);
+}
+
+MeasureUnit MeasureUnit::getPixelPerCentimeter() {
+    return MeasureUnit(12, 6);
+}
+
+MeasureUnit *MeasureUnit::createPixelPerInch(UErrorCode &status) {
+    return MeasureUnit::create(12, 7, status);
+}
+
+MeasureUnit MeasureUnit::getPixelPerInch() {
+    return MeasureUnit(12, 7);
+}
+
+MeasureUnit *MeasureUnit::createAstronomicalUnit(UErrorCode &status) {
+    return MeasureUnit::create(13, 0, status);
+}
+
+MeasureUnit MeasureUnit::getAstronomicalUnit() {
+    return MeasureUnit(13, 0);
+}
+
+MeasureUnit *MeasureUnit::createCentimeter(UErrorCode &status) {
+    return MeasureUnit::create(13, 1, status);
+}
+
+MeasureUnit MeasureUnit::getCentimeter() {
+    return MeasureUnit(13, 1);
+}
+
+MeasureUnit *MeasureUnit::createDecimeter(UErrorCode &status) {
+    return MeasureUnit::create(13, 2, status);
+}
+
+MeasureUnit MeasureUnit::getDecimeter() {
+    return MeasureUnit(13, 2);
+}
+
+MeasureUnit *MeasureUnit::createEarthRadius(UErrorCode &status) {
+    return MeasureUnit::create(13, 3, status);
+}
+
+MeasureUnit MeasureUnit::getEarthRadius() {
+    return MeasureUnit(13, 3);
+}
+
+MeasureUnit *MeasureUnit::createFathom(UErrorCode &status) {
+    return MeasureUnit::create(13, 4, status);
+}
+
+MeasureUnit MeasureUnit::getFathom() {
+    return MeasureUnit(13, 4);
+}
+
+MeasureUnit *MeasureUnit::createFoot(UErrorCode &status) {
+    return MeasureUnit::create(13, 5, status);
+}
+
+MeasureUnit MeasureUnit::getFoot() {
+    return MeasureUnit(13, 5);
+}
+
+MeasureUnit *MeasureUnit::createFurlong(UErrorCode &status) {
+    return MeasureUnit::create(13, 6, status);
+}
+
+MeasureUnit MeasureUnit::getFurlong() {
+    return MeasureUnit(13, 6);
+}
+
+MeasureUnit *MeasureUnit::createInch(UErrorCode &status) {
+    return MeasureUnit::create(13, 7, status);
+}
+
+MeasureUnit MeasureUnit::getInch() {
+    return MeasureUnit(13, 7);
+}
+
+MeasureUnit *MeasureUnit::createKilometer(UErrorCode &status) {
+    return MeasureUnit::create(13, 8, status);
+}
+
+MeasureUnit MeasureUnit::getKilometer() {
+    return MeasureUnit(13, 8);
+}
+
+MeasureUnit *MeasureUnit::createLightYear(UErrorCode &status) {
+    return MeasureUnit::create(13, 9, status);
+}
+
+MeasureUnit MeasureUnit::getLightYear() {
+    return MeasureUnit(13, 9);
+}
+
+MeasureUnit *MeasureUnit::createMeter(UErrorCode &status) {
+    return MeasureUnit::create(13, 10, status);
+}
+
+MeasureUnit MeasureUnit::getMeter() {
+    return MeasureUnit(13, 10);
+}
+
+MeasureUnit *MeasureUnit::createMicrometer(UErrorCode &status) {
+    return MeasureUnit::create(13, 11, status);
+}
+
+MeasureUnit MeasureUnit::getMicrometer() {
+    return MeasureUnit(13, 11);
+}
+
+MeasureUnit *MeasureUnit::createMile(UErrorCode &status) {
+    return MeasureUnit::create(13, 12, status);
+}
+
+MeasureUnit MeasureUnit::getMile() {
+    return MeasureUnit(13, 12);
+}
+
+MeasureUnit *MeasureUnit::createMileScandinavian(UErrorCode &status) {
+    return MeasureUnit::create(13, 13, status);
+}
+
+MeasureUnit MeasureUnit::getMileScandinavian() {
+    return MeasureUnit(13, 13);
+}
+
+MeasureUnit *MeasureUnit::createMillimeter(UErrorCode &status) {
+    return MeasureUnit::create(13, 14, status);
+}
+
+MeasureUnit MeasureUnit::getMillimeter() {
+    return MeasureUnit(13, 14);
+}
+
+MeasureUnit *MeasureUnit::createNanometer(UErrorCode &status) {
+    return MeasureUnit::create(13, 15, status);
+}
+
+MeasureUnit MeasureUnit::getNanometer() {
+    return MeasureUnit(13, 15);
+}
+
+MeasureUnit *MeasureUnit::createNauticalMile(UErrorCode &status) {
+    return MeasureUnit::create(13, 16, status);
+}
+
+MeasureUnit MeasureUnit::getNauticalMile() {
+    return MeasureUnit(13, 16);
+}
+
+MeasureUnit *MeasureUnit::createParsec(UErrorCode &status) {
+    return MeasureUnit::create(13, 17, status);
+}
+
+MeasureUnit MeasureUnit::getParsec() {
+    return MeasureUnit(13, 17);
+}
+
+MeasureUnit *MeasureUnit::createPicometer(UErrorCode &status) {
+    return MeasureUnit::create(13, 18, status);
+}
+
+MeasureUnit MeasureUnit::getPicometer() {
+    return MeasureUnit(13, 18);
+}
+
+MeasureUnit *MeasureUnit::createPoint(UErrorCode &status) {
+    return MeasureUnit::create(13, 19, status);
+}
+
+MeasureUnit MeasureUnit::getPoint() {
+    return MeasureUnit(13, 19);
+}
+
+MeasureUnit *MeasureUnit::createSolarRadius(UErrorCode &status) {
+    return MeasureUnit::create(13, 20, status);
+}
+
+MeasureUnit MeasureUnit::getSolarRadius() {
+    return MeasureUnit(13, 20);
+}
+
+MeasureUnit *MeasureUnit::createYard(UErrorCode &status) {
+    return MeasureUnit::create(13, 21, status);
+}
+
+MeasureUnit MeasureUnit::getYard() {
+    return MeasureUnit(13, 21);
+}
+
+MeasureUnit *MeasureUnit::createCandela(UErrorCode &status) {
+    return MeasureUnit::create(14, 0, status);
+}
+
+MeasureUnit MeasureUnit::getCandela() {
+    return MeasureUnit(14, 0);
+}
+
+MeasureUnit *MeasureUnit::createLumen(UErrorCode &status) {
+    return MeasureUnit::create(14, 1, status);
+}
+
+MeasureUnit MeasureUnit::getLumen() {
+    return MeasureUnit(14, 1);
+}
+
+MeasureUnit *MeasureUnit::createLux(UErrorCode &status) {
+    return MeasureUnit::create(14, 2, status);
+}
+
+MeasureUnit MeasureUnit::getLux() {
+    return MeasureUnit(14, 2);
+}
+
+MeasureUnit *MeasureUnit::createSolarLuminosity(UErrorCode &status) {
+    return MeasureUnit::create(14, 3, status);
+}
+
+MeasureUnit MeasureUnit::getSolarLuminosity() {
+    return MeasureUnit(14, 3);
+}
+
+MeasureUnit *MeasureUnit::createCarat(UErrorCode &status) {
+    return MeasureUnit::create(15, 0, status);
+}
+
+MeasureUnit MeasureUnit::getCarat() {
+    return MeasureUnit(15, 0);
+}
+
+MeasureUnit *MeasureUnit::createDalton(UErrorCode &status) {
+    return MeasureUnit::create(15, 1, status);
+}
+
+MeasureUnit MeasureUnit::getDalton() {
+    return MeasureUnit(15, 1);
+}
+
+MeasureUnit *MeasureUnit::createEarthMass(UErrorCode &status) {
+    return MeasureUnit::create(15, 2, status);
+}
+
+MeasureUnit MeasureUnit::getEarthMass() {
+    return MeasureUnit(15, 2);
+}
+
+MeasureUnit *MeasureUnit::createGrain(UErrorCode &status) {
+    return MeasureUnit::create(15, 3, status);
+}
+
+MeasureUnit MeasureUnit::getGrain() {
+    return MeasureUnit(15, 3);
+}
+
+MeasureUnit *MeasureUnit::createGram(UErrorCode &status) {
+    return MeasureUnit::create(15, 4, status);
+}
+
+MeasureUnit MeasureUnit::getGram() {
+    return MeasureUnit(15, 4);
+}
+
+MeasureUnit *MeasureUnit::createKilogram(UErrorCode &status) {
+    return MeasureUnit::create(15, 5, status);
+}
+
+MeasureUnit MeasureUnit::getKilogram() {
+    return MeasureUnit(15, 5);
+}
+
+MeasureUnit *MeasureUnit::createMicrogram(UErrorCode &status) {
+    return MeasureUnit::create(15, 6, status);
+}
+
+MeasureUnit MeasureUnit::getMicrogram() {
+    return MeasureUnit(15, 6);
+}
+
+MeasureUnit *MeasureUnit::createMilligram(UErrorCode &status) {
+    return MeasureUnit::create(15, 7, status);
+}
+
+MeasureUnit MeasureUnit::getMilligram() {
+    return MeasureUnit(15, 7);
+}
+
+MeasureUnit *MeasureUnit::createOunce(UErrorCode &status) {
+    return MeasureUnit::create(15, 8, status);
+}
+
+MeasureUnit MeasureUnit::getOunce() {
+    return MeasureUnit(15, 8);
+}
+
+MeasureUnit *MeasureUnit::createOunceTroy(UErrorCode &status) {
+    return MeasureUnit::create(15, 9, status);
+}
+
+MeasureUnit MeasureUnit::getOunceTroy() {
+    return MeasureUnit(15, 9);
+}
+
+MeasureUnit *MeasureUnit::createPound(UErrorCode &status) {
+    return MeasureUnit::create(15, 10, status);
+}
+
+MeasureUnit MeasureUnit::getPound() {
+    return MeasureUnit(15, 10);
+}
+
+MeasureUnit *MeasureUnit::createSolarMass(UErrorCode &status) {
+    return MeasureUnit::create(15, 11, status);
+}
+
+MeasureUnit MeasureUnit::getSolarMass() {
+    return MeasureUnit(15, 11);
+}
+
+MeasureUnit *MeasureUnit::createStone(UErrorCode &status) {
+    return MeasureUnit::create(15, 12, status);
+}
+
+MeasureUnit MeasureUnit::getStone() {
+    return MeasureUnit(15, 12);
+}
+
+MeasureUnit *MeasureUnit::createTon(UErrorCode &status) {
+    return MeasureUnit::create(15, 13, status);
+}
+
+MeasureUnit MeasureUnit::getTon() {
+    return MeasureUnit(15, 13);
+}
+
+MeasureUnit *MeasureUnit::createTonne(UErrorCode &status) {
+    return MeasureUnit::create(15, 14, status);
+}
+
+MeasureUnit MeasureUnit::getTonne() {
+    return MeasureUnit(15, 14);
+}
+
+MeasureUnit *MeasureUnit::createGigawatt(UErrorCode &status) {
+    return MeasureUnit::create(17, 0, status);
+}
+
+MeasureUnit MeasureUnit::getGigawatt() {
+    return MeasureUnit(17, 0);
+}
+
+MeasureUnit *MeasureUnit::createHorsepower(UErrorCode &status) {
+    return MeasureUnit::create(17, 1, status);
+}
+
+MeasureUnit MeasureUnit::getHorsepower() {
+    return MeasureUnit(17, 1);
+}
+
+MeasureUnit *MeasureUnit::createKilowatt(UErrorCode &status) {
+    return MeasureUnit::create(17, 2, status);
+}
+
+MeasureUnit MeasureUnit::getKilowatt() {
+    return MeasureUnit(17, 2);
+}
+
+MeasureUnit *MeasureUnit::createMegawatt(UErrorCode &status) {
+    return MeasureUnit::create(17, 3, status);
+}
+
+MeasureUnit MeasureUnit::getMegawatt() {
+    return MeasureUnit(17, 3);
+}
+
+MeasureUnit *MeasureUnit::createMilliwatt(UErrorCode &status) {
+    return MeasureUnit::create(17, 4, status);
+}
+
+MeasureUnit MeasureUnit::getMilliwatt() {
+    return MeasureUnit(17, 4);
+}
+
+MeasureUnit *MeasureUnit::createWatt(UErrorCode &status) {
+    return MeasureUnit::create(17, 5, status);
+}
+
+MeasureUnit MeasureUnit::getWatt() {
+    return MeasureUnit(17, 5);
+}
+
+MeasureUnit *MeasureUnit::createAtmosphere(UErrorCode &status) {
+    return MeasureUnit::create(18, 0, status);
+}
+
+MeasureUnit MeasureUnit::getAtmosphere() {
+    return MeasureUnit(18, 0);
+}
+
+MeasureUnit *MeasureUnit::createBar(UErrorCode &status) {
+    return MeasureUnit::create(18, 1, status);
+}
+
+MeasureUnit MeasureUnit::getBar() {
+    return MeasureUnit(18, 1);
+}
+
+MeasureUnit *MeasureUnit::createGasolineEnergyDensity(UErrorCode &status) {
+    return MeasureUnit::create(18, 2, status);
+}
+
+MeasureUnit MeasureUnit::getGasolineEnergyDensity() {
+    return MeasureUnit(18, 2);
+}
+
+MeasureUnit *MeasureUnit::createHectopascal(UErrorCode &status) {
+    return MeasureUnit::create(18, 3, status);
+}
+
+MeasureUnit MeasureUnit::getHectopascal() {
+    return MeasureUnit(18, 3);
+}
+
+MeasureUnit *MeasureUnit::createInchHg(UErrorCode &status) {
+    return MeasureUnit::create(18, 4, status);
+}
+
+MeasureUnit MeasureUnit::getInchHg() {
+    return MeasureUnit(18, 4);
+}
+
+MeasureUnit *MeasureUnit::createKilopascal(UErrorCode &status) {
+    return MeasureUnit::create(18, 5, status);
+}
+
+MeasureUnit MeasureUnit::getKilopascal() {
+    return MeasureUnit(18, 5);
+}
+
+MeasureUnit *MeasureUnit::createMegapascal(UErrorCode &status) {
+    return MeasureUnit::create(18, 6, status);
+}
+
+MeasureUnit MeasureUnit::getMegapascal() {
+    return MeasureUnit(18, 6);
+}
+
+MeasureUnit *MeasureUnit::createMillibar(UErrorCode &status) {
+    return MeasureUnit::create(18, 7, status);
+}
+
+MeasureUnit MeasureUnit::getMillibar() {
+    return MeasureUnit(18, 7);
+}
+
+MeasureUnit *MeasureUnit::createMillimeterOfMercury(UErrorCode &status) {
+    return MeasureUnit::create(18, 8, status);
+}
+
+MeasureUnit MeasureUnit::getMillimeterOfMercury() {
+    return MeasureUnit(18, 8);
+}
+
+MeasureUnit *MeasureUnit::createPascal(UErrorCode &status) {
+    return MeasureUnit::create(18, 9, status);
+}
+
+MeasureUnit MeasureUnit::getPascal() {
+    return MeasureUnit(18, 9);
+}
+
+MeasureUnit *MeasureUnit::createPoundPerSquareInch(UErrorCode &status) {
+    return MeasureUnit::create(18, 10, status);
+}
+
+MeasureUnit MeasureUnit::getPoundPerSquareInch() {
+    return MeasureUnit(18, 10);
+}
+
+MeasureUnit *MeasureUnit::createBeaufort(UErrorCode &status) {
+    return MeasureUnit::create(19, 0, status);
+}
+
+MeasureUnit MeasureUnit::getBeaufort() {
+    return MeasureUnit(19, 0);
+}
+
+MeasureUnit *MeasureUnit::createKilometerPerHour(UErrorCode &status) {
+    return MeasureUnit::create(19, 1, status);
+}
+
+MeasureUnit MeasureUnit::getKilometerPerHour() {
+    return MeasureUnit(19, 1);
+}
+
+MeasureUnit *MeasureUnit::createKnot(UErrorCode &status) {
+    return MeasureUnit::create(19, 2, status);
+}
+
+MeasureUnit MeasureUnit::getKnot() {
+    return MeasureUnit(19, 2);
+}
+
+MeasureUnit *MeasureUnit::createLightSpeed(UErrorCode &status) {
+    return MeasureUnit::create(19, 3, status);
+}
+
+MeasureUnit MeasureUnit::getLightSpeed() {
+    return MeasureUnit(19, 3);
+}
+
+MeasureUnit *MeasureUnit::createMeterPerSecond(UErrorCode &status) {
+    return MeasureUnit::create(19, 4, status);
+}
+
+MeasureUnit MeasureUnit::getMeterPerSecond() {
+    return MeasureUnit(19, 4);
+}
+
+MeasureUnit *MeasureUnit::createMilePerHour(UErrorCode &status) {
+    return MeasureUnit::create(19, 5, status);
+}
+
+MeasureUnit MeasureUnit::getMilePerHour() {
+    return MeasureUnit(19, 5);
+}
+
+MeasureUnit *MeasureUnit::createCelsius(UErrorCode &status) {
+    return MeasureUnit::create(20, 0, status);
+}
+
+MeasureUnit MeasureUnit::getCelsius() {
+    return MeasureUnit(20, 0);
+}
+
+MeasureUnit *MeasureUnit::createFahrenheit(UErrorCode &status) {
+    return MeasureUnit::create(20, 1, status);
+}
+
+MeasureUnit MeasureUnit::getFahrenheit() {
+    return MeasureUnit(20, 1);
+}
+
+MeasureUnit *MeasureUnit::createGenericTemperature(UErrorCode &status) {
+    return MeasureUnit::create(20, 2, status);
+}
+
+MeasureUnit MeasureUnit::getGenericTemperature() {
+    return MeasureUnit(20, 2);
+}
+
+MeasureUnit *MeasureUnit::createKelvin(UErrorCode &status) {
+    return MeasureUnit::create(20, 3, status);
+}
+
+MeasureUnit MeasureUnit::getKelvin() {
+    return MeasureUnit(20, 3);
+}
+
+MeasureUnit *MeasureUnit::createNewtonMeter(UErrorCode &status) {
+    return MeasureUnit::create(21, 0, status);
+}
+
+MeasureUnit MeasureUnit::getNewtonMeter() {
+    return MeasureUnit(21, 0);
+}
+
+MeasureUnit *MeasureUnit::createPoundFoot(UErrorCode &status) {
+    return MeasureUnit::create(21, 1, status);
+}
+
+MeasureUnit MeasureUnit::getPoundFoot() {
+    return MeasureUnit(21, 1);
+}
+
+MeasureUnit *MeasureUnit::createAcreFoot(UErrorCode &status) {
+    return MeasureUnit::create(22, 0, status);
+}
+
+MeasureUnit MeasureUnit::getAcreFoot() {
+    return MeasureUnit(22, 0);
+}
+
+MeasureUnit *MeasureUnit::createBarrel(UErrorCode &status) {
+    return MeasureUnit::create(22, 1, status);
+}
+
+MeasureUnit MeasureUnit::getBarrel() {
+    return MeasureUnit(22, 1);
+}
+
+MeasureUnit *MeasureUnit::createBushel(UErrorCode &status) {
+    return MeasureUnit::create(22, 2, status);
+}
+
+MeasureUnit MeasureUnit::getBushel() {
+    return MeasureUnit(22, 2);
+}
+
+MeasureUnit *MeasureUnit::createCentiliter(UErrorCode &status) {
+    return MeasureUnit::create(22, 3, status);
+}
+
+MeasureUnit MeasureUnit::getCentiliter() {
+    return MeasureUnit(22, 3);
+}
+
+MeasureUnit *MeasureUnit::createCubicCentimeter(UErrorCode &status) {
+    return MeasureUnit::create(22, 4, status);
+}
+
+MeasureUnit MeasureUnit::getCubicCentimeter() {
+    return MeasureUnit(22, 4);
+}
+
+MeasureUnit *MeasureUnit::createCubicFoot(UErrorCode &status) {
+    return MeasureUnit::create(22, 5, status);
+}
+
+MeasureUnit MeasureUnit::getCubicFoot() {
+    return MeasureUnit(22, 5);
+}
+
+MeasureUnit *MeasureUnit::createCubicInch(UErrorCode &status) {
+    return MeasureUnit::create(22, 6, status);
+}
+
+MeasureUnit MeasureUnit::getCubicInch() {
+    return MeasureUnit(22, 6);
+}
+
+MeasureUnit *MeasureUnit::createCubicKilometer(UErrorCode &status) {
+    return MeasureUnit::create(22, 7, status);
+}
+
+MeasureUnit MeasureUnit::getCubicKilometer() {
+    return MeasureUnit(22, 7);
+}
+
+MeasureUnit *MeasureUnit::createCubicMeter(UErrorCode &status) {
+    return MeasureUnit::create(22, 8, status);
+}
+
+MeasureUnit MeasureUnit::getCubicMeter() {
+    return MeasureUnit(22, 8);
+}
+
+MeasureUnit *MeasureUnit::createCubicMile(UErrorCode &status) {
+    return MeasureUnit::create(22, 9, status);
+}
+
+MeasureUnit MeasureUnit::getCubicMile() {
+    return MeasureUnit(22, 9);
+}
+
+MeasureUnit *MeasureUnit::createCubicYard(UErrorCode &status) {
+    return MeasureUnit::create(22, 10, status);
+}
+
+MeasureUnit MeasureUnit::getCubicYard() {
+    return MeasureUnit(22, 10);
+}
+
+MeasureUnit *MeasureUnit::createCup(UErrorCode &status) {
+    return MeasureUnit::create(22, 11, status);
+}
+
+MeasureUnit MeasureUnit::getCup() {
+    return MeasureUnit(22, 11);
+}
+
+MeasureUnit *MeasureUnit::createCupMetric(UErrorCode &status) {
+    return MeasureUnit::create(22, 12, status);
+}
+
+MeasureUnit MeasureUnit::getCupMetric() {
+    return MeasureUnit(22, 12);
+}
+
+MeasureUnit *MeasureUnit::createDeciliter(UErrorCode &status) {
+    return MeasureUnit::create(22, 13, status);
+}
+
+MeasureUnit MeasureUnit::getDeciliter() {
+    return MeasureUnit(22, 13);
+}
+
+MeasureUnit *MeasureUnit::createDessertSpoon(UErrorCode &status) {
+    return MeasureUnit::create(22, 14, status);
+}
+
+MeasureUnit MeasureUnit::getDessertSpoon() {
+    return MeasureUnit(22, 14);
+}
+
+MeasureUnit *MeasureUnit::createDessertSpoonImperial(UErrorCode &status) {
+    return MeasureUnit::create(22, 15, status);
+}
+
+MeasureUnit MeasureUnit::getDessertSpoonImperial() {
+    return MeasureUnit(22, 15);
+}
+
+MeasureUnit *MeasureUnit::createDram(UErrorCode &status) {
+    return MeasureUnit::create(22, 16, status);
+}
+
+MeasureUnit MeasureUnit::getDram() {
+    return MeasureUnit(22, 16);
+}
+
+MeasureUnit *MeasureUnit::createDrop(UErrorCode &status) {
+    return MeasureUnit::create(22, 17, status);
+}
+
+MeasureUnit MeasureUnit::getDrop() {
+    return MeasureUnit(22, 17);
+}
+
+MeasureUnit *MeasureUnit::createFluidOunce(UErrorCode &status) {
+    return MeasureUnit::create(22, 18, status);
+}
+
+MeasureUnit MeasureUnit::getFluidOunce() {
+    return MeasureUnit(22, 18);
+}
+
+MeasureUnit *MeasureUnit::createFluidOunceImperial(UErrorCode &status) {
+    return MeasureUnit::create(22, 19, status);
+}
+
+MeasureUnit MeasureUnit::getFluidOunceImperial() {
+    return MeasureUnit(22, 19);
+}
+
+MeasureUnit *MeasureUnit::createGallon(UErrorCode &status) {
+    return MeasureUnit::create(22, 20, status);
+}
+
+MeasureUnit MeasureUnit::getGallon() {
+    return MeasureUnit(22, 20);
+}
+
+MeasureUnit *MeasureUnit::createGallonImperial(UErrorCode &status) {
+    return MeasureUnit::create(22, 21, status);
+}
+
+MeasureUnit MeasureUnit::getGallonImperial() {
+    return MeasureUnit(22, 21);
+}
+
+MeasureUnit *MeasureUnit::createHectoliter(UErrorCode &status) {
+    return MeasureUnit::create(22, 22, status);
+}
+
+MeasureUnit MeasureUnit::getHectoliter() {
+    return MeasureUnit(22, 22);
+}
+
+MeasureUnit *MeasureUnit::createJigger(UErrorCode &status) {
+    return MeasureUnit::create(22, 23, status);
+}
+
+MeasureUnit MeasureUnit::getJigger() {
+    return MeasureUnit(22, 23);
+}
+
+MeasureUnit *MeasureUnit::createLiter(UErrorCode &status) {
+    return MeasureUnit::create(22, 24, status);
+}
+
+MeasureUnit MeasureUnit::getLiter() {
+    return MeasureUnit(22, 24);
+}
+
+MeasureUnit *MeasureUnit::createMegaliter(UErrorCode &status) {
+    return MeasureUnit::create(22, 25, status);
+}
+
+MeasureUnit MeasureUnit::getMegaliter() {
+    return MeasureUnit(22, 25);
+}
+
+MeasureUnit *MeasureUnit::createMilliliter(UErrorCode &status) {
+    return MeasureUnit::create(22, 26, status);
+}
+
+MeasureUnit MeasureUnit::getMilliliter() {
+    return MeasureUnit(22, 26);
+}
+
+MeasureUnit *MeasureUnit::createPinch(UErrorCode &status) {
+    return MeasureUnit::create(22, 27, status);
+}
+
+MeasureUnit MeasureUnit::getPinch() {
+    return MeasureUnit(22, 27);
+}
+
+MeasureUnit *MeasureUnit::createPint(UErrorCode &status) {
+    return MeasureUnit::create(22, 28, status);
+}
+
+MeasureUnit MeasureUnit::getPint() {
+    return MeasureUnit(22, 28);
+}
+
+MeasureUnit *MeasureUnit::createPintMetric(UErrorCode &status) {
+    return MeasureUnit::create(22, 29, status);
+}
+
+MeasureUnit MeasureUnit::getPintMetric() {
+    return MeasureUnit(22, 29);
+}
+
+MeasureUnit *MeasureUnit::createQuart(UErrorCode &status) {
+    return MeasureUnit::create(22, 30, status);
+}
+
+MeasureUnit MeasureUnit::getQuart() {
+    return MeasureUnit(22, 30);
+}
+
+MeasureUnit *MeasureUnit::createQuartImperial(UErrorCode &status) {
+    return MeasureUnit::create(22, 31, status);
+}
+
+MeasureUnit MeasureUnit::getQuartImperial() {
+    return MeasureUnit(22, 31);
+}
+
+MeasureUnit *MeasureUnit::createTablespoon(UErrorCode &status) {
+    return MeasureUnit::create(22, 32, status);
+}
+
+MeasureUnit MeasureUnit::getTablespoon() {
+    return MeasureUnit(22, 32);
+}
+
+MeasureUnit *MeasureUnit::createTeaspoon(UErrorCode &status) {
+    return MeasureUnit::create(22, 33, status);
+}
+
+MeasureUnit MeasureUnit::getTeaspoon() {
+    return MeasureUnit(22, 33);
+}
+
+// End generated code for measunit.cpp
+]]></system-out>
+  </testcase>
+  <testcase name="testEqHashCode" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="testAUnit" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="testFieldPositionMultiple" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="testGram" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="testOldFormatBadArg" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="testOldFormatWithArray" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="testCurrencyFormatLocale" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="testFormatMeasuresZeroArg" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="testBug11966" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="testEqHashCodeOfMeasure" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="TestParseBuiltIns" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.002">
+    <system-out><![CDATA[unit ident: pound-force, type: force
+unit ident: DOP, type: currency
+unit ident: grain, type: mass
+unit ident: MAD, type: currency
+unit ident: SLL, type: currency
+unit ident: volt, type: electric
+unit ident: ZZZ, type: currency
+unit ident: megabit, type: digital
+unit ident: meter-per-second, type: speed
+unit ident: second, type: duration
+unit ident: GTQ, type: currency
+unit ident: CLP, type: currency
+unit ident: SLE, type: currency
+unit ident: TND, type: currency
+unit ident: PEI, type: currency
+unit ident: TMM, type: currency
+unit ident: SKK, type: currency
+unit ident: PEH, type: currency
+unit ident: pixel-per-centimeter, type: graphics
+unit ident: NAD, type: currency
+unit ident: WST, type: currency
+unit ident: cubic-centimeter, type: volume
+unit ident: hectoliter, type: volume
+unit ident: CLE, type: currency
+unit ident: TMT, type: currency
+unit ident: FRF, type: currency
+unit ident: PEN, type: currency
+unit ident: mile-scandinavian, type: length
+unit ident: PES, type: currency
+unit ident: candela, type: light
+unit ident: CLF, type: currency
+unit ident: COP, type: currency
+unit ident: minute, type: duration
+unit ident: ESP, type: currency
+unit ident: pint, type: volume
+unit ident: milliampere, type: electric
+unit ident: nanosecond, type: duration
+unit ident: USD, type: currency
+unit ident: COU, type: currency
+unit ident: karat, type: concentr
+unit ident: MCF, type: currency
+unit ident: USN, type: currency
+unit ident: ESB, type: currency
+unit ident: ESA, type: currency
+unit ident: XXX, type: currency
+unit ident: PHP, type: currency
+unit ident: month-person, type: duration
+unit ident: GWE, type: currency
+unit ident: micrometer, type: length
+unit ident: BMD, type: currency
+unit ident: GWP, type: currency
+unit ident: beaufort, type: speed
+unit ident: millisecond, type: duration
+unit ident: ERN, type: currency
+unit ident: cup-metric, type: volume
+unit ident: ohm, type: electric
+unit ident: gasoline-energy-density, type: pressure
+unit ident: TPE, type: currency
+unit ident: CNY, type: currency
+unit ident: CNX, type: currency
+unit ident: degree, type: angle
+unit ident: PGK, type: currency
+unit ident: MAF, type: currency
+unit ident: microsecond, type: duration
+unit ident: TOP, type: currency
+unit ident: radian, type: angle
+unit ident: CNH, type: currency
+unit ident: night, type: duration
+unit ident: dram, type: volume
+unit ident: BOP, type: currency
+unit ident: calorie, type: energy
+unit ident: EUR, type: currency
+unit ident: meter, type: length
+unit ident: mile-per-gallon, type: consumption
+unit ident: BOV, type: currency
+unit ident: portion-per-1e9, type: concentr
+unit ident: ROL, type: currency
+unit ident: ROK, type: currency
+unit ident: GYD, type: currency
+unit ident: AMD, type: currency
+unit ident: kilobyte, type: digital
+unit ident: pound-force-foot, type: torque
+unit ident: BOB, type: currency
+unit ident: MDL, type: currency
+unit ident: kilometer-per-hour, type: speed
+unit ident: quart-imperial, type: volume
+unit ident: TRY, type: currency
+unit ident: LBP, type: currency
+unit ident: BOL, type: currency
+unit ident: solar-radius, type: length
+unit ident: ALL, type: currency
+unit ident: MDC, type: currency
+unit ident: dalton, type: mass
+unit ident: TRL, type: currency
+unit ident: ETB, type: currency
+unit ident: acre-foot, type: volume
+unit ident: dot-per-centimeter, type: graphics
+unit ident: BND, type: currency
+unit ident: SOS, type: currency
+unit ident: VUV, type: currency
+unit ident: LAK, type: currency
+unit ident: USS, type: currency
+unit ident: LAJ, type: currency
+unit ident: dunam, type: area
+unit ident: kilohertz, type: frequency
+unit ident: USX, type: currency
+unit ident: ALK, type: currency
+unit ident: AOR, type: currency
+unit ident: NIC, type: currency
+unit ident: MGA, type: currency
+unit ident: pascal, type: pressure
+unit ident: MGF, type: currency
+unit ident: SSP, type: currency
+unit ident: kilowatt-hour-per-100-kilometer, type: force
+unit ident: CSD, type: currency
+unit ident: AOA, type: currency
+unit ident: PLN, type: currency
+unit ident: g-force, type: acceleration
+unit ident: electronvolt, type: energy
+unit ident: nanometer, type: length
+unit ident: CSK, type: currency
+unit ident: CSJ, type: currency
+unit ident: kilowatt, type: power
+unit ident: pixel-per-inch, type: graphics
+unit ident: AON, type: currency
+unit ident: PLZ, type: currency
+unit ident: revolution, type: angle
+unit ident: AOK, type: currency
+unit ident: TTD, type: currency
+unit ident: light-year, type: length
+unit ident: SRG, type: currency
+unit ident: petabyte, type: digital
+unit ident: SRD, type: currency
+unit ident: pinch, type: volume
+unit ident: CRC, type: currency
+unit ident: RON, type: currency
+unit ident: PKR, type: currency
+unit ident: NGN, type: currency
+unit ident: ANG, type: currency
+unit ident: kilopascal, type: pressure
+unit ident: ZRZ, type: currency
+unit ident: MYR, type: currency
+unit ident: FKP, type: currency
+unit ident: square-meter, type: area
+unit ident: XOF, type: currency
+unit ident: SDD, type: currency
+unit ident: tonne, type: mass
+unit ident: ZRN, type: currency
+unit ident: SDG, type: currency
+unit ident: IQD, type: currency
+unit ident: SDP, type: currency
+unit ident: GMD, type: currency
+unit ident: BBD, type: currency
+unit ident: milligram, type: mass
+unit ident: MXN, type: currency
+unit ident: LVL, type: currency
+unit ident: SCR, type: currency
+unit ident: square-centimeter, type: area
+unit ident: UGS, type: currency
+unit ident: LVR, type: currency
+unit ident: HNL, type: currency
+unit ident: UGX, type: currency
+unit ident: CDF, type: currency
+unit ident: MXP, type: currency
+unit ident: UGW, type: currency
+unit ident: MXV, type: currency
+unit ident: pixel, type: graphics
+unit ident: century, type: duration
+unit ident: NZD, type: currency
+unit ident: tablespoon, type: volume
+unit ident: millimeter, type: length
+unit ident: lumen, type: light
+unit ident: FJD, type: currency
+unit ident: hectopascal, type: pressure
+unit ident: kilocalorie, type: energy
+unit ident: BEF, type: currency
+unit ident: ISK, type: currency
+unit ident: arc-second, type: angle
+unit ident: BEL, type: currency
+unit ident: SGD, type: currency
+unit ident: BDT, type: currency
+unit ident: fahrenheit, type: temperature
+unit ident: KWD, type: currency
+unit ident: liter-per-100-kilometer, type: consumption
+unit ident: LYD, type: currency
+unit ident: XPT, type: currency
+unit ident: BEC, type: currency
+unit ident: ISJ, type: currency
+unit ident: carat, type: mass
+unit ident: QAR, type: currency
+unit ident: MZN, type: currency
+unit ident: GNS, type: currency
+unit ident: XPD, type: currency
+unit ident: em, type: graphics
+unit ident: gigawatt, type: power
+unit ident: kilowatt-hour, type: energy
+unit ident: IRR, type: currency
+unit ident: XPF, type: currency
+unit ident: THB, type: currency
+unit ident: MZE, type: currency
+unit ident: SEK, type: currency
+unit ident: millimole-per-liter, type: concentr
+unit ident: MZM, type: currency
+unit ident: point, type: length
+unit ident: GNF, type: currency
+unit ident: GNE, type: currency
+unit ident: DKK, type: currency
+unit ident: quarter, type: duration
+unit ident: milligram-ofglucose-per-deciliter, type: concentr
+unit ident: YUD, type: currency
+unit ident: BGM, type: currency
+unit ident: BGL, type: currency
+unit ident: ZWD, type: currency
+unit ident: BGK, type: currency
+unit ident: ZWC, type: currency
+unit ident: BGJ, type: currency
+unit ident: fluid-ounce-imperial, type: volume
+unit ident: BGO, type: currency
+unit ident: BGN, type: currency
+unit ident: ZWL, type: currency
+unit ident: parsec, type: length
+unit ident: CHW, type: currency
+unit ident: KYD, type: currency
+unit ident: VNN, type: currency
+unit ident: TJR, type: currency
+unit ident: joule, type: energy
+unit ident: SHP, type: currency
+unit ident: GQE, type: currency
+unit ident: AED, type: currency
+unit ident: TJS, type: currency
+unit ident: foot, type: length
+unit ident: gallon, type: volume
+unit ident: byte, type: digital
+unit ident: CHF, type: currency
+unit ident: HRK, type: currency
+unit ident: ITL, type: currency
+unit ident: hour, type: duration
+unit ident: VND, type: currency
+unit ident: XRE, type: currency
+unit ident: VNC, type: currency
+unit ident: decimeter, type: length
+unit ident: megawatt, type: power
+unit ident: ADP, type: currency
+unit ident: PAB, type: currency
+unit ident: barrel, type: volume
+unit ident: ounce, type: mass
+unit ident: HRD, type: currency
+unit ident: CHE, type: currency
+unit ident: DJF, type: currency
+unit ident: CHC, type: currency
+unit ident: XUA, type: currency
+unit ident: quart, type: volume
+unit ident: furlong, type: length
+unit ident: inch, type: length
+unit ident: centimeter, type: length
+unit ident: bit, type: digital
+unit ident: cubic-kilometer, type: volume
+unit ident: XTS, type: currency
+unit ident: kilojoule, type: energy
+unit ident: square-inch, type: area
+unit ident: HUF, type: currency
+unit ident: BIF, type: currency
+unit ident: arc-minute, type: angle
+unit ident: square-foot, type: area
+unit ident: KZT, type: currency
+unit ident: knot, type: speed
+unit ident: decade, type: duration
+unit ident: AFN, type: currency
+unit ident: RHD, type: currency
+unit ident: earth-mass, type: mass
+unit ident: YUN, type: currency
+unit ident: YUM, type: currency
+unit ident: ZWN, type: currency
+unit ident: YUR, type: currency
+unit ident: ZWR, type: currency
+unit ident: AFA, type: currency
+unit ident: picometer, type: length
+unit ident: HTG, type: currency
+unit ident: XSU, type: currency
+unit ident: GRD, type: currency
+unit ident: BHD, type: currency
+unit ident: SIT, type: currency
+unit ident: KMF, type: currency
+unit ident: square-mile, type: area
+unit ident: mile, type: length
+unit ident: XFO, type: currency
+unit ident: XFU, type: currency
+unit ident: dot, type: graphics
+unit ident: GEL, type: currency
+unit ident: GEK, type: currency
+unit ident: millibar, type: pressure
+unit ident: month, type: duration
+unit ident: AYM, type: currency
+unit ident: XEU, type: currency
+unit ident: cubic-meter, type: volume
+unit ident: microgram, type: mass
+unit ident: year-person, type: duration
+unit ident: celsius, type: temperature
+unit ident: week-person, type: duration
+unit ident: megabyte, type: digital
+unit ident: JMD, type: currency
+unit ident: dessert-spoon-imperial, type: volume
+unit ident: newton-meter, type: torque
+unit ident: year, type: duration
+unit ident: millimeter-ofhg, type: pressure
+unit ident: gigabyte, type: digital
+unit ident: mile-per-gallon-imperial, type: consumption
+unit ident: PYG, type: currency
+unit ident: item, type: concentr
+unit ident: earth-radius, type: length
+unit ident: pint-metric, type: volume
+unit ident: MRO, type: currency
+unit ident: MRU, type: currency
+unit ident: AZM, type: currency
+unit ident: AZN, type: currency
+unit ident: UAH, type: currency
+unit ident: UAK, type: currency
+unit ident: liter, type: volume
+unit ident: HKD, type: currency
+unit ident: CAD, type: currency
+unit ident: LSM, type: currency
+unit ident: LSL, type: currency
+unit ident: permille, type: concentr
+unit ident: EEK, type: currency
+unit ident: atmosphere, type: pressure
+unit ident: MUR, type: currency
+unit ident: GIP, type: currency
+unit ident: cubic-inch, type: volume
+unit ident: megaliter, type: volume
+unit ident: GHS, type: currency
+unit ident: KPW, type: currency
+unit ident: pound, type: mass
+unit ident: kilogram, type: mass
+unit ident: ounce-troy, type: mass
+unit ident: JOD, type: currency
+unit ident: VES, type: currency
+unit ident: ZMW, type: currency
+unit ident: GHC, type: currency
+unit ident: megapascal, type: pressure
+unit ident: therm-us, type: energy
+unit ident: MTL, type: currency
+unit ident: MTP, type: currency
+unit ident: ILS, type: currency
+unit ident: cubic-foot, type: volume
+unit ident: ILR, type: currency
+unit ident: GHP, type: currency
+unit ident: ILP, type: currency
+unit ident: VEB, type: currency
+unit ident: light-speed, type: speed
+unit ident: ECV, type: currency
+unit ident: ZMK, type: currency
+unit ident: VEF, type: currency
+unit ident: ECS, type: currency
+unit ident: VED, type: currency
+unit ident: british-thermal-unit, type: energy
+unit ident: LRD, type: currency
+unit ident: liter-per-kilometer, type: consumption
+unit ident: LUL, type: currency
+unit ident: inch-ofhg, type: pressure
+unit ident: MWK, type: currency
+unit ident: BAD, type: currency
+unit ident: DEM, type: currency
+unit ident: FIM, type: currency
+unit ident: kilometer, type: length
+unit ident: BAN, type: currency
+unit ident: BAM, type: currency
+unit ident: EGP, type: currency
+unit ident: terabit, type: digital
+unit ident: JPY, type: currency
+unit ident: pound-force-per-square-inch, type: pressure
+unit ident: SBD, type: currency
+unit ident: nautical-mile, type: length
+unit ident: LUC, type: currency
+unit ident: LUF, type: currency
+unit ident: LTL, type: currency
+unit ident: SAR, type: currency
+unit ident: KRH, type: currency
+unit ident: KRO, type: currency
+unit ident: MVQ, type: currency
+unit ident: yard, type: length
+unit ident: megahertz, type: frequency
+unit ident: MVP, type: currency
+unit ident: milligram-per-deciliter, type: concentr
+unit ident: LTT, type: currency
+unit ident: MVR, type: currency
+unit ident: KRW, type: currency
+unit ident: milliwatt, type: power
+unit ident: INR, type: currency
+unit ident: DDM, type: currency
+unit ident: ton, type: mass
+unit ident: drop, type: volume
+unit ident: gigabit, type: digital
+unit ident: hertz, type: frequency
+unit ident: foodcalorie, type: energy
+unit ident: permyriad, type: concentr
+unit ident: mole, type: concentr
+unit ident: RSD, type: currency
+unit ident: TWD, type: currency
+unit ident: UYI, type: currency
+unit ident: UYP, type: currency
+unit ident: UYN, type: currency
+unit ident: ARA, type: currency
+unit ident: SUR, type: currency
+unit ident: BSD, type: currency
+unit ident: CUC, type: currency
+unit ident: CUP, type: currency
+unit ident: STD, type: currency
+unit ident: BRR, type: currency
+unit ident: square-yard, type: area
+unit ident: bushel, type: volume
+unit ident: ZAL, type: currency
+unit ident: meter-per-square-second, type: acceleration
+unit ident: ZAR, type: currency
+unit ident: BRZ, type: currency
+unit ident: STN, type: currency
+unit ident: NIO, type: currency
+unit ident: BRC, type: currency
+unit ident: BRB, type: currency
+unit ident: fathom, type: length
+unit ident: gallon-imperial, type: volume
+unit ident: BRE, type: currency
+unit ident: BRL, type: currency
+unit ident: BRN, type: currency
+unit ident: day-person, type: duration
+unit ident: terabyte, type: digital
+unit ident: cubic-mile, type: volume
+unit ident: solar-mass, type: mass
+unit ident: kilobit, type: digital
+unit ident: MKD, type: currency
+unit ident: generic, type: temperature
+unit ident: stone, type: mass
+unit ident: dessert-spoon, type: volume
+unit ident: MKN, type: currency
+unit ident: RUR, type: currency
+unit ident: DZD, type: currency
+unit ident: acre, type: area
+unit ident: gigahertz, type: frequency
+unit ident: kelvin, type: temperature
+unit ident: BUK, type: currency
+unit ident: RUB, type: currency
+unit ident: permillion, type: concentr
+unit ident: ARS, type: currency
+unit ident: ARY, type: currency
+unit ident: astronomical-unit, type: length
+unit ident: NLG, type: currency
+unit ident: hectare, type: area
+unit ident: UZS, type: currency
+unit ident: OMR, type: currency
+unit ident: UYW, type: currency
+unit ident: CVE, type: currency
+unit ident: UYU, type: currency
+unit ident: QQQ, type: currency
+unit ident: fluid-ounce, type: volume
+unit ident: ARM, type: currency
+unit ident: BTN, type: currency
+unit ident: ARL, type: currency
+unit ident: KES, type: currency
+unit ident: SVC, type: currency
+unit ident: ARP, type: currency
+unit ident: ampere, type: electric
+unit ident: RWF, type: currency
+unit ident: milliliter, type: volume
+unit ident: MMK, type: currency
+unit ident: NOK, type: currency
+unit ident: SYP, type: currency
+unit ident: XBB, type: currency
+unit ident: IDR, type: currency
+unit ident: XBA, type: currency
+unit ident: KHR, type: currency
+unit ident: BWP, type: currency
+unit ident: CYP, type: currency
+unit ident: XBD, type: currency
+unit ident: YDD, type: currency
+unit ident: XBC, type: currency
+unit ident: week, type: duration
+unit ident: cubic-yard, type: volume
+unit ident: mile-per-hour, type: speed
+unit ident: MLF, type: currency
+unit ident: XAU, type: currency
+unit ident: AUD, type: currency
+unit ident: dot-per-inch, type: graphics
+unit ident: TZS, type: currency
+unit ident: KGS, type: currency
+unit ident: bar, type: pressure
+unit ident: teaspoon, type: volume
+unit ident: megapixel, type: graphics
+unit ident: ATS, type: currency
+unit ident: horsepower, type: power
+unit ident: gram, type: mass
+unit ident: XAG, type: currency
+unit ident: XAF, type: currency
+unit ident: XDR, type: currency
+unit ident: BZD, type: currency
+unit ident: day, type: duration
+unit ident: MOP, type: currency
+unit ident: watt, type: power
+unit ident: MNT, type: currency
+unit ident: AWG, type: currency
+unit ident: BYN, type: currency
+unit ident: cup, type: volume
+unit ident: GBP, type: currency
+unit ident: BYR, type: currency
+unit ident: PTE, type: currency
+unit ident: YER, type: currency
+unit ident: SZL, type: currency
+unit ident: BYB, type: currency
+unit ident: NPR, type: currency
+unit ident: CZK, type: currency
+unit ident: IEP, type: currency
+unit ident: LKR, type: currency
+unit ident: newton, type: force
+unit ident: square-kilometer, type: area
+unit ident: centiliter, type: volume
+unit ident: XCG, type: currency
+unit ident: jigger, type: volume
+unit ident: XCD, type: currency
+unit ident: lux, type: light
+unit ident: solar-luminosity, type: light
+unit ident: deciliter, type: volume
+unit ident: percent, type: concentr
+]]></system-out>
+  </testcase>
+  <testcase name="TestIdentifierDetails" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="TestSerial" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.001"/>
+  <testcase name="testMultiples" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.001"/>
+  <testcase name="TestPrefixes" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="TestInvalidIdentifiers" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.001"/>
+  <testcase name="TestIdentifiers" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="testManyLocaleDurations" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.003"/>
+  <testcase name="testFormatMeasuresOneArg" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.001"/>
+  <testcase name="Test10219FractionalPlurals" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="testDoubleZero" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.001"/>
+  <testcase name="TestExamplesInDocs" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="TestSerialFormatWidthEnum" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="testCLDRUnitAvailability" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.001"/>
+  <testcase name="TestDimensionlessBehaviour" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="TestParseToBuiltIn" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.001"/>
+  <testcase name="testUnitPerUnitResolution" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="TestInternalMeasureUnitImpl" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="TestGreek" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.003"/>
+  <testcase name="TestNumericTimeNonLatin" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="test20332_PersonUnits" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.001"/>
+  <testcase name="TestFormatPeriodEn" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.003"/>
+  <testcase name="testOldFormatWithList" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="testGetLocale" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="TestNumericTimeSomeSpecialFormats" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.001"/>
+  <testcase name="testCurrencyFormatParseIsoCode" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="testNumeratorPlurals" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="testIndividualPluralFallback" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.001"/>
+  <testcase name="testFormatSingleArg" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+  <testcase name="testPopulateCache" classname="com.ibm.icu.dev.test.format.MeasureUnitTest" time="0.0"/>
+</testsuite>

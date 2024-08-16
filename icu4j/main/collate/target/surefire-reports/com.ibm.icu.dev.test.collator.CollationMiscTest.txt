@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.ibm.icu.dev.test.collator.CollationMiscTest
+-------------------------------------------------------------------------------
+Tests run: 84, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.322 s -- in com.ibm.icu.dev.test.collator.CollationMiscTest
