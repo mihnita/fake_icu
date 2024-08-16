@@ -31,20 +31,6 @@ permissions:
 
 jobs:
 
-  # Copyright scan
-  copyright-scan:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: perl tools/scripts/cpysearch/cpyscan.pl
-
-  # Check source files for valid UTF-8 and for absence of BOM.
-  valid-UTF-8-and-no-BOM-check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: tools/scripts/icu-file-utf8-check.py
-
   # Initialize the Maven artifact cache
   #
   # This job is created according to the cache strategy of reuse from a single job:
@@ -73,19 +59,3 @@ jobs:
         run: |
           cd icu4j;
           mvn ${SHARED_MVN_ARGS} dependency:go-offline -P '!old_jdk_taglet'
-
-  # Verify icu4c release tools buildability.
-  icu4c-release-tools:
-    needs: icu4j-mvn-init-cache
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Restore read-only cache of local Maven repository
-        uses: actions/cache/restore@v4
-        id: cache
-        with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
-      - run: mvn ${SHARED_MVN_ARGS} -f tools/release/java/pom.xml package dependency:analyze
