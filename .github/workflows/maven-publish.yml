@@ -37,12 +37,7 @@ jobs:
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
-    - name: Build with Maven
-      run: |
-        cd icu4j
-        mvn ${SHARED_MVN_ARGS} -B clean package -P with_sources,with_javadoc
-
-    - name: Publish to GitHub Packages Apache Maven
+    - name: Dump environment info
       run: |
         echo PWD=$PWD
         echo '========================'
@@ -58,8 +53,19 @@ jobs:
         echo '========================'
         env
         echo '========================'
+
+    - name: Build with Maven
+      run: |
+        cd icu4j
+        mvn ${SHARED_MVN_ARGS} -B clean install \
+          -DskipTests -DskipITs \
+          -P with_sources,with_javadoc
+
+    - name: Publish to GitHub Packages Apache Maven
+      run: |
         cd icu4j
         mvn deploy -s $GITHUB_WORKSPACE/settings.xml \
+          -DskipTests -DskipITs \
           -P with_sources,with_javadoc
       env:
         GITHUB_TOKEN: ${{ github.token }}
