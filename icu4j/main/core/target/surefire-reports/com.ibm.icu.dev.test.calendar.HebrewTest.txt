@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.ibm.icu.dev.test.calendar.HebrewTest
--------------------------------------------------------------------------------
-Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.020 s -- in com.ibm.icu.dev.test.calendar.HebrewTest

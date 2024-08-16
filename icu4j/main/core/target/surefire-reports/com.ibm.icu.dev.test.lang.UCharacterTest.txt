@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.ibm.icu.dev.test.lang.UCharacterTest
--------------------------------------------------------------------------------
-Tests run: 71, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.598 s -- in com.ibm.icu.dev.test.lang.UCharacterTest

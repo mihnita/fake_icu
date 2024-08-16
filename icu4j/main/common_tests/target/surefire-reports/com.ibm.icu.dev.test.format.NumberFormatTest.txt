@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.ibm.icu.dev.test.format.NumberFormatTest
--------------------------------------------------------------------------------
-Tests run: 213, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.322 s -- in com.ibm.icu.dev.test.format.NumberFormatTest

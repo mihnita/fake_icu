@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.ibm.icu.dev.test.calendar.IBMCalendarTest
--------------------------------------------------------------------------------
-Tests run: 51, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.583 s -- in com.ibm.icu.dev.test.calendar.IBMCalendarTest

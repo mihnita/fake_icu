@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.ibm.icu.dev.test.translit.TransliteratorDisorderedMarksTest
--------------------------------------------------------------------------------
-Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.706 s -- in com.ibm.icu.dev.test.translit.TransliteratorDisorderedMarksTest
