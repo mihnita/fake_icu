@@ -24,6 +24,14 @@
   </organization>
 
   <modules>
+
+    <!-- We need to BUILD AND INSTALL this first because it implements the
+         custom Taglets used to generate javadoc.
+         Otherwise generating the other modules with javadoc is not possible.
+         And we need javadoc to publish to Maven Central.
+    -->
+    <module>tools/build</module>
+
     <module>main/framework</module>
     <module>main/core</module>
     <!-- For publishing to Maven Central -->

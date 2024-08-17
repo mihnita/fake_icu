@@ -32,7 +32,7 @@ jobs:
     - name: Set up JDK
       uses: actions/setup-java@v4
       with:
-        java-version: '8'
+        java-version: '8' # The custom Taglets for javadoc (tools/build) are still Java 8. They need updating.
         distribution: 'temurin'
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
