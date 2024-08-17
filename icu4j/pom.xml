@@ -174,12 +174,12 @@
 
   <distributionManagement>
     <repository>
-      <id>icu4j-releases</id>
+      <id>icu4j-maven-repo</id>
       <name>ICU4J Central Repository</name>
       <url>${maven-central-releases-repo-url}</url>
     </repository>
     <snapshotRepository>
-      <id>icu4j-snapshots</id>
+      <id>icu4j-maven-repo</id>
       <name>ICU4J Central Development Repository</name>
       <url>${maven-central-snapshots-repo-url}</url>
     </snapshotRepository>
