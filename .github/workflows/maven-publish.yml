@@ -92,3 +92,6 @@ jobs:
         path: ./release_folder/*
         retention-days: 1
         overwrite: true
+
+    - name: Try if we have gh
+      run: gh --help
