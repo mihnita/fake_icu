@@ -89,7 +89,7 @@ jobs:
     - name: Upload build results
       uses: actions/upload-artifact@v4.3.6
       with:
-        path: ./release_folder/*
+        path: ./icu4j/release_folder/*
         retention-days: 1
         overwrite: true
 
