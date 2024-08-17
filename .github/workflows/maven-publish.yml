@@ -44,6 +44,27 @@ jobs:
         gpg-passphrase: MAVEN_GPG_PASSPHRASE # env variable for GPG private key passphrase
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
+    - name: Dump info
+      run: |
+        echo '======================='
+        echo $GITHUB_WORKSPACE/settings.xml
+        echo '======================='
+        echo MAVEN_USERNAME: ${{ env.MAVEN_USERNAME }}
+        echo MAVEN_CENTRAL_TOKEN: ${{ env.MAVEN_CENTRAL_TOKEN }}
+        echo MAVEN_GPG_PASSPHRASE: ${{ env.MAVEN_GPG_PASSPHRASE }}
+        echo MAVEN_GPG_PRIVATE_KEY: ${{ env.MAVEN_GPG_PRIVATE_KEY }}
+        echo '======================='
+        echo MAVEN_USERNAME: $MAVEN_USERNAME
+        echo MAVEN_CENTRAL_TOKEN: $MAVEN_CENTRAL_TOKEN
+        echo MAVEN_GPG_PASSPHRASE: $MAVEN_GPG_PASSPHRASE
+        echo MAVEN_GPG_PRIVATE_KEY: $MAVEN_GPG_PRIVATE_KEY
+        echo '======================='
+      env:
+        MAVEN_USERNAME: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
+        MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
+        MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+        MAVEN_GPG_PRIVATE_KEY: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+
     - name: Build and publish to Maven Central
       run: |
         mvn deploy --file icu4j \
