@@ -34,7 +34,7 @@ jobs:
       with:
         java-version: '8' # The custom Taglets for javadoc (tools/build) are still Java 8. They need updating.
         distribution: 'temurin'
-        server-id: maven # Value of the distributionManagement/repository/id field of the pom.xml
+        server-id: icu4j-snapshots # Value of the distributionManagement/repository/id field of the pom.xml
         server-username: MAVEN_USERNAME # env variable for username in deploy
         server-password: MAVEN_CENTRAL_TOKEN # env variable for token in deploy
         gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }} # Value of the GPG private key to import
