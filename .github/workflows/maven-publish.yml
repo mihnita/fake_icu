@@ -71,19 +71,19 @@ jobs:
     - name: Prepare release folder
       run: |
         pushd icu4j
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j:${project.version}             -DoutputDirectory=release_folder
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j:${project.version}:jar:sources -DoutputDirectory=release_folder
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j:${project.version}:jar:javadoc -DoutputDirectory=release_folder
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-charset:${project.version}             -DoutputDirectory=release_folder
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-charset:${project.version}:jar:sources -DoutputDirectory=release_folder
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-charset:${project.version}:jar:javadoc -DoutputDirectory=release_folder
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-localespi:${project.version}             -DoutputDirectory=release_folder
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-localespi:${project.version}:jar:sources -DoutputDirectory=release_folder
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-localespi:${project.version}:jar:javadoc -DoutputDirectory=release_folder
+        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j:76.0.1-SNAPSHOT             -DoutputDirectory=release_folder
+        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j:76.0.1-SNAPSHOT:jar:sources -DoutputDirectory=release_folder
+        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j:76.0.1-SNAPSHOT:jar:javadoc -DoutputDirectory=release_folder
+        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-charset:76.0.1-SNAPSHOT             -DoutputDirectory=release_folder
+        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-charset:76.0.1-SNAPSHOT:jar:sources -DoutputDirectory=release_folder
+        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-charset:76.0.1-SNAPSHOT:jar:javadoc -DoutputDirectory=release_folder
+        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-localespi:76.0.1-SNAPSHOT             -DoutputDirectory=release_folder
+        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-localespi:76.0.1-SNAPSHOT:jar:sources -DoutputDirectory=release_folder
+        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-localespi:76.0.1-SNAPSHOT:jar:javadoc -DoutputDirectory=release_folder
         mvn site            ${SHARED_MVN_ARGS} -DskipITs -DskipTests -P with_full_javadoc
-        jar -Mcf release_folder/icu4j-${project.version}-fulljavadoc.jar -C target/site/apidocs/ .
+        jar -Mcf release_folder/icu4j-76.0.1-SNAPSHOT-fulljavadoc.jar -C target/site/apidocs/ .
         pushd release_folder
-        md5sum *.jar > icu4j-${project.version}.md5
+        md5sum *.jar > icu4j-76.0.1-SNAPSHOT.md5
         popd
 
     - name: Upload build results
