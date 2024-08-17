@@ -48,15 +48,7 @@ jobs:
       run: |
         echo '=== settings.xml ===================='
         cat $GITHUB_WORKSPACE/settings.xml
-        echo '=== gpg ===================='
-        gpg --list-keys
-        gpg --list-secret-keys
         echo '======================='
-      env:
-        MAVEN_USERNAME: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
-        MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
-        MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
-        MAVEN_GPG_PRIVATE_KEY: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
 
     - name: Build and publish to Maven Central
       run: |
@@ -66,6 +58,7 @@ jobs:
           --settings $GITHUB_WORKSPACE/settings.xml \
           --errors --fail-at-end -DdeployAtEnd=true \
           -DskipTests -DskipITs \
+          -X \
           -P with_sources,with_javadoc,with_signature
       env:
         MAVEN_USERNAME: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
