@@ -66,14 +66,12 @@ jobs:
           -P with_sources,with_javadoc
 
     - name: Publish to GitHub Packages Apache Maven
-      env:
-        MAVEN_USERNAME: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
-        MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
-        MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
       run: |
         cd icu4j
         mvn deploy -s $GITHUB_WORKSPACE/settings.xml \
           -DskipTests -DskipITs \
           -P with_sources,with_javadoc
       env:
-        GITHUB_TOKEN: ${{ github.token }}
+        MAVEN_USERNAME: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
+        MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
+        MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
