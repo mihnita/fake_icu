@@ -46,18 +46,16 @@ jobs:
 
     - name: Dump info
       run: |
-        echo '======================='
-        echo $GITHUB_WORKSPACE/settings.xml
-        echo '======================='
+        echo '=== settings.xml ===================='
+        cat $GITHUB_WORKSPACE/settings.xml
+        echo '=== secrets ===================='
         echo MAVEN_USERNAME: ${{ env.MAVEN_USERNAME }}
         echo MAVEN_CENTRAL_TOKEN: ${{ env.MAVEN_CENTRAL_TOKEN }}
         echo MAVEN_GPG_PASSPHRASE: ${{ env.MAVEN_GPG_PASSPHRASE }}
-        echo MAVEN_GPG_PRIVATE_KEY: ${{ env.MAVEN_GPG_PRIVATE_KEY }}
-        echo '======================='
-        echo MAVEN_USERNAME: $MAVEN_USERNAME
-        echo MAVEN_CENTRAL_TOKEN: $MAVEN_CENTRAL_TOKEN
-        echo MAVEN_GPG_PASSPHRASE: $MAVEN_GPG_PASSPHRASE
-        echo MAVEN_GPG_PRIVATE_KEY: $MAVEN_GPG_PRIVATE_KEY
+        # echo MAVEN_GPG_PRIVATE_KEY: ${{ env.MAVEN_GPG_PRIVATE_KEY }}
+        echo '=== gpg ===================='
+        gpg --list-keys
+        gpg --list-secret-keys
         echo '======================='
       env:
         MAVEN_USERNAME: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
