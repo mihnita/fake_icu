@@ -69,8 +69,8 @@ jobs:
         MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
 
     - name: Upload build results
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v4.3.6
       with:
-        path: ./main/**/target/*.jar
+        path: ./icu4j/**/target/*.jar
         retention-days: 1
         overwrite: true
