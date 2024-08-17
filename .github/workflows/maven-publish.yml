@@ -49,6 +49,8 @@ jobs:
         echo '=== settings.xml ===================='
         cat $GITHUB_WORKSPACE/settings.xml
         echo '======================='
+        ls -alir ~
+        echo '======================='
 
     - name: Build and publish to Maven Central
       run: |
@@ -58,7 +60,6 @@ jobs:
           --settings $GITHUB_WORKSPACE/settings.xml \
           --errors --fail-at-end -DdeployAtEnd=true \
           -DskipTests -DskipITs \
-          -X \
           -P with_sources,with_javadoc,with_signature
       env:
         MAVEN_USERNAME: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
