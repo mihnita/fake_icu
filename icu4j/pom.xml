@@ -15,7 +15,7 @@
   <description>International Components for Unicode for Java (ICU4J) is a mature, widely used Java library
     providing Unicode and Globalization support.
     This is the base artifact with common settings, not intended to use directly.</description>
-  <url>https://icu.unicode.org/</url>
+  <url>${proj.url}</url>
   <inceptionYear>1995</inceptionYear>
 
   <organization>
@@ -24,7 +24,6 @@
   </organization>
 
   <modules>
-
     <!-- We need to BUILD AND INSTALL this first because it implements the
          custom Taglets used to generate javadoc.
          Otherwise generating the other modules with javadoc is not possible.
@@ -70,6 +69,7 @@
 
     <proj-title>International Components for Unicode for Java</proj-title>
     <proj.displayname>${project.artifactId}</proj.displayname>
+    <proj.url>https://icu.unicode.org/</proj.url>
 
     <!-- Version update! -->
     <icu.major.version>76</icu.major.version>
@@ -235,6 +235,9 @@
         <plugin>
           <artifactId>maven-deploy-plugin</artifactId>
           <version>3.1.1</version>
+          <configuration>
+            <skip>true</skip>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-site-plugin</artifactId>
@@ -311,6 +314,32 @@
         <plugin>
           <artifactId>maven-release-plugin</artifactId>
           <version>3.0.1</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>flatten-maven-plugin</artifactId>
+          <version>1.6.0</version>
+          <configuration>
+            <flattenMode>ossrh</flattenMode>
+          </configuration>
+          <executions>
+            <!-- enable flattening -->
+            <execution>
+              <id>flatten</id>
+              <phase>process-resources</phase>
+              <goals>
+                <goal>flatten</goal>
+              </goals>
+            </execution>
+            <!-- ensure proper cleanup -->
+            <execution>
+              <id>flatten.clean</id>
+              <phase>clean</phase>
+              <goals>
+                <goal>clean</goal>
+              </goals>
+            </execution>
+          </executions>
         </plugin>
         <plugin>
           <artifactId>maven-enforcer-plugin</artifactId>
@@ -524,10 +553,8 @@
                   <goal>sign</goal>
                 </goals>
                 <configuration>
-<!--
                   <keyname>${gpg-keyname}</keyname>
                   <passphraseServerId>${gpg-keyname}</passphraseServerId>
--->
                   <gpgArguments>
                     <arg>--pinentry-mode</arg>
                     <arg>loopback</arg>
