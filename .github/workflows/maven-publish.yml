@@ -48,11 +48,6 @@ jobs:
       run: |
         echo '=== settings.xml ===================='
         cat $GITHUB_WORKSPACE/settings.xml
-        echo '=== secrets ===================='
-        echo MAVEN_USERNAME: ${{ env.MAVEN_USERNAME }}
-        echo MAVEN_CENTRAL_TOKEN: ${{ env.MAVEN_CENTRAL_TOKEN }}
-        echo MAVEN_GPG_PASSPHRASE: ${{ env.MAVEN_GPG_PASSPHRASE }}
-        # echo MAVEN_GPG_PRIVATE_KEY: ${{ env.MAVEN_GPG_PRIVATE_KEY }}
         echo '=== gpg ===================='
         gpg --list-keys
         gpg --list-secret-keys
