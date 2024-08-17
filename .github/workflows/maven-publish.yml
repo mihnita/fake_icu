@@ -46,7 +46,6 @@ jobs:
 
     - name: Build and publish to Maven Central
       run: |
-        cd icu4j
         mvn deploy --file icu4j \
           ${SHARED_MVN_ARGS} \
           --batch-mode \
