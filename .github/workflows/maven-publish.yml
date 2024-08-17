@@ -51,6 +51,8 @@ jobs:
         echo '======================='
         ls -alir ~
         echo '======================='
+        ls -ali ~/.gnupg
+        echo '======================='
 
     - name: Build and publish to Maven Central
       run: |
