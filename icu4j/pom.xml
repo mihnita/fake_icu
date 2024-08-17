@@ -296,7 +296,7 @@
                         But $icu_root/testdata/ does not overlap with $icu_root/icu4j/ so all is good.
                         We then go up one step for the LICENSE, because Eclipse does not validate for files overlapping, only folders.
                       -->
-                      <include>../LICENSE</include>
+                      <include>LICENSE</include>
                     </includes>
                   </resource>
                 </resources>
