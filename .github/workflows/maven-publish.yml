@@ -15,6 +15,8 @@ on:
 
 env:
   SHARED_MVN_ARGS: '--show-version --no-transfer-progress'
+  ICU_VERSION: '76.0.1-SNAPSHOT'
+  RELEASE_FOLDER: 'release_folder'
 
 jobs:
   publish:
@@ -44,17 +46,7 @@ jobs:
         gpg-passphrase: MAVEN_GPG_PASSPHRASE # env variable for GPG private key passphrase
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
-    - name: Dump info
-      run: |
-        echo '=== settings.xml ===================='
-        cat $GITHUB_WORKSPACE/settings.xml
-        echo '======================='
-        ls -alir ~
-        echo '======================='
-        ls -ali ~/.gnupg
-        echo '======================='
-
-    - name: Build and publish to Maven Central
+    - name: Build and deploy to Maven Central
       run: |
         mvn deploy --file icu4j \
           ${SHARED_MVN_ARGS} \
@@ -71,27 +63,27 @@ jobs:
     - name: Prepare release folder
       run: |
         pushd icu4j
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j:76.0.1-SNAPSHOT             -DoutputDirectory=release_folder
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j:76.0.1-SNAPSHOT:jar:sources -DoutputDirectory=release_folder
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j:76.0.1-SNAPSHOT:jar:javadoc -DoutputDirectory=release_folder
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-charset:76.0.1-SNAPSHOT             -DoutputDirectory=release_folder
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-charset:76.0.1-SNAPSHOT:jar:sources -DoutputDirectory=release_folder
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-charset:76.0.1-SNAPSHOT:jar:javadoc -DoutputDirectory=release_folder
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-localespi:76.0.1-SNAPSHOT             -DoutputDirectory=release_folder
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-localespi:76.0.1-SNAPSHOT:jar:sources -DoutputDirectory=release_folder
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-localespi:76.0.1-SNAPSHOT:jar:javadoc -DoutputDirectory=release_folder
+        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j:${ICU_VERSION}             -DoutputDirectory=${RELEASE_FOLDER}
+        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j:${ICU_VERSION}:jar:sources -DoutputDirectory=${RELEASE_FOLDER}
+        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j:${ICU_VERSION}:jar:javadoc -DoutputDirectory=${RELEASE_FOLDER}
+        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-charset:${ICU_VERSION}             -DoutputDirectory=${RELEASE_FOLDER}
+        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-charset:${ICU_VERSION}:jar:sources -DoutputDirectory=${RELEASE_FOLDER}
+        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-charset:${ICU_VERSION}:jar:javadoc -DoutputDirectory=${RELEASE_FOLDER}
+        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-localespi:${ICU_VERSION}             -DoutputDirectory=${RELEASE_FOLDER}
+        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-localespi:${ICU_VERSION}:jar:sources -DoutputDirectory=${RELEASE_FOLDER}
+        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-localespi:${ICU_VERSION}:jar:javadoc -DoutputDirectory=${RELEASE_FOLDER}
         mvn site            ${SHARED_MVN_ARGS} -DskipITs -DskipTests -P with_full_javadoc
-        jar -Mcf release_folder/icu4j-76.0.1-SNAPSHOT-fulljavadoc.jar -C target/site/apidocs/ .
-        pushd release_folder
-        md5sum *.jar > icu4j-76.0.1-SNAPSHOT.md5
+        jar -Mcf ${RELEASE_FOLDER}/icu4j-${ICU_VERSION}-fulljavadoc.jar -C target/site/apidocs/ .
+        pushd ${RELEASE_FOLDER}
+        md5sum *.jar > icu4j-${ICU_VERSION}.md5
         popd
 
     - name: Upload build results
       uses: actions/upload-artifact@v4.3.6
       with:
-        path: ./icu4j/release_folder/*
+        path: ./icu4j/${RELEASE_FOLDER}/*
         retention-days: 1
         overwrite: true
 
-    - name: Try if we have gh
+    - name: Try to see if we have gh, we might be able to use it
       run: gh --help
