@@ -83,9 +83,11 @@ jobs:
         echo RELEASE_FOLDER is ${RELEASE_FOLDER}
         ls ${RELEASE_FOLDER}
 
+    - name: Check build results
+      run: find . -type f
+
     - name: Upload build results
       uses: actions/upload-artifact@v4.3.6
-      run: find . -type f
       with:
         path: ./icu4j/${RELEASE_FOLDER}/*
         retention-days: 1
