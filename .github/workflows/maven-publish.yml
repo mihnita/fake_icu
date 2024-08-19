@@ -14,7 +14,7 @@ on:
     # https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow
 
 env:
-  SHARED_MVN_ARGS: '--show-version --no-transfer-progress'
+  SHARED_MVN_ARGS: '--no-transfer-progress'
   ICU_VERSION: '76.0.1-SNAPSHOT'
   RELEASE_FOLDER: 'release_folder'
 
@@ -50,6 +50,7 @@ jobs:
       run: |
         mvn deploy --file icu4j \
           ${SHARED_MVN_ARGS} \
+          --show-version \
           --batch-mode \
           --settings $GITHUB_WORKSPACE/settings.xml \
           --errors --fail-at-end -DdeployAtEnd=true \
@@ -77,9 +78,14 @@ jobs:
         pushd ${RELEASE_FOLDER}
         md5sum *.jar > icu4j-${ICU_VERSION}.md5
         popd
+        echo We are in $PWD
+        ls -ali
+        echo RELEASE_FOLDER is ${RELEASE_FOLDER}
+        ls ${RELEASE_FOLDER}
 
     - name: Upload build results
       uses: actions/upload-artifact@v4.3.6
+      run: find . -type f
       with:
         path: ./icu4j/${RELEASE_FOLDER}/*
         retention-days: 1
