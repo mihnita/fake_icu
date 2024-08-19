@@ -83,15 +83,10 @@ jobs:
         echo RELEASE_FOLDER is ${RELEASE_FOLDER}
         ls ${RELEASE_FOLDER}
 
-    - name: Check build results
-      run: find . -type f
-
     - name: Upload build results
       uses: actions/upload-artifact@v4.3.6
       with:
-        path: ./icu4j/${RELEASE_FOLDER}/*
+        path: ./icu4j/${{ env.RELEASE_FOLDER }}/*
         retention-days: 1
         overwrite: true
 
-    - name: Try to see if we have gh, we might be able to use it
-      run: gh --help
