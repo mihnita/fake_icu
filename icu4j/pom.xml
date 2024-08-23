@@ -58,6 +58,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
+
+    <release.folder>release_folder</release.folder>
     <project.build.outputTimestamp>2023-01-01T00:00:00Z</project.build.outputTimestamp>
 <!--
     <project.build.outputTimestamp>${git.commit.time}</project.build.outputTimestamp>
@@ -278,6 +280,64 @@
         <plugin>
           <artifactId>maven-dependency-plugin</artifactId>
           <version>3.8.0</version>
+          <configuration>
+            <overWriteReleases>true</overWriteReleases>
+            <overWriteSnapshots>true</overWriteSnapshots>
+            <outputDirectory>${release.folder}</outputDirectory>
+            <artifactItems>
+              <artifactItem>
+                <groupId>com.ibm.icu</groupId>
+                <artifactId>icu4j</artifactId>
+                <version>${project.version}</version>
+              </artifactItem>
+              <artifactItem>
+                <groupId>com.ibm.icu</groupId>
+                <artifactId>icu4j</artifactId>
+                <version>${project.version}</version>
+                <classifier>sources</classifier>
+              </artifactItem>
+              <artifactItem>
+                <groupId>com.ibm.icu</groupId>
+                <artifactId>icu4j</artifactId>
+                <version>${project.version}</version>
+                <classifier>javadoc</classifier>
+              </artifactItem>
+              <artifactItem>
+                <groupId>com.ibm.icu</groupId>
+                <artifactId>icu4j-charset</artifactId>
+                <version>${project.version}</version>
+              </artifactItem>
+              <artifactItem>
+                <groupId>com.ibm.icu</groupId>
+                <artifactId>icu4j-charset</artifactId>
+                <version>${project.version}</version>
+                <classifier>sources</classifier>
+              </artifactItem>
+              <artifactItem>
+                <groupId>com.ibm.icu</groupId>
+                <artifactId>icu4j-charset</artifactId>
+                <version>${project.version}</version>
+                <classifier>javadoc</classifier>
+              </artifactItem>
+              <artifactItem>
+                <groupId>com.ibm.icu</groupId>
+                <artifactId>icu4j-localespi</artifactId>
+                <version>${project.version}</version>
+              </artifactItem>
+              <artifactItem>
+                <groupId>com.ibm.icu</groupId>
+                <artifactId>icu4j-localespi</artifactId>
+                <version>${project.version}</version>
+                <classifier>sources</classifier>
+              </artifactItem>
+              <artifactItem>
+                <groupId>com.ibm.icu</groupId>
+                <artifactId>icu4j-localespi</artifactId>
+                <version>${project.version}</version>
+                <classifier>javadoc</classifier>
+              </artifactItem>
+            </artifactItems>
+        </configuration>
         </plugin>
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
@@ -487,20 +547,18 @@
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>buildnumber-maven-plugin</artifactId>
           <version>3.1.0</version>
-
-        <executions>
-          <execution>
-            <phase>validate</phase>
-            <goals>
-              <goal>create</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <!-- <doCheck>true</doCheck> -->
-          <doUpdate>true</doUpdate>
-        </configuration>
-
+          <executions>
+            <execution>
+              <phase>validate</phase>
+              <goals>
+                <goal>create</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <!-- <doCheck>true</doCheck> -->
+            <doUpdate>true</doUpdate>
+          </configuration>
         </plugin>
         <plugin>
 <!--
@@ -556,7 +614,6 @@
       </plugin>
 -->
     </plugins>
-
   </build>
 
   <profiles>

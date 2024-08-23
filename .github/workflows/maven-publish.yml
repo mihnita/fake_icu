@@ -25,7 +25,6 @@ on:
 
 env:
   SHARED_MVN_ARGS: '--no-transfer-progress'
-  ICU_VERSION: '76.0.1-SNAPSHOT'
   RELEASE_FOLDER: 'release_folder'
 
 jobs:
@@ -76,15 +75,7 @@ jobs:
     - name: Prepare release folder
       run: |
         pushd icu4j
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j:${ICU_VERSION}             -DoutputDirectory=${RELEASE_FOLDER}
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j:${ICU_VERSION}:jar:sources -DoutputDirectory=${RELEASE_FOLDER}
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j:${ICU_VERSION}:jar:javadoc -DoutputDirectory=${RELEASE_FOLDER}
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-charset:${ICU_VERSION}             -DoutputDirectory=${RELEASE_FOLDER}
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-charset:${ICU_VERSION}:jar:sources -DoutputDirectory=${RELEASE_FOLDER}
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-charset:${ICU_VERSION}:jar:javadoc -DoutputDirectory=${RELEASE_FOLDER}
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-localespi:${ICU_VERSION}             -DoutputDirectory=${RELEASE_FOLDER}
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-localespi:${ICU_VERSION}:jar:sources -DoutputDirectory=${RELEASE_FOLDER}
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Dartifact=com.ibm.icu:icu4j-localespi:${ICU_VERSION}:jar:javadoc -DoutputDirectory=${RELEASE_FOLDER}
+        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Drelease.folder=${RELEASE_FOLDER}
         # Build the full javadoc to be posted on the public site
         mvn site ${SHARED_MVN_ARGS} -DskipITs -DskipTests -P with_full_javadoc
         jar -Mcf ${RELEASE_FOLDER}/icu4j-${ICU_VERSION}-fulljavadoc.jar -C target/site/apidocs/ .
