@@ -58,11 +58,11 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-<!--
     <project.build.outputTimestamp>2023-01-01T00:00:00Z</project.build.outputTimestamp>
+<!--
     <project.build.outputTimestamp>${git.commit.time}</project.build.outputTimestamp>
--->
     <project.build.outputTimestamp>${timestamp}</project.build.outputTimestamp>
+-->
 
     <maven-central-repo-url>https://oss.sonatype.org</maven-central-repo-url>
     <maven-central-releases-repo-url>${maven-central-repo-url}/service/local/staging/deploy/maven2</maven-central-releases-repo-url>
@@ -549,12 +549,12 @@
         <groupId>io.github.git-commit-id</groupId>
         <artifactId>git-commit-id-maven-plugin</artifactId>
       </plugin>
--->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>buildnumber-maven-plugin</artifactId>
         <version>3.1.0</version>
       </plugin>
+-->
     </plugins>
 
   </build>
