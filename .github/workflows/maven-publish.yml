@@ -32,8 +32,7 @@ on:
       required: true
 
 env:
-  SHARED_MVN_ARGS: '--no-transfer-progress'
-  RELEASE_FOLDER: 'release_folder'
+  SHARED_MVN_ARGS: '--no-transfer-progress --show-version --batch-mode'
 
 jobs:
   publish:
@@ -63,12 +62,18 @@ jobs:
         gpg-passphrase: MAVEN_GPG_PASSPHRASE # env variable for GPG private key passphrase
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
+    # TODO: enable tests? We don't want to release until we are 100% sure everything works.
+    - name: Build all of ICU
+      run: |
+        # Really important to do this first because we need `tools/build` for the javadoc applets
+        mvn install --file icu4j
+          ${SHARED_MVN_ARGS} \
+          -DskipTests -DskipITs
+
     - name: Build and deploy to Maven Central
       run: |
         mvn deploy --file icu4j \
           ${SHARED_MVN_ARGS} \
-          --show-version \
-          --batch-mode \
           --settings $GITHUB_WORKSPACE/settings.xml \
           --errors --fail-at-end -DdeployAtEnd=true \
           -DskipTests -DskipITs \
