@@ -3,8 +3,8 @@
 
 name: Publish to Nexus Sonatype OSS
 
-# For this to run you should define the follwing GitHub Secrets
-# in Settings -- Secrets and variables -- Actions -- Repository secrets:
+# For this to run you should define the follwing GitHub Secrets in the proper Environment.
+# In Settings -- Environments -- release_env -- Environment secrets:
 # * MAVEN_CENTRAL_USERNAME & MAVEN_CENTRAL_TOKEN:
 #   * Go to https://oss.sonatype.org and login with the `icu-robot` user
 #   * Top-right select "Profile"
@@ -17,11 +17,19 @@ name: Publish to Nexus Sonatype OSS
 # * MAVEN_GPG_PASSPHRASE: the GPG password used to protect that key
 
 on:
-  release:
-    types: [created]
+  # To trigger the Env Test workflow manually, follow the instructions in
+  # https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow
   workflow_dispatch:
-    # To trigger the Env Test workflow manually, follow the instructions in
-    # https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow
+    gitTag:
+      # TODO: make this mandatory and validate that it is in a release* branch and looks like
+      # 'release-\d+.\d+ or something like that.
+      # For now we don't do it so that we can test.
+      description: 'Git tag at which to sync to release'
+      type: string
+    environment:
+      description: 'Environment to release with'
+      type: environment
+      required: true
 
 env:
   SHARED_MVN_ARGS: '--no-transfer-progress'
@@ -69,26 +77,4 @@ jobs:
         MAVEN_USERNAME: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
         MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
         MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
-
-    # These are files that will end in the "Release" section of the GitHub repo.
-    # So the jar files published in GitHub are binary identical to the ones in Maven Central.
-    - name: Prepare release folder
-      run: |
-        pushd icu4j
-        mvn dependency:copy ${SHARED_MVN_ARGS} -q -Drelease.folder=${RELEASE_FOLDER}
-        # Build the full javadoc to be posted on the public site
-        mvn site ${SHARED_MVN_ARGS} -DskipITs -DskipTests -P with_full_javadoc
-        jar -Mcf ${RELEASE_FOLDER}/icu4j-${ICU_VERSION}-fulljavadoc.jar -C target/site/apidocs/ .
-        # Create the file with MD5 checksums
-        pushd ${RELEASE_FOLDER}
-        md5sum *.jar > icu4j-${ICU_VERSION}.md5
-        popd
-
-    # We might even try to use `gh` to add them to the GitHub "Release" page automatically
-    - name: Upload build results
-      uses: actions/upload-artifact@v4.3.6
-      with:
-        path: ./icu4j/${{ env.RELEASE_FOLDER }}/*
-        retention-days: 3 # TBD if we want to keep them longer
-        overwrite: true
 

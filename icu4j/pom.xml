@@ -59,13 +59,6 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
 
-    <release.folder>release_folder</release.folder>
-    <project.build.outputTimestamp>2023-01-01T00:00:00Z</project.build.outputTimestamp>
-<!--
-    <project.build.outputTimestamp>${git.commit.time}</project.build.outputTimestamp>
-    <project.build.outputTimestamp>${timestamp}</project.build.outputTimestamp>
--->
-
     <maven-central-repo-url>https://oss.sonatype.org</maven-central-repo-url>
     <maven-central-releases-repo-url>${maven-central-repo-url}/service/local/staging/deploy/maven2</maven-central-releases-repo-url>
     <maven-central-snapshots-repo-url>${maven-central-repo-url}/content/repositories/snapshots</maven-central-snapshots-repo-url>
@@ -73,6 +66,7 @@
     <junit.version>4.13.2</junit.version>
     <junitparams.version>1.1.1</junitparams.version>
     <gson.version>2.11.0</gson.version>
+    <commons-cli.version>1.9.0</commons-cli.version>
 
     <proj-title>International Components for Unicode for Java</proj-title>
     <proj.displayname>${project.artifactId}</proj.displayname>
@@ -181,26 +175,16 @@
 
   <distributionManagement>
     <repository>
-      <id>icu4j-maven-repo</id>
+      <id>icu4j-releases</id>
       <name>ICU4J Central Repository</name>
       <url>${maven-central-releases-repo-url}</url>
     </repository>
     <snapshotRepository>
-      <id>icu4j-maven-repo</id>
+      <id>icu4j-snapshots</id>
       <name>ICU4J Central Development Repository</name>
       <url>${maven-central-snapshots-repo-url}</url>
     </snapshotRepository>
   </distributionManagement>
-
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>commons-cli</groupId>
-        <artifactId>commons-cli</artifactId>
-        <version>1.9.0</version>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
 
   <build>
     <pluginManagement>
@@ -280,64 +264,6 @@
         <plugin>
           <artifactId>maven-dependency-plugin</artifactId>
           <version>3.8.0</version>
-          <configuration>
-            <overWriteReleases>true</overWriteReleases>
-            <overWriteSnapshots>true</overWriteSnapshots>
-            <outputDirectory>${release.folder}</outputDirectory>
-            <artifactItems>
-              <artifactItem>
-                <groupId>com.ibm.icu</groupId>
-                <artifactId>icu4j</artifactId>
-                <version>${project.version}</version>
-              </artifactItem>
-              <artifactItem>
-                <groupId>com.ibm.icu</groupId>
-                <artifactId>icu4j</artifactId>
-                <version>${project.version}</version>
-                <classifier>sources</classifier>
-              </artifactItem>
-              <artifactItem>
-                <groupId>com.ibm.icu</groupId>
-                <artifactId>icu4j</artifactId>
-                <version>${project.version}</version>
-                <classifier>javadoc</classifier>
-              </artifactItem>
-              <artifactItem>
-                <groupId>com.ibm.icu</groupId>
-                <artifactId>icu4j-charset</artifactId>
-                <version>${project.version}</version>
-              </artifactItem>
-              <artifactItem>
-                <groupId>com.ibm.icu</groupId>
-                <artifactId>icu4j-charset</artifactId>
-                <version>${project.version}</version>
-                <classifier>sources</classifier>
-              </artifactItem>
-              <artifactItem>
-                <groupId>com.ibm.icu</groupId>
-                <artifactId>icu4j-charset</artifactId>
-                <version>${project.version}</version>
-                <classifier>javadoc</classifier>
-              </artifactItem>
-              <artifactItem>
-                <groupId>com.ibm.icu</groupId>
-                <artifactId>icu4j-localespi</artifactId>
-                <version>${project.version}</version>
-              </artifactItem>
-              <artifactItem>
-                <groupId>com.ibm.icu</groupId>
-                <artifactId>icu4j-localespi</artifactId>
-                <version>${project.version}</version>
-                <classifier>sources</classifier>
-              </artifactItem>
-              <artifactItem>
-                <groupId>com.ibm.icu</groupId>
-                <artifactId>icu4j-localespi</artifactId>
-                <version>${project.version}</version>
-                <classifier>javadoc</classifier>
-              </artifactItem>
-            </artifactItems>
-        </configuration>
         </plugin>
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
@@ -368,7 +294,7 @@
                         But $icu_root/testdata/ does not overlap with $icu_root/icu4j/ so all is good.
                         We then go up one step for the LICENSE, because Eclipse does not validate for files overlapping, only folders.
                       -->
-                      <include>LICENSE</include>
+                      <include>../LICENSE</include>
                     </includes>
                   </resource>
                 </resources>
@@ -395,7 +321,6 @@
             <flattenMode>ossrh</flattenMode>
           </configuration>
           <executions>
-            <!-- enable flattening -->
             <execution>
               <id>flatten</id>
               <phase>process-resources</phase>
@@ -403,7 +328,6 @@
                 <goal>flatten</goal>
               </goals>
             </execution>
-            <!-- ensure proper cleanup -->
             <execution>
               <id>flatten.clean</id>
               <phase>clean</phase>
@@ -543,53 +467,6 @@
           <artifactId>exec-maven-plugin</artifactId>
           <version>3.4.1</version>
         </plugin>
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>buildnumber-maven-plugin</artifactId>
-          <version>3.1.0</version>
-          <executions>
-            <execution>
-              <phase>validate</phase>
-              <goals>
-                <goal>create</goal>
-              </goals>
-            </execution>
-          </executions>
-          <configuration>
-            <!-- <doCheck>true</doCheck> -->
-            <doUpdate>true</doUpdate>
-          </configuration>
-        </plugin>
-        <plugin>
-<!--
-          <groupId>io.github.git-commit-id</groupId>
-          <artifactId>git-commit-id-maven-plugin</artifactId>
-          <version>9.0.1</version>
--->
-          <groupId>pl.project13.maven</groupId>
-          <artifactId>git-commit-id-plugin</artifactId>
-          <version>4.9.10</version>
-          <executions>
-            <execution>
-              <id>get-the-git-infos</id>
-              <goals>
-                <goal>revision</goal>
-              </goals>
-              <phase>initialize</phase>
-            </execution>
-          </executions>
-          <configuration>
-            <generateGitPropertiesFile>true</generateGitPropertiesFile>
-            <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
-<!--
-            <includeOnlyProperties>
-              <includeOnlyProperty>^git.build.(time|version)$</includeOnlyProperty>
-              <includeOnlyProperty>^git.commit.id.(abbrev|full)$</includeOnlyProperty>
-            </includeOnlyProperties>
--->
-            <commitIdGenerationMode>full</commitIdGenerationMode>
-          </configuration>
-        </plugin>
       </plugins>
     </pluginManagement>
 
@@ -602,18 +479,8 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
       </plugin>
-<!--
-      <plugin>
-        <groupId>io.github.git-commit-id</groupId>
-        <artifactId>git-commit-id-maven-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>buildnumber-maven-plugin</artifactId>
-        <version>3.1.0</version>
-      </plugin>
--->
     </plugins>
+
   </build>
 
   <profiles>
