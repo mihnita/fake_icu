@@ -171,12 +171,12 @@
 
   <distributionManagement>
     <repository>
-      <id>icu4j-releases</id>
+      <id>icu4j-maven-repo</id>
       <name>ICU4J Central Repository</name>
       <url>${maven-central-releases-repo-url}</url>
     </repository>
     <snapshotRepository>
-      <id>icu4j-snapshots</id>
+      <id>icu4j-maven-repo</id>
       <name>ICU4J Central Development Repository</name>
       <url>${maven-central-snapshots-repo-url}</url>
     </snapshotRepository>
@@ -379,6 +379,8 @@
             <charset>UTF-8</charset>
             <breakiterator>true</breakiterator>
             <use>true</use>
+            <maxmemory>256m</maxmemory>
+            <minmemory>256m</minmemory>
             <!-- <verbose>true</verbose> -->
             <additionalJOptions>
               <additionalJOption>-J-Djcitesourcepath=${icu4j.api.doc.root.dir}/samples/src/main/java${path.separator}${icu4j.api.doc.root.dir}/demos/src/main/java${path.separator}${icu4j.api.doc.root.dir}/main/core/src/main/java</additionalJOption>

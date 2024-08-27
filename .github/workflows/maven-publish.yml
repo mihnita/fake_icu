@@ -25,23 +25,19 @@ on:
         # TODO: make this mandatory and validate that it is in a release* branch and looks like
         # 'release-\d+.\d+ or something like that.
         # For now we don't do it so that we can test.
-        description: 'Git tag at which to sync to release'
+        description: 'Git tag at which to sync for deploy and release'
         type: string
-      environment:
-        description: 'Environment to release with'
-        type: environment
-        required: true
 
 env:
   SHARED_MVN_ARGS: '--no-transfer-progress --show-version --batch-mode'
+  # TODO: find a way to not have a version number (too many places to update)
   ICU_VERSION: '76.0.1-SNAPSHOT'
   RELEASE_FOLDER: 'target/release_files'
 
 jobs:
   publish:
-
     runs-on: ubuntu-latest
-
+    environment: release-env
     permissions:
       contents: read
       packages: write
@@ -64,12 +60,12 @@ jobs:
         gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }} # Value of the GPG private key to import
         gpg-passphrase: MAVEN_GPG_PASSPHRASE # env variable for GPG private key passphrase
         settings-path: ${{ github.workspace }} # location for the settings.xml file
-
+  
     # TODO: enable tests? We don't want to release until we are 100% sure everything works.
     - name: Build all of ICU
       run: |
         # Really important to do this first because we need `tools/build` for the javadoc applets
-        mvn install --file icu4j \
+        mvn install --file icu4j/tools/build \
           ${SHARED_MVN_ARGS} \
           -DskipTests -DskipITs
 
@@ -110,25 +106,11 @@ jobs:
         popd # out of $RELEASE_FOLDER
         popd # out of icu4j
 
-    # We might even try to use `gh` to add them to the GitHub "Release" page automatically
+    # TODO: add them to the GitHub "Release" page automatically
     - name: Upload build results
       uses: actions/upload-artifact@v4.3.6
       with:
-        path: ${{ env.RELEASE_FOLDER }}/*
+        path: ./icu4j/${{ env.RELEASE_FOLDER }}/*
         retention-days: 3 # TBD if we want to keep them longer
         overwrite: true
 
-    # We might even try to use `gh` to add them to the GitHub "Release" page automatically
-    - name: Test release shell shared
-      run: |
-        pushd icu4j
-        source  releases_tools/shared.sh
-        echo '============='
-        echo artifact_version        = $artifact_version
-        echo github_rel_version      = $github_rel_version
-        echo api_report_version      = $api_report_version
-        echo api_report_prev_version = $api_report_prev_version
-        echo out_dir                 = $out_dir
-        echo '============='
-        set
-        popd
