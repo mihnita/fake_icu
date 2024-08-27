@@ -56,6 +56,9 @@
     <maven-central-releases-repo-url>${maven-central-repo-url}/service/local/staging/deploy/maven2</maven-central-releases-repo-url>
     <maven-central-snapshots-repo-url>${maven-central-repo-url}/content/repositories/snapshots</maven-central-snapshots-repo-url>
 
+    <!-- This is the folder where we gather the files to be posted in the Github Release-->
+    <release.directory>${project.build.directory}/release_directory</release.directory>
+
     <junit.version>4.13.2</junit.version>
     <junitparams.version>1.1.1</junitparams.version>
     <gson.version>2.11.0</gson.version>
@@ -711,6 +714,77 @@
       </build>
     </profile>
 
+    <profile>
+        <id>release_files</id>
+        <build>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <configuration>
+                        <outputDirectory>${release.directory}</outputDirectory>
+                        <overWriteReleases>true</overWriteReleases>
+                        <overWriteSnapshots>true</overWriteSnapshots>
+                        <artifactItems>
+                        <!-- icu4j -->
+                        <artifactItem>
+                            <groupId>com.ibm.icu</groupId>
+                            <artifactId>icu4j</artifactId>
+                            <version>${project.version}</version>
+                        </artifactItem>
+                        <artifactItem>
+                            <groupId>com.ibm.icu</groupId>
+                            <artifactId>icu4j</artifactId>
+                            <version>${project.version}</version>
+                            <classifier>sources</classifier>
+                        </artifactItem>
+                        <artifactItem>
+                            <groupId>com.ibm.icu</groupId>
+                            <artifactId>icu4j</artifactId>
+                            <version>${project.version}</version>
+                            <classifier>javadoc</classifier>
+                        </artifactItem>
+                        <!-- icu4j-charset -->
+                        <artifactItem>
+                            <groupId>com.ibm.icu</groupId>
+                            <artifactId>icu4j-charset</artifactId>
+                            <version>${project.version}</version>
+                        </artifactItem>
+                        <artifactItem>
+                            <groupId>com.ibm.icu</groupId>
+                            <artifactId>icu4j-charset</artifactId>
+                            <version>${project.version}</version>
+                            <classifier>sources</classifier>
+                        </artifactItem>
+                        <artifactItem>
+                            <groupId>com.ibm.icu</groupId>
+                            <artifactId>icu4j-charset</artifactId>
+                            <version>${project.version}</version>
+                            <classifier>javadoc</classifier>
+                        </artifactItem>
+                        <!-- icu4j-localespi -->
+                        <artifactItem>
+                            <groupId>com.ibm.icu</groupId>
+                            <artifactId>icu4j-localespi</artifactId>
+                            <version>${project.version}</version>
+                        </artifactItem>
+                        <artifactItem>
+                            <groupId>com.ibm.icu</groupId>
+                            <artifactId>icu4j-localespi</artifactId>
+                            <version>${project.version}</version>
+                            <classifier>sources</classifier>
+                        </artifactItem>
+                        <artifactItem>
+                            <groupId>com.ibm.icu</groupId>
+                            <artifactId>icu4j-localespi</artifactId>
+                            <version>${project.version}</version>
+                            <classifier>javadoc</classifier>
+                        </artifactItem>
+                        </artifactItems>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </build>
+    </profile>
   </profiles>
 
 </project>

@@ -20,19 +20,22 @@ on:
   # To trigger the Env Test workflow manually, follow the instructions in
   # https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow
   workflow_dispatch:
-    gitTag:
-      # TODO: make this mandatory and validate that it is in a release* branch and looks like
-      # 'release-\d+.\d+ or something like that.
-      # For now we don't do it so that we can test.
-      description: 'Git tag at which to sync to release'
-      type: string
-    environment:
-      description: 'Environment to release with'
-      type: environment
-      required: true
+    inputs:
+      gitTag:
+        # TODO: make this mandatory and validate that it is in a release* branch and looks like
+        # 'release-\d+.\d+ or something like that.
+        # For now we don't do it so that we can test.
+        description: 'Git tag at which to sync to release'
+        type: string
+      environment:
+        description: 'Environment to release with'
+        type: environment
+        required: true
 
 env:
   SHARED_MVN_ARGS: '--no-transfer-progress --show-version --batch-mode'
+  ICU_VERSION: '76.0.1-SNAPSHOT'
+  RELEASE_FOLDER: 'target/release_files'
 
 jobs:
   publish:
@@ -66,7 +69,7 @@ jobs:
     - name: Build all of ICU
       run: |
         # Really important to do this first because we need `tools/build` for the javadoc applets
-        mvn install --file icu4j
+        mvn install --file icu4j \
           ${SHARED_MVN_ARGS} \
           -DskipTests -DskipITs
 
@@ -83,3 +86,49 @@ jobs:
         MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
         MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
 
+    # These are files that will end in the "Release" section of the GitHub repo.
+    # So the jar files published in GitHub are binary identical to the ones in Maven Central.
+    - name: Prepare release folder
+      run: |
+        pushd icu4j
+        # Copy the artifacts (with sources and javdoc .jar files) to the release folder
+        mvn dependency:copy \
+          ${SHARED_MVN_ARGS} \
+          -DskipTests -DskipITs \
+          -Drelease.directory=${RELEASE_FOLDER} \
+          -P release_files
+        # Build the full javadoc to be posted on the public site
+        mvn site \
+          ${SHARED_MVN_ARGS} \
+          -DskipITs -DskipTests \
+          -P with_full_javadoc
+        jar -Mcf ${RELEASE_FOLDER}/icu4j-${ICU_VERSION}-fulljavadoc.jar \
+          -C target/site/apidocs/ .
+        # Create the file with MD5 checksums
+        pushd ${RELEASE_FOLDER}
+        md5sum *.jar > icu4j-${ICU_VERSION}.md5
+        popd # out of $RELEASE_FOLDER
+        popd # out of icu4j
+
+    # We might even try to use `gh` to add them to the GitHub "Release" page automatically
+    - name: Upload build results
+      uses: actions/upload-artifact@v4.3.6
+      with:
+        path: ${{ env.RELEASE_FOLDER }}/*
+        retention-days: 3 # TBD if we want to keep them longer
+        overwrite: true
+
+    # We might even try to use `gh` to add them to the GitHub "Release" page automatically
+    - name: Test release shell shared
+      run: |
+        pushd icu4j
+        source  releases_tools/shared.sh
+        echo '============='
+        echo artifact_version        = $artifact_version
+        echo github_rel_version      = $github_rel_version
+        echo api_report_version      = $api_report_version
+        echo api_report_prev_version = $api_report_prev_version
+        echo out_dir                 = $out_dir
+        echo '============='
+        set
+        popd
