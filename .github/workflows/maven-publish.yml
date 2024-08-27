@@ -27,10 +27,6 @@ on:
         # For now we don't do it so that we can test.
         description: 'Git tag at which to sync to release'
         type: string
-      environment:
-        description: 'Environment to release with'
-        type: environment
-        required: true
 
 env:
   SHARED_MVN_ARGS: '--no-transfer-progress --show-version --batch-mode'
@@ -39,8 +35,8 @@ env:
 
 jobs:
   publish:
-    environment: release_env
     runs-on: ubuntu-latest
+    environment: release_env
 
     permissions:
       contents: read
@@ -64,34 +60,6 @@ jobs:
         gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }} # Value of the GPG private key to import
         gpg-passphrase: MAVEN_GPG_PASSPHRASE # env variable for GPG private key passphrase
         settings-path: ${{ github.workspace }} # location for the settings.xml file
-
-    # We might even try to use `gh` to add them to the GitHub "Release" page automatically
-    - name: Test release shell shared
-      run: |
-        pushd icu4j
-        source  releases_tools/shared.sh
-        echo '============='
-        echo artifact_version        = $artifact_version
-        echo github_rel_version      = $github_rel_version
-        echo api_report_version      = $api_report_version
-        echo api_report_prev_version = $api_report_prev_version
-        echo out_dir                 = $out_dir
-        echo MAVEN_OPTS              = $MAVEN_OPTS
-        echo '============='
-        set
-        popd
-
-    # TODO: enable tests? We don't want to release until we are 100% sure everything works.
-    - name: Build all of ICU
-      run: |
-        # Really important to do this first because we need `tools/build` for the javadoc applets
-        mvn install --file icu4j/tools/build \
-          ${SHARED_MVN_ARGS} \
-          -DskipTests -DskipITs
-        mvn install --file icu4j \
-          ${SHARED_MVN_ARGS} \
-          -DskipTests -DskipITs \
-          -P with_sources,with_javadoc
 
     - name: Build and deploy to Maven Central
       run: |
@@ -134,6 +102,7 @@ jobs:
     - name: Upload build results
       uses: actions/upload-artifact@v4.3.6
       with:
-        path: ${{ env.RELEASE_FOLDER }}/*
+        path: ./icu4j/${{ env.RELEASE_FOLDER }}/*
         retention-days: 3 # TBD if we want to keep them longer
         overwrite: true
+
