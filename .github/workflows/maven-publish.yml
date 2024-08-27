@@ -63,6 +63,10 @@ jobs:
 
     - name: Build and deploy to Maven Central
       run: |
+        # We need this first because it contains the doclets needed by javadoc
+        mvn deploy --file icu4j/tools/build \
+          ${SHARED_MVN_ARGS} \
+          -DskipTests -DskipITs \
         mvn deploy --file icu4j \
           ${SHARED_MVN_ARGS} \
           --settings $GITHUB_WORKSPACE/settings.xml \
