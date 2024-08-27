@@ -65,13 +65,30 @@ jobs:
         gpg-passphrase: MAVEN_GPG_PASSPHRASE # env variable for GPG private key passphrase
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
+    # We might even try to use `gh` to add them to the GitHub "Release" page automatically
+    - name: Test release shell shared
+      run: |
+        pushd icu4j
+        source  releases_tools/shared.sh
+        echo '============='
+        echo artifact_version        = $artifact_version
+        echo github_rel_version      = $github_rel_version
+        echo api_report_version      = $api_report_version
+        echo api_report_prev_version = $api_report_prev_version
+        echo out_dir                 = $out_dir
+        echo MAVEN_OPTS              = $MAVEN_OPTS
+        echo '============='
+        set
+        popd
+
     # TODO: enable tests? We don't want to release until we are 100% sure everything works.
     - name: Build all of ICU
       run: |
         # Really important to do this first because we need `tools/build` for the javadoc applets
         mvn install --file icu4j \
           ${SHARED_MVN_ARGS} \
-          -DskipTests -DskipITs
+          -DskipTests -DskipITs \
+          -P with_sources,with_javadoc
 
     - name: Build and deploy to Maven Central
       run: |
@@ -117,18 +134,3 @@ jobs:
         path: ${{ env.RELEASE_FOLDER }}/*
         retention-days: 3 # TBD if we want to keep them longer
         overwrite: true
-
-    # We might even try to use `gh` to add them to the GitHub "Release" page automatically
-    - name: Test release shell shared
-      run: |
-        pushd icu4j
-        source  releases_tools/shared.sh
-        echo '============='
-        echo artifact_version        = $artifact_version
-        echo github_rel_version      = $github_rel_version
-        echo api_report_version      = $api_report_version
-        echo api_report_prev_version = $api_report_prev_version
-        echo out_dir                 = $out_dir
-        echo '============='
-        set
-        popd
