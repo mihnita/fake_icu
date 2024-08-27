@@ -39,7 +39,7 @@ env:
 
 jobs:
   publish:
-
+    environment: release_env
     runs-on: ubuntu-latest
 
     permissions:

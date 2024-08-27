@@ -631,6 +631,8 @@
                 <additionalOption>-internal</additionalOption>
                 <additionalOption>-version</additionalOption>
                 <additionalOption>-gzip</additionalOption>
+                <additionalOption>-verbose:gc</additionalOption>
+                <additionalOption>-version</additionalOption>
               </additionalOptions>
             </configuration>
           </plugin>
