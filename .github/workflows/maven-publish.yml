@@ -30,8 +30,6 @@ on:
 
 env:
   SHARED_MVN_ARGS: '--no-transfer-progress --show-version --batch-mode'
-  # TODO: find a way to not have a version number (too many places to update)
-  ICU_VERSION: '76.0.1-SNAPSHOT'
   RELEASE_FOLDER: 'target/release_files'
 
 jobs:
@@ -87,6 +85,7 @@ jobs:
     - name: Prepare release folder
       run: |
         pushd icu4j
+        ICU_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
         # Copy the artifacts (with sources and javdoc .jar files) to the release folder
         mvn dependency:copy \
           ${SHARED_MVN_ARGS} \
