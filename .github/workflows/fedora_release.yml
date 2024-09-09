@@ -38,7 +38,7 @@ jobs:
       run: |
         pushd icu/icu4c/source
         ./runConfigureICU Linux/gcc
-        make -j8 \
+        make -j8
         sed -i 's/^DOXYGEN *= *$/DOXYGEN = echo/g' Makefile
         make doc
         make dist
