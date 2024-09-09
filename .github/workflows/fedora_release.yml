@@ -1,0 +1,37 @@
+name: Build ICU4C on Fedora Linux
+
+on:
+  workflow_dispatch:
+    inputs:
+      foo:
+        description: 'Something, whatever'
+        type: string
+
+jobs:
+  build:
+    runs-on: fedora-docker-gcr
+    permissions:
+      contents: read
+
+    steps:
+
+    - name: Checkout repo files
+      uses: actions/checkout@v4.1.7
+      with:
+        lfs: true
+
+    - name: Inspect
+      run: |
+        echo $PWD \
+        ls \
+        ls /
+
+    - name: Build ICU4J
+      run: |
+        git clone --depth=1 https://github.com/unicode-org/icu.git icu_fed \
+        cd icu_fed/icu4c/source \
+        ./runConfigureICU Linux/gcc \
+        make -j8 \
+        make check \
+        sed -i 's/^DOXYGEN *= *$/DOXYGEN = echo/g' Makefile \
+        make dist
