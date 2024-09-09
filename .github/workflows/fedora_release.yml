@@ -7,9 +7,16 @@ on:
         description: 'Something, whatever'
         type: string
 
+container:
+  image: ghcr.io/mihnita/fedora-docker-gcr:latest
+  credentials:
+     username: ${{ github.actor }}
+     password: ${{ secrets.github_token }}
+
 jobs:
   build:
-    runs-on: fedora-docker-gcr
+    runs-on: ubuntu-latest
+    container: fedora-docker-gcr
     permissions:
       contents: read
 
