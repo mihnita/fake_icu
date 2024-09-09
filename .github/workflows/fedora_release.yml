@@ -11,7 +11,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container: 
-      image: ghcr.io/mihnita/fedora-docker-gcr
+      image: ghcr.io/mihnita/fedora-docker-gcr:latest
+        username: ${{ secrets.DOCKER_CONTAINER_USER_NAME }}
+        password: ${{ secrets.DOCKER_CONTAINER_REGISTRY_TOKEN }}
+
     permissions:
       contents: read
 
