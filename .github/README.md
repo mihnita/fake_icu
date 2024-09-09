@@ -6,8 +6,8 @@ docker login ghcr.io
 **User:** the github user \
 **Password:** the github key
 
-docker build --tag ghcr.io/mihnita/fedora-docker-gcr:latest -f Dockerfile_fedora . 
-docker push ghcr.io/mihnita/fedora-docker-gcr:latest
+docker build --tag ghcr.io/mihnita/fedora-docker-gcr:20240908 -f Dockerfile_fedora . 
+docker push ghcr.io/mihnita/fedora-docker-gcr:20240908
 
 ---
 

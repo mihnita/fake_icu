@@ -11,7 +11,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container: 
-      image: ghcr.io/mihnita/fedora-docker-gcr:latest
+      image: ghcr.io/mihnita/fedora-docker-gcr:20240908
       credentials:
         username: ${{ secrets.DOCKER_CONTAINER_USER_NAME }}
         password: ${{ secrets.DOCKER_CONTAINER_REGISTRY_TOKEN }}
@@ -24,19 +24,21 @@ jobs:
     - name: Inspect
       run: |
         echo $PWD
-        ls /
-        ls
+        ls -ali /
+        ls -ali
+        cd
+        echo $PWD
+        ls -ali
 
     - name: Checkout repo files
       run: |
         git clone --depth=1 https://github.com/unicode-org/icu.git
 
-    - name: Build ICU4J
+    - name: Release ICU4J
       run: |
-        cd icu/icu4c/source
+        pushd icu/icu4c/source
         ./runConfigureICU Linux/gcc
-        make -j8
-        make check
         sed -i 's/^DOXYGEN *= *$/DOXYGEN = echo/g' Makefile
         make dist
         ls -al dist
+        popd
