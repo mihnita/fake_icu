@@ -23,19 +23,20 @@ jobs:
 
     - name: Inspect
       run: |
-        echo $PWD \
-        ls \
+        echo $PWD
         ls /
+        ls
 
     - name: Checkout repo files
       run: |
-        git clone --depth=1 https://github.com/unicode-org/icu.git \
+        git clone --depth=1 https://github.com/unicode-org/icu.git
 
     - name: Build ICU4J
       run: |
-        cd icu/icu4c/source \
-        ./runConfigureICU Linux/gcc \
-        make -j8 \
-        make check \
-        sed -i 's/^DOXYGEN *= *$/DOXYGEN = echo/g' Makefile \
+        cd icu/icu4c/source
+        ./runConfigureICU Linux/gcc
+        make -j8
+        make check
+        sed -i 's/^DOXYGEN *= *$/DOXYGEN = echo/g' Makefile
         make dist
+        ls -al dist
