@@ -31,8 +31,12 @@ on:
         type: string
 
 jobs:
-  log-the-inputs:
+  test_releasing:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
     steps:
       - name: Show environment
         run: |
