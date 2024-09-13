@@ -103,6 +103,8 @@ jobs:
         run: |
           set >> report2.log
           zip report2.zip report2.log
+          echo We are in $PWD
+          ls
       - name: List releases with gh
         run: |
           gh api \
