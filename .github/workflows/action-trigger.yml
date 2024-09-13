@@ -66,9 +66,7 @@ jobs:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
           body: |
-            Changes in this Release
-            - First Change
-            - Second Change
+            There are some changes in this Release
           draft: true
           prerelease: false          
       - name: Upload Release Asset
@@ -82,9 +80,9 @@ jobs:
           asset_path: ./report.zip
           asset_name: report.zip
           asset_content_type: application/zip
-      - name: Try pgp, and see if it works after release
+      - name: Try gh, see if available and works after release
         run: |
           echo "=============================="
-          gpg -k
+          gh --help
           gpg -version
           echo "=============================="
