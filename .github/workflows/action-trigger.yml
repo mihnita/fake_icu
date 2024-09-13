@@ -30,12 +30,11 @@ on:
         description: 'Tag used to create a release / post to it'
         type: string
 
+permissions: write-all
+
 jobs:
   test_releasing:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
 
     steps:
       - name: Show environment
