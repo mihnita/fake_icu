@@ -32,11 +32,6 @@ on:
 
 permissions: write-all
 
-env:
-  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  OWNER: mihnita
-  REPO: fake_icu
-
 jobs:
   test_releasing:
     runs-on: ubuntu-latest
@@ -74,13 +69,23 @@ jobs:
         with:
           tag_name: ${{ inputs.releaseTag }}
           release_name: Release ${{ inputs.releaseTag }}
-          body:
+          body: |
             Unicode® ICU 76 updates to CLDR 46 (beta blog) locale data with new locales and various additions and corrections.
             C++ code now requires C++17 and is being made more robust.
 
             Also includes Unicode 16.0.0 data.
 
             For details, please see https://icu.unicode.org/download/76.
+
+            A list:
+              - item 1
+              - item 2
+              - item 3
+            And a table:
+              | Heading 1 | Heading 2 | Heading 3 |
+              | --------- | --------- | --------- |
+              | cel 1.1   | cel 1.2   | cel 1.3   |
+              | cel 2.1   | cel 2.2   | cel 2.3   |              
           draft: true
           prerelease: false
       - name: Upload Release Asset
@@ -115,3 +120,7 @@ jobs:
           -H "X-GitHub-Api-Version: 2022-11-28" \
           /repos/${OWNER}/${REPO}/releases \
           -f "tag_name=v1.0.0" -f "target_commitish=master" -f "name=v1.0.0" -f "body=Description of the release" -F "draft=true" -F "prerelease=false" -F "generate_release_notes=false"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OWNER: ${{ github.repository_owner }}
+          REPO: ${{ github.event.repository.name }}
