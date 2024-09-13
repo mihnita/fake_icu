@@ -30,7 +30,9 @@ on:
         description: 'Tag used to create a release / post to it'
         type: string
 
-permissions: write-all
+# permissions: write-all
+permissions:
+  contents: write
 
 env:
   GH_TOKEN: ${{ github.token }}
@@ -43,6 +45,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Show environment
         run: |
           echo "==============================" > report.log
@@ -61,12 +64,34 @@ jobs:
           DO_RELEASE: ${{ inputs.releaseAct }}
           GIT_TAG: ${{ inputs.gitTag }}
           TIME_STAMP: ${{ inputs.gitRepeatBuildTag }}
+
       - name: Try gh, see if available and works after release
         if: ${{ inputs.releaseAct && startsWith(inputs.releaseTag, 'releaseDraft') }}
         run: |
           echo "=============================="
           gh --help
-          echo "=============================="          
+          echo "=============================="
+
+      - name: Generate the body content
+        run: |
+          echo Unicode® ICU 76 updates to CLDR 46 (beta blog) locale data with new locales and various additions and corrections. > RELEASE.md
+          echo C++ code now requires C++17 and is being made more robust. >> RELEASE.md
+          echo  >> RELEASE.md
+          echo             Also includes Unicode 16.0.0 data. >> RELEASE.md
+          echo  >> RELEASE.md
+          echo For details, please see https://icu.unicode.org/download/76. >> RELEASE.md
+          echo  >> RELEASE.md
+          echo  A list: >> RELEASE.md
+          echo    - item 1 >> RELEASE.md
+          echo    - item 2 >> RELEASE.md
+          echo    - item 3 >> RELEASE.md
+          echo  >> RELEASE.md
+          echo  And a table: >> RELEASE.md
+          echo  | Heading 1 | Heading 2 | Heading 3 | >> RELEASE.md
+          echo  | --------- | --------- | --------- | >> RELEASE.md
+          echo  | cel 1.1   | cel 1.2   | cel 1.3   | >> RELEASE.md
+          echo  | cel 2.1   | cel 2.2   | cel 2.3   | >> RELEASE.md
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -75,24 +100,7 @@ jobs:
         with:
           tag_name: ${{ inputs.releaseTag }}
           release_name: Release ${{ inputs.releaseTag }}
-          body: |
-            Unicode® ICU 76 updates to CLDR 46 (beta blog) locale data with new locales and various additions and corrections.
-            C++ code now requires C++17 and is being made more robust.
-
-            Also includes Unicode 16.0.0 data.
-
-            For details, please see https://icu.unicode.org/download/76.
-
-            A list:
-              - item 1
-              - item 2
-              - item 3
-
-            And a table:
-              | Heading 1 | Heading 2 | Heading 3 |
-              | --------- | --------- | --------- |
-              | cel 1.1   | cel 1.2   | cel 1.3   |
-              | cel 2.1   | cel 2.2   | cel 2.3   |              
+          body_path: RELEASE.md
           draft: true
           prerelease: false
       - name: Upload Release Asset
@@ -132,7 +140,18 @@ jobs:
           echo "{name}={value}" >> "$GITHUB_OUTPUT"
       - name: Play with environ files, warning
         run: |
+          echo "::debug::Set the Octocat variable"
+          echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
           echo "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+          echo "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+          echo "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+      - name: Play with environ files, group
+        run: |
+          echo "::group::My title"
+          echo "Inside group"
+          echo "Also inside group"
+          echo "And again inside group"
+          echo "::endgroup::"          
       - name: Play with environ files, GITHUB_STEP_SUMMARY
         run: |
           echo "This is the lead in sentence for the list" >> $GITHUB_STEP_SUMMARY
