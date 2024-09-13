@@ -15,16 +15,19 @@ on:
         - error
         - warning
         - debug
-      boolFlag:
-        description: 'Test some boolean'
-        required: false
-        type: boolean
       gitTag:
         description: 'Git tag at which to sync'
         type: string
       gitRepeatBuildTag:
         description: 'Timestamp to use for repeatable builds'
         required: true
+        type: string
+      releaseAct:
+        description: 'Create and post to release'
+        required: false
+        type: boolean
+      releaseTag:
+        description: 'Tag used to create a release / post to it'
         type: string
       environment:
         description: 'Environment to run tests against'
@@ -35,18 +38,53 @@ jobs:
   log-the-inputs:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo "Log level   : $LEVEL"
-          echo "Bool flag   : $BOOL_FLAG"
-          echo "git tag     : $GIT_TAG"
-          echo "Timestamp   : $TIMESATAMP"
-          echo "Environment : ${{ inputs.environment }}"
-          echo "GITHUB_SHA  : ${GITHUB_SHA}"
-          echo "GITHUB_REF  : ${GITHUB_REF}"
-          echo "=============================="
-          set
+      - name: Show environment
+        run: |
+          echo "==============================" > report.log
+          echo "Log level   : $LEVEL" >> report.log
+          echo "ReleaseAct  : $DO_RELEASE" >> report.log
+          echo "git tag     : $GIT_TAG" >> report.log
+          echo "Timestamp   : $TIME_STAMP" >> report.log
+          echo "Environment : ${{ inputs.environment }}" >> report.log
+          echo "GITHUB_SHA  : ${GITHUB_SHA}" >> report.log
+          echo "GITHUB_REF  : ${GITHUB_REF}" >> report.log
+          echo "==============================" >> report.log
+          set >> report.log
+          zip report.zip report.log
         env:
           LEVEL: ${{ inputs.logLevel }}
-          BOOL_FLAG: ${{ inputs.boolFlag }}
+          DO_RELEASE: ${{ inputs.releaseAct }}
           GIT_TAG: ${{ inputs.gitTag }}
-          TIMESATAMP: ${{ inputs.gitRepeatBuildTag }}
+          TIME_STAMP: ${{ inputs.gitRepeatBuildTag }}
+      - name: Create Release
+        if: ${{ inputs.releaseAct && startsWith(inputs.releaseTag, 'releaseDraft') }}
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            Changes in this Release
+            - First Change
+            - Second Change
+          draft: true
+          prerelease: false          
+      - name: Upload Release Asset
+        if: ${{ inputs.releaseAct && startsWith(inputs.releaseTag, 'releaseDraft') }}
+        id: upload-release-asset 
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          asset_path: ./report.zip
+          asset_name: report.zip
+          asset_content_type: application/zip
+      - name: Try pgp, and see if it works after release
+        run: |
+          echo "=============================="
+          gpg -k
+          gpg -version
+          echo "=============================="
