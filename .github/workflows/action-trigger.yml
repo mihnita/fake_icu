@@ -52,14 +52,21 @@ jobs:
           DO_RELEASE: ${{ inputs.releaseAct }}
           GIT_TAG: ${{ inputs.gitTag }}
           TIME_STAMP: ${{ inputs.gitRepeatBuildTag }}
+      - name: Try gh, see if available and works after release
+        if: ${{ inputs.releaseAct && startsWith(inputs.releaseTag, 'releaseDraft') }}
+        run: |
+          echo "=============================="
+          gh --help
+          gpg -version
+          echo "=============================="          
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: releaseDraft76
-          release_name: Release releaseDraft76
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
           draft: true
           prerelease: false
       - name: Upload Release Asset
@@ -71,15 +78,8 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
           asset_path: ./report.zip
           asset_name: report.zip
-          asset_content_type: application/zip
+          asset_content_type: application/zip     
       - name: Try gh, see if available and works after release
-        run: |
-          echo "=============================="
-          gh --help
-          gpg -version
-          echo "=============================="
-      - name: Try gh, see if available and works after release
-        if: ${{ inputs.releaseAct && startsWith(inputs.releaseTag, 'releaseDraft') }}
         run: |
           echo "=============================="
           gh --help
