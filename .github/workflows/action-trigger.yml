@@ -45,6 +45,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repo files
+        uses: actions/checkout@v4.1.7
+        with:
+          lfs: true
 
       - name: Show environment
         run: |
