@@ -20,7 +20,7 @@ on:
         type: string
       gitRepeatBuildTag:
         description: 'Timestamp to use for repeatable builds'
-        required: true
+        required: false
         type: string
       releaseAct:
         description: 'Create and post to release'
@@ -29,10 +29,6 @@ on:
       releaseTag:
         description: 'Tag used to create a release / post to it'
         type: string
-      environment:
-        description: 'Environment to run tests against'
-        type: environment
-        required: false
 
 jobs:
   log-the-inputs:
@@ -57,18 +53,16 @@ jobs:
           GIT_TAG: ${{ inputs.gitTag }}
           TIME_STAMP: ${{ inputs.gitRepeatBuildTag }}
       - name: Create Release
-        if: ${{ inputs.releaseAct && startsWith(inputs.releaseTag, 'releaseDraft') }}
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          tag_name: releaseDraft76
+          release_name: Release releaseDraft76
           draft: true
           prerelease: false
       - name: Upload Release Asset
-        if: ${{ inputs.releaseAct && startsWith(inputs.releaseTag, 'releaseDraft') }}
         id: upload-release-asset 
         uses: actions/upload-release-asset@v1
         env:
@@ -79,6 +73,13 @@ jobs:
           asset_name: report.zip
           asset_content_type: application/zip
       - name: Try gh, see if available and works after release
+        run: |
+          echo "=============================="
+          gh --help
+          gpg -version
+          echo "=============================="
+      - name: Try gh, see if available and works after release
+        if: ${{ inputs.releaseAct && startsWith(inputs.releaseTag, 'releaseDraft') }}
         run: |
           echo "=============================="
           gh --help
