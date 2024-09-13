@@ -100,7 +100,7 @@ jobs:
       - name: Show environment
         run: |
           set >> report2.log
-          zip report2.zip report2
+          zip report2.zip report2.log
       - name: List releases with gh
         run: |
           gh api \
