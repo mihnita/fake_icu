@@ -67,8 +67,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          tag_name: ${{ inputs.releaseTag }}
+          release_name: Release ${{ inputs.releaseTag }}
           body:
             Unicode® ICU 76 updates to CLDR 46 (beta blog) locale data with new locales and various additions and corrections.
             C++ code now requires C++17 and is being made more robust.
