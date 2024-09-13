@@ -65,10 +65,8 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
-          body: |
-            There are some changes in this Release
           draft: true
-          prerelease: false          
+          prerelease: false
       - name: Upload Release Asset
         if: ${{ inputs.releaseAct && startsWith(inputs.releaseTag, 'releaseDraft') }}
         id: upload-release-asset 
