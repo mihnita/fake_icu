@@ -59,6 +59,8 @@ jobs:
           echo "==============================" >> report.log
           set >> report.log
           zip report.zip report.log
+          echo We are in $PWD
+          ls
         env:
           LEVEL: ${{ inputs.logLevel }}
           DO_RELEASE: ${{ inputs.releaseAct }}
