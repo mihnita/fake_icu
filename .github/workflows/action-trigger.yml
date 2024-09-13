@@ -69,6 +69,13 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
+          body:
+            Unicode® ICU 76 updates to CLDR 46 (beta blog) locale data with new locales and various additions and corrections.
+            C++ code now requires C++17 and is being made more robust.
+
+            Also includes Unicode 16.0.0 data.
+
+            For details, please see https://icu.unicode.org/download/76.
           draft: true
           prerelease: false
       - name: Upload Release Asset
@@ -81,13 +88,3 @@ jobs:
           asset_path: ./report.zip
           asset_name: report.zip
           asset_content_type: application/zip     
-      - name: Try doing the job with gh
-        run: |
-          echo "=============================="
-          gh api \
-            --method POST \
-            -H "Accept: application/vnd.github+json" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            /repos/mihnita/fake_icu/releases \
-            -f "tag_name=v1.0.0" -f "target_commitish=master" -f "name=v1.0.0" -f "body=Description of the release" -F "draft=true" -F "prerelease=false" -F "generate_release_notes=false"
-          echo "=============================="
