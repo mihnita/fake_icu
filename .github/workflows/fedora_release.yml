@@ -32,12 +32,13 @@ jobs:
       run: |
         cd
         echo $PWD
+        ls -al
         gpg --list-keys
         gpg --list-secret-keys
         # Get the Fedora version in VERSION_ID
         source /etc/os-release
         # Get the ICU version in artifact_version
-        source icu/icu4j/releases_tools/shared.sh
+        source icu4j/releases_tools/shared.sh
         echo
 
     - name: Build release ICU4C
