@@ -1,0 +1,24 @@
+[1;37mdiff --git a/.github/workflows/fedora_release.yml b/.github/workflows/fedora_release.yml[m
+[1;37mindex 334a4ca..aa78a0e 100644[m
+[1;37m--- a/.github/workflows/fedora_release.yml[m
+[1;37m+++ b/.github/workflows/fedora_release.yml[m
+[1;35m@@ -46,13 +46,19 @@[m [mjobs:[m
+        popd[m
+        # Note that here we package the `icu` folder in `/tmp`, from the previous step,[m
+        # because `-C /tmp` changes the folder[m
+        [1;31m[-tar -C-][m[1;32m{+cd+}[m /tmp
+        [1;32m{+echo $PWD+}[m
+[1;32m{+        ls+}[m
+[1;32m{+        echo DOING tar -czf icu4c-${artifact_version}-Fedora_Linux${VERSION_ID}-x64.tgz icu+}[m
+[1;32m{+        tar+}[m -czf [1;31m[-$GITHUB_WORKSPACE/icu4c-${artifact_version}-Fedora_Linux${VERSION_ID}-x64-][m[1;32m{+icu4c-${artifact_version}-Fedora_Linux${VERSION_ID}-x64+}[m.tgz icu
+        [1;32m{+echo $PWD+}[m
+[1;32m{+        ls+}[m
+
+    # TODO: add them to the GitHub "Release" page automatically[m
+    - name: Upload build results[m
+      uses: actions/upload-artifact@v4.3.6[m
+      with:[m
+        name: fedora-binaries[m
+        path: [1;31m[-$GITHUB_WORKSPACE/icu4c-${artifact_version}-Fedora_Linux${VERSION_ID}-x64-][m[1;32m{+/tmp/icu4c-*+}[m.tgz
+        retention-days: 3 # TBD if we want to keep them longer[m
+        overwrite: true[m

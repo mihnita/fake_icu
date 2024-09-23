@@ -46,13 +46,25 @@ jobs:
         popd
         # Note that here we package the `icu` folder in `/tmp`, from the previous step,
         # because `-C /tmp` changes the folder
+        echo $PWD
+        echo GITHUB_WORKSPACE is $GITHUB_WORKSPACE
+        echo MAYBE tar -C /tmp -czf $GITHUB_WORKSPACE/icu4c-${artifact_version}-Fedora_Linux${VERSION_ID}-x64.tgz icu
         tar -C /tmp -czf $GITHUB_WORKSPACE/icu4c-${artifact_version}-Fedora_Linux${VERSION_ID}-x64.tgz icu
+        ls
+        # Now do it in tmp
+        cd /tmp
+        echo $PWD
+        ls
+        echo DOING tar -czf icu4c-${artifact_version}-Fedora_Linux${VERSION_ID}-x64.tgz icu
+        tar -czf icu4c-${artifact_version}-Fedora_Linux${VERSION_ID}-x64.tgz icu
+        echo $PWD
+        ls -ali
 
     # TODO: add them to the GitHub "Release" page automatically
     - name: Upload build results
       uses: actions/upload-artifact@v4.3.6
       with:
         name: fedora-binaries
-        path: $GITHUB_WORKSPACE/icu4c-${artifact_version}-Fedora_Linux${VERSION_ID}-x64.tgz
+        path: /tmp/icu4c-*.tgz
         retention-days: 3 # TBD if we want to keep them longer
         overwrite: true
