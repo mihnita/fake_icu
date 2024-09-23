@@ -7,17 +7,15 @@ docker login ghcr.io
 
 When prompted use these:
 
+<<<<<<< HEAD
 * **User:** the github user
 * **Password:** the github key
 
-
-Update the timestamp (`20240908`) with the current date, ISO style:
+Update the timestamp (`20240923`) with the current date, ISO style:
 ```
-docker build --tag ghcr.io/mihnita/fedora-docker-gcr:20240908 -f Dockerfile_fedora . 
-docker push ghcr.io/mihnita/fedora-docker-gcr:20240908
+docker build --tag ghcr.io/mihnita/fedora-docker-gcr:20240923 -f Dockerfile_fedora . 
+docker push ghcr.io/mihnita/fedora-docker-gcr:20240923
 ```
-
----
 
 See:
 https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/publishing-docker-images

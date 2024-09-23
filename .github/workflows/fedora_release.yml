@@ -9,9 +9,11 @@ on:
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
-    container: 
-      image: ghcr.io/mihnita/fedora-docker-gcr:20240908
+
+    container:
+      image: ghcr.io/${{ github.repository_owner }}/fedora-docker-gcr:latest
       credentials:
         username: ${{ secrets.DOCKER_CONTAINER_USER_NAME }}
         password: ${{ secrets.DOCKER_CONTAINER_REGISTRY_TOKEN }}
@@ -21,34 +23,37 @@ jobs:
 
     steps:
 
-    - name: Inspect
+    - name: Checkout and setup
+      uses: actions/checkout@v4
+      with:
+        lfs: true
+
+    - name: Inspect, to delete
       run: |
-        echo $PWD
-        ls -ali /
-        ls -ali
         cd
         echo $PWD
-        ls -ali
+        gpg --list-keys
+        gpg --list-secret-keys
+        # Get the Fedora version in VERSION_ID
+        source /etc/os-release
+        # Get the ICU version in artifact_version
+        source icu/icu4j/releases_tools/shared.sh
+        echo
 
-    - name: Checkout repo files
-      run: |
-        git clone --depth=1 https://github.com/unicode-org/icu.git
-
-    - name: Release ICU4J
+    - name: Build release ICU4C
       run: |
         pushd icu/icu4c/source
         ./runConfigureICU Linux/gcc
-        make -j8
-        sed -i 's/^DOXYGEN *= *$/DOXYGEN = echo/g' Makefile
-        make doc
-        make dist
-        ls -al dist
+        make DESTDIR=/tmp/icu releaseDist
         popd
+        tar -C /tmp -czf icu4c-${artifact_version}-Fedora_Linux${VERSION_ID}-x64.tgz icu
 
     # TODO: add them to the GitHub "Release" page automatically
     - name: Upload build results
       uses: actions/upload-artifact@v4.3.6
       with:
-        path: ./icu4j/${{ env.RELEASE_FOLDER }}/*
+        name: fedora-binaries
+        path: $HOME/icu4c-${artifact_version}-Fedora_Linux${VERSION_ID}-x64.tgz
         retention-days: 3 # TBD if we want to keep them longer
         overwrite: true
+
