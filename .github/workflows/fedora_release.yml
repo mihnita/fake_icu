@@ -40,17 +40,19 @@ jobs:
 
     - name: Build release ICU4C
       run: |
-        pushd icu/icu4c/source
+        pushd icu4c/source
         ./runConfigureICU Linux/gcc
         make DESTDIR=/tmp/icu releaseDist
         popd
-        tar -C /tmp -czf icu4c-${artifact_version}-Fedora_Linux${VERSION_ID}-x64.tgz icu
+        # Note that here we package the `icu` folder in `/tmp`, from the previous step,
+        # because `-C /tmp` changes the folder
+        tar -C /tmp -czf $GITHUB_WORKSPACE/icu4c-${artifact_version}-Fedora_Linux${VERSION_ID}-x64.tgz icu
 
     # TODO: add them to the GitHub "Release" page automatically
     - name: Upload build results
       uses: actions/upload-artifact@v4.3.6
       with:
         name: fedora-binaries
-        path: $HOME/icu4c-${artifact_version}-Fedora_Linux${VERSION_ID}-x64.tgz
+        path: $GITHUB_WORKSPACE/icu4c-${artifact_version}-Fedora_Linux${VERSION_ID}-x64.tgz
         retention-days: 3 # TBD if we want to keep them longer
         overwrite: true
