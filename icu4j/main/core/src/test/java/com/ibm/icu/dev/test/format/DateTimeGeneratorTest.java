@@ -1417,6 +1417,16 @@ public class DateTimeGeneratorTest extends CoreTestFmwk {
                 new TestOptionsItem( "zh@calendar=chinese",  "ULLL",  "U\u5E74MMM",  DateTimePatternGenerator.MATCH_NO_OPTIONS ),
                 new TestOptionsItem( "zh@calendar=chinese",  "yMMM",  "rU\u5E74MMM", DateTimePatternGenerator.MATCH_NO_OPTIONS ),
                 new TestOptionsItem( "zh@calendar=chinese",  "GUMMM", "rU\u5E74MMM", DateTimePatternGenerator.MATCH_NO_OPTIONS ),
+
+                // tests for ICU-22669
+                new TestOptionsItem("zh_TW",           "jjm",  "ah:mm",     DateTimePatternGenerator.MATCH_NO_OPTIONS        ),
+                new TestOptionsItem("zh_TW",           "jjm",  "ahh:mm",    DateTimePatternGenerator.MATCH_ALL_FIELDS_LENGTH ),
+                new TestOptionsItem("zh_TW",           "jjms", "ah:mm:ss",  DateTimePatternGenerator.MATCH_NO_OPTIONS        ),
+                new TestOptionsItem("zh_TW",           "jjms", "ahh:mm:ss", DateTimePatternGenerator.MATCH_ALL_FIELDS_LENGTH ),
+                new TestOptionsItem("zh_TW@hours=h23", "jjm",  "HH:mm",     DateTimePatternGenerator.MATCH_NO_OPTIONS        ),
+                new TestOptionsItem("zh_TW@hours=h23", "jjm",  "HH:mm",     DateTimePatternGenerator.MATCH_ALL_FIELDS_LENGTH ), // (without the fix, we get "HH:m" here)
+                new TestOptionsItem("zh_TW@hours=h23", "jjms", "HH:mm:ss",  DateTimePatternGenerator.MATCH_NO_OPTIONS        ),
+                new TestOptionsItem("zh_TW@hours=h23", "jjms", "HH:mm:ss",  DateTimePatternGenerator.MATCH_ALL_FIELDS_LENGTH ),
         };
 
         for (int i = 0; i < testOptionsData.length; ++i) {
@@ -1733,7 +1743,7 @@ public class DateTimeGeneratorTest extends CoreTestFmwk {
         String[][] cases = new String[][]{
             // ars is interesting because it does not have a region, but it aliases
             // to ar_SA, which has a region.
-            {"ars", "h a", "h:mm a", "HOUR_CYCLE_12"},
+            {"ars", "h\u202Fa", "h:mm a", "HOUR_CYCLE_12"},
             // en_NH is interesting because NH is a depregated region code.
             {"en_NH", "h\u202Fa", "h:mm\u202Fa", "HOUR_CYCLE_12"},
             // ch_ZH is a typo (should be zh_CN), but we should fail gracefully.
@@ -2054,6 +2064,40 @@ public class DateTimeGeneratorTest extends CoreTestFmwk {
             
             assertEquals("Wrong hour cycle", expectedHourCycle, actualHourCycle);
             assertEquals("Wrong pattern", expectedPattern, actualPattern);
+        }
+    }
+
+    @Test
+    public void testISO8601More() {
+        final String[][] testCases = {
+            { "en_GB@calendar=iso8601;rg=uszzzz", "EEEEyMMMMdjmm", "y MMMM d, EEEE 'at' h:mm a" },
+            { "en_GB@calendar=iso8601;rg=uszzzz", "EEEEyMMMMdHmm", "y MMMM d, EEEE 'at' HH:mm" },
+            { "en_GB@calendar=iso8601;rg=uszzzz", "Edjmm",         "d, EEE, h:mm a" },
+            { "en_GB@calendar=iso8601;rg=uszzzz", "EdHmm",         "d, EEE, HH:mm" },
+
+            { "en_US@calendar=iso8601",           "EEEEyMMMMdjmm", "y MMMM d, EEEE 'at' h:mm a" },
+            { "en_US@calendar=iso8601",           "EEEEyMMMMdHmm", "y MMMM d, EEEE 'at' HH:mm" },
+            { "en_US@calendar=iso8601",           "Edjmm",         "d, EEE, h:mm a" },
+            { "en_US@calendar=iso8601",           "EdHmm",         "d, EEE, HH:mm" },
+
+            { "en_US",                            "EEEEyMMMMdjmm", "EEEE, MMMM d, y 'at' h:mm a" },
+            { "en_US",                            "EEEEyMMMMdHmm", "EEEE, MMMM d, y 'at' HH:mm" },
+            { "en_US",                            "Edjmm",         "d EEE, h:mm a" },
+            { "en_US",                            "EdHmm",         "d EEE, HH:mm" },
+        };
+
+        for (String[] testCase : testCases) {
+            String localeID = testCase[0];
+            String skeleton = testCase[1];
+            String expectedPattern = testCase[2];
+
+            DateTimePatternGenerator dtpg = DateTimePatternGenerator.getInstance(new ULocale(localeID));
+
+            String actualPattern = dtpg.getBestPattern(skeleton);
+            assertEquals("Wrong pattern for " + localeID + " and " + skeleton, expectedPattern, actualPattern);
+//            if (!expectedPattern.equals(actualPattern)) {
+//                System.out.println("Wrong pattern for " + localeID + " and " + skeleton + ": expected \"" + expectedPattern + "\", got \'" + actualPattern + "\"");
+//            }
         }
     }
 }

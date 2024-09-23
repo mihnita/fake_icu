@@ -44,3 +44,11 @@ jobs:
         make dist
         ls -al dist
         popd
+
+    # TODO: add them to the GitHub "Release" page automatically
+    - name: Upload build results
+      uses: actions/upload-artifact@v4.3.6
+      with:
+        path: ./icu4j/${{ env.RELEASE_FOLDER }}/*
+        retention-days: 3 # TBD if we want to keep them longer
+        overwrite: true
