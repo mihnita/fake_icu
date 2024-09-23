@@ -56,4 +56,3 @@ jobs:
         path: $HOME/icu4c-${artifact_version}-Fedora_Linux${VERSION_ID}-x64.tgz
         retention-days: 3 # TBD if we want to keep them longer
         overwrite: true
-
