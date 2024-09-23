@@ -43,7 +43,6 @@ jobs:
         # because `-C /tmp` changes the folder
         tar -C /tmp -czf icu4c-${artifact_version}-Fedora_Linux${VERSION_ID}-x64.tgz icu
         tar -C /tmp -czf $GITHUB_WORKSPACE/icu4c-${artifact_version}-Fedora_Linux${VERSION_ID}-x64_1.tgz icu
-        tar -C /tmp -czf ${{ github.workspace }}/icu4c-${artifact_version}-Fedora_Linux${VERSION_ID}-x64_2.tgz icu
         ls -al
 
     # TODO: add them to the GitHub "Release" page automatically (on condition)
