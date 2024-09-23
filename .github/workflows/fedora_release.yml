@@ -44,14 +44,27 @@ jobs:
         ./runConfigureICU Linux/gcc
         make DESTDIR=/tmp/icu releaseDist
         popd
+
+        echo "==== Before source ===="
+        set
+        # Get the Fedora version in VERSION_ID
+        source /etc/os-release
+        # Get the ICU version in artifact_version
+        source icu4j/releases_tools/shared.sh
+        echo "==== After source ===="
+        set
+        echo "======================"
+
         # Note that here we package the `icu` folder in `/tmp`, from the previous step,
         # because `-C /tmp` changes the folder
+        echo "==== Do it in the default folder ===="
         echo $PWD
         echo GITHUB_WORKSPACE is $GITHUB_WORKSPACE
         echo MAYBE tar -C /tmp -czf $GITHUB_WORKSPACE/icu4c-${artifact_version}-Fedora_Linux${VERSION_ID}-x64.tgz icu
         tar -C /tmp -czf $GITHUB_WORKSPACE/icu4c-${artifact_version}-Fedora_Linux${VERSION_ID}-x64.tgz icu
         ls
         # Now do it in tmp
+        echo "==== Now do it in tmp ===="
         cd /tmp
         echo $PWD
         ls
