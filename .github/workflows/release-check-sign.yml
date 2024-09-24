@@ -13,6 +13,7 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    environment: release-env
     permissions:
       contents: read
       packages: write
@@ -34,8 +35,12 @@ jobs:
 
     - name: Import GPG keys
       run: |
+        echo -e $gpg-private-key | gpg --passphrase=$gpg-passphrase --import
+        gpg -k
+        gpg -K
         echo $gpg-private-key > foo
         echo $gpg-passphrase >> foo
+        echo "=============" >> foo
         cat foo
         echo $gpg-private-key > key.asc
         gpg --passphrase=$gpg-passphrase --import key.asc
