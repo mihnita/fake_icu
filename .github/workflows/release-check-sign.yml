@@ -53,8 +53,8 @@ jobs:
         sha512sum -b *.jar                  > icu4j-${artifact_version}.md5
         sha512sum -b icu4c-*-data-bin-*.zip > icu4c-${artifact_version}-binary.md5
         sha512sum -b icu4c-*-src.*          > icu4c-${artifact_version}-sources.md5
-        find . -type f -name 'icu4c*' -exec gpg --no-tty --batch --pinentry-mode loopback --passphrase=$MAVEN_GPG_PASSPHRASE --output {}.asc --detach-sig {} \;
-        gpg --no-tty --batch --pinentry-mode loopback --passphrase=$MAVEN_GPG_PASSPHRASE --output SHASUM512.txt.asc --detach-sig SHASUM512.txt
+        find . -type f -name 'icu4c*' -exec gpg --no-tty --batch --pinentry-mode loopback --passphrase=$MAVEN_GPG_PASSPHRASE -a --output {}.asc --detach-sig {} \;
+        gpg --no-tty --batch --pinentry-mode loopback --passphrase=$MAVEN_GPG_PASSPHRASE -a --output SHASUM512.txt.asc --detach-sig SHASUM512.txt
         popd
       env:
         MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
@@ -62,9 +62,11 @@ jobs:
     - name: Upload all release files
       run: |
         pushd tempFolder
-        gh release upload release-76-1beta *.asc         --repo=mihnita/fake_icu
-        gh release upload release-76-1beta *.md5         --repo=${{ github.repository }}
+        ls
+        find . -file -name '*.asc' -exec gh release upload release-76-1beta {}  --repo=mihnita/fake_icu \;
+        gh release upload release-76-1beta *.md5         --repo=mihnita/fake_icu
         gh release upload release-76-1beta SHASUM512.txt --repo=${{ github.repository }}
+        gh release upload release-76-1beta *.asc         --repo=mihnita/fake_icu
         popd
       env:
         GH_TOKEN: ${{ github.token }}
