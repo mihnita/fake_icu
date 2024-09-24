@@ -34,7 +34,7 @@ jobs:
 
     - name: Import GPG keys
       run: |
-        cat "$gpg-private-key" | gpg --no-tty --batch --pinentry-mode loopback --passphrase=$MAVEN_GPG_PASSPHRASE --import
+        echo -r "$gpg-private-key" | gpg --passphrase=$MAVEN_GPG_PASSPHRASE --import
         gpg -k
         gpg -K
       env:
