@@ -40,15 +40,20 @@ jobs:
     - name: Get all release files
       run: |
         mkdir tempFolder
-        cd tempFolder
+        pushd tempFolder
         # gh release download ${{ inputs.release_tag }} -p "*.zip" -p "*.tgz" -p "*.jar" --repo=${{ github.repository }}
         gh release download release-74-2 -p "*.zip" -p "*.tgz" -p "*.jar" --repo=unicode-org/icu
         ls -al
+        popd
       env:
         GH_TOKEN: ${{ github.token }}
 
     - name: Checksums and sign
       run: |
+        echo "============================"
+        echo $PWD
+        pushd tempFolder
+        echo $PWD
         source icu4j/releases_tools/shared.sh
         sha512sum -b icu4c*                 > SHASUM512.txt
         sha512sum -b *.jar                  > icu4j-${artifact_version}.md5
@@ -56,6 +61,7 @@ jobs:
         sha512sum -b icu4c-*-src.*          > icu4c-${artifact_version}-sources.md5
         find . -type f -name 'icu4c*' -exec gpg --pinentry-mode loopback --passphrase=$MAVEN_GPG_PASSPHRASE --output {}.asc --detach-sig {} \;
         gpg --pinentry-mode loopback --passphrase=$MAVEN_GPG_PASSPHRASE --output SHASUM512.txt.asc --detach-sig SHASUM512.txt
+        popd
       env:
         MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
 
