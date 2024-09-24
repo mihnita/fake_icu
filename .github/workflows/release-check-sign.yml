@@ -42,10 +42,11 @@ jobs:
 
     - name: Checksums and sign
       run: |
-        sha512sum -b icu4c*                    > SHASUM512.txt
-        sha512sum -b *.jar                     > icu4j-75.1.md5
-        sha512sum -b icu4c-75_1-data-bin-*.zip > icu4c-75_1-binary.md5
-        sha512sum -b icu4c-75_1-src.*          > icu4c-75_1-sources.md5
+        source icu4j/releases_tools/shared.sh
+        sha512sum -b icu4c*                 > SHASUM512.txt
+        sha512sum -b *.jar                  > icu4j-${artifact_version}.md5
+        sha512sum -b icu4c-*-data-bin-*.zip > icu4c-${artifact_version}-binary.md5
+        sha512sum -b icu4c-*-src.*          > icu4c-${artifact_version}-sources.md5
         find . -type f -name 'icu4c*' -exec gpg --pinentry-mode loopback --passphrase=$MAVEN_GPG_PASSPHRASE --output {}.asc --detach-sig {} \;
         gpg --pinentry-mode loopback --passphrase=$MAVEN_GPG_PASSPHRASE --output SHASUM512.txt.asc --detach-sig SHASUM512.txt
       env:
