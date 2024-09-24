@@ -39,6 +39,8 @@ jobs:
 
     - name: Get all release files
       run: |
+        mkdir tempFolder
+        cd tempFolder
         # gh release download ${{ inputs.release_tag }} -p "*.zip" -p "*.tgz" -p "*.jar" --repo=${{ github.repository }}
         gh release download release-74-2 -p "*.zip" -p "*.tgz" -p "*.jar" --repo=unicode-org/icu
         ls -al
@@ -59,4 +61,4 @@ jobs:
 
     - name: Upload all release files
       run: |
-        echo Upload  everything
+        echo Upload everything
