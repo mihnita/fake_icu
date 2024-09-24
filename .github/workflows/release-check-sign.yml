@@ -35,6 +35,8 @@ jobs:
 
     - name: Import GPG keys
       run: |
+        gpg -k
+        gpg -K
         echo $GPG_PRIVATE_KEY > foo
         echo $GPG_PASSPHRASE >> foo
         echo "=============" >> foo
