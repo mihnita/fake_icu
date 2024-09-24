@@ -1,0 +1,25 @@
+name: Release - Create checksums and GPG sign
+
+on:
+  workflow_dispatch:
+    inputs:
+      gitTag:
+        # TODO: make this mandatory and validate that it is in a release* branch and looks like
+        # 'release-\d+.\d+ or something like that.
+        # For now we don't do it so that we can test.
+        description: 'Git tag at which to sync for deploy and release'
+        type: string
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+
+    - name: Do we have gpg?
+      run: |
+        gpg -k
+        gpg -K

@@ -1,4 +1,4 @@
-name: Relase - ICU4C artifacts on Fedora
+name: Release - ICU4C artifacts on Fedora
 
 on:
   workflow_dispatch:
