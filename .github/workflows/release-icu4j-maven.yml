@@ -62,8 +62,6 @@ jobs:
     # TODO: enable tests? We don't want to release until we are 100% sure everything works.
     - name: Build all of ICU
       run: |
-        gpg -k
-        gpg -K
         # Really important to do this first because we need `tools/build` for the javadoc applets
         mvn install --file icu4j/tools/build \
           ${SHARED_MVN_ARGS} \
