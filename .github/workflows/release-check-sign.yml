@@ -37,8 +37,7 @@ jobs:
       run: |
         mkdir tempFolder
         pushd tempFolder
-        # gh release download ${{ inputs.release_tag }} -p "*.zip" -p "*.tgz" -p "*.jar" --repo=${{ github.repository }}
-        gh release download release-74-2 -p "*.zip" -p "*.tgz" -p "*.jar" --repo=unicode-org/icu
+        gh release download ${{ inputs.release_tag }} -p "*.zip" -p "*.tgz" -p "*.jar" --repo=${{ github.repository }}
         ls -al
         popd
       env:
@@ -47,7 +46,6 @@ jobs:
     - name: Checksums and sign
       run: |
         source icu4j/releases_tools/shared.sh
-        echo "============================"
         pushd tempFolder
         sha512sum -b icu4c*                 > SHASUM512.txt
         sha512sum -b *.jar                  > icu4j-${artifact_version}.md5
@@ -62,12 +60,9 @@ jobs:
     - name: Upload all release files
       run: |
         pushd tempFolder
-        ls
-        find . -type f -name '*.asc' -exec ls -ali {} \;
-        find . -type f -name '*.asc' -exec gh release upload release-76-1beta {} --clobber --repo=mihnita/fake_icu \;
-        gh release upload release-76-1beta *.md5         --clobber --repo=mihnita/fake_icu
-        gh release upload release-76-1beta SHASUM512.txt --clobber --repo=${{ github.repository }}
-        gh release upload release-76-1beta *.asc         --clobber --repo=mihnita/fake_icu
+        gh release upload ${{ inputs.release_tag }} *.md5         --clobber --repo=${{ github.repository }}
+        gh release upload ${{ inputs.release_tag }} *.asc         --clobber --repo=${{ github.repository }}
+        gh release upload ${{ inputs.release_tag }} SHASUM512.txt --clobber --repo=${{ github.repository }}
         popd
       env:
         GH_TOKEN: ${{ github.token }}
