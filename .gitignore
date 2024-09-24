@@ -45,30 +45,9 @@ perf-*.xml
 test-*.xml
 
 # Directories
-.idea/
-.vs/
-.vscode/
-ARM/
-ARM64/
-Debug/
-Generated[!!-~]Files/
-Release/
-__pycache__/
-_site/
-arm/
-arm64/
-bin/
-debug/
-doc/
-lib/
-!tools/cldr/lib
-out/
+!tools/cldr/lout/
 release/
 target/
-!docs/processes/release/
-tmp/
-x64/
-x86/
 
 # Files
 Makefile

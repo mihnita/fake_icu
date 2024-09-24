@@ -1,0 +1,37 @@
+inputs:
+  name: 
+    distro: 'Your os'
+    default: 'No os default'
+
+runs:
+
+  using: "composite"
+
+  permissions:
+    contents: read
+    packages: write
+
+  steps: 
+
+    - name: Checkout and setup
+      uses: actions/checkout@v4
+      with:
+        lfs: true
+
+    - name: Build release ICU4C
+      run: |
+        source /etc/os-release
+        source icu4j/releases_tools/shared.sh
+        set
+        set >> env.log
+        cat /etc/os-release >> os.log
+        tar czf icu4c-${artifact_version}-${{ inputs.distro }}_Linux${VERSION_ID}-x64.tgz *.log
+
+    # TODO: add them to the GitHub "Release" page automatically (on condition)
+    - name: Upload build results
+      uses: actions/upload-artifact@v4.3.6
+      with:
+        name: ${{ inputs.distro }}-binaries
+        path: ${{ github.workspace }}/icu4c-*.tgz
+        retention-days: 3 # TBD if we want to keep them longer
+        overwrite: true
