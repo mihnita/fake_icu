@@ -100,9 +100,6 @@ jobs:
         jar -Mcf ${RELEASE_FOLDER}/icu4j-${ICU_VERSION}-fulljavadoc.jar \
           -C target/site/apidocs/ .
         # Create the file with MD5 checksums
-        pushd ${RELEASE_FOLDER}
-        md5sum *.jar > icu4j-${ICU_VERSION}.md5
-        popd # out of $RELEASE_FOLDER
         popd # out of icu4j
 
     # TODO: add them to the GitHub "Release" page automatically
@@ -112,4 +109,3 @@ jobs:
         path: ./icu4j/${{ env.RELEASE_FOLDER }}/*
         retention-days: 3 # TBD if we want to keep them longer
         overwrite: true
-
