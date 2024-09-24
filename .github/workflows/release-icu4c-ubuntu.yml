@@ -1,4 +1,4 @@
-name: Relase ICU4C artifacts on Ubuntu
+name: Relase - ICU4C artifacts on Ubuntu
 
 on:
   workflow_dispatch:
