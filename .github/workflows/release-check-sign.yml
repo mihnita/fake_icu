@@ -63,7 +63,7 @@ jobs:
       run: |
         pushd tempFolder
         ls
-        find . -file -name '*.asc' -exec gh release upload release-76-1beta {}  --repo=mihnita/fake_icu \;
+        find . -type f -name '*.asc' -exec gh release upload release-76-1beta {}  --repo=mihnita/fake_icu \;
         gh release upload release-76-1beta *.md5         --repo=mihnita/fake_icu
         gh release upload release-76-1beta SHASUM512.txt --repo=${{ github.repository }}
         gh release upload release-76-1beta *.asc         --repo=mihnita/fake_icu
