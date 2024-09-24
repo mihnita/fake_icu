@@ -35,7 +35,7 @@ jobs:
     - name: Get all release files
       run: |
         echo Download everything
-        gh release download ${{ input.release_tag }} -p "*.zip" -p "*.tgz" -p "*.jar" --repo=${{ github.repository_owner }}
+        gh release download ${{ inputs.release_tag }} -p "*.zip" -p "*.tgz" -p "*.jar" --repo=${{ github.repository_owner }}
 
     - name: Checksums and sign
       run: |
