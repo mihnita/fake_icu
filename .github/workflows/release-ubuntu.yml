@@ -1,0 +1,57 @@
+name: Relase ICU4C artifacts on Ubuntu
+
+on:
+  workflow_dispatch:
+    inputs:
+      foo:
+        description: 'Release tag'
+        type: string
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+
+    - name: Checkout and setup
+      uses: actions/checkout@v4
+      with:
+        lfs: true
+
+    - name: Build release ICU4C
+      run: |
+        pushd icu4c/source
+        ./runConfigureICU Linux/gcc
+        make -j8
+        # TODO: make check to make sure that what we publish works
+        # make check
+        make -j8 dist
+        make DESTDIR=$GITHUB_WORKSPACE/releaseDist/icu releaseDist
+        popd
+
+    - name: Collect artifacts in one folder
+      run: |
+        # Get the OS version in VERSION_ID
+        source /etc/os-release
+        # Get the ICU version in artifact_version
+        source icu4j/releases_tools/shared.sh
+        pushd releaseDist
+        tar -czf icu4c-${artifact_version}-Ubuntu${VERSION_ID}-x64.tgz icu
+        rm -fr icu
+        popd
+        mv icu4c/source/dist/icu4c-76_1-d*    releaseDist/
+        mv icu4c/source/dist/icu4c-76_1-src.* releaseDist/
+
+    # TODO: add them to the GitHub "Release" page automatically (on condition)
+    - name: Upload build results
+      uses: actions/upload-artifact@v4.3.6
+      with:
+        name: ubuntu-binaries
+        path: ${{ github.workspace }}/releaseDist/
+        retention-days: 3 # TBD if we want to keep them longer
+        overwrite: true
