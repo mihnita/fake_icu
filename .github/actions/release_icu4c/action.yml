@@ -13,11 +13,6 @@ runs:
 
   steps: 
 
-    - name: Checkout and setup
-      uses: actions/checkout@v4
-      with:
-        lfs: true
-
     - name: Build release ICU4C
       run: |
         source /etc/os-release
