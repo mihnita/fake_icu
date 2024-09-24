@@ -26,17 +26,21 @@ jobs:
     - name: Install doxygen
       run: |
         sudo apt-get -y install doxygen
-        sudo ln -s /usr/bin/python3 /usr/bin/python
 
     - name: Build release ICU4C
       run: |
         pushd icu4c/source
+        echo "==== runConfigureICU ===="
         ./runConfigureICU Linux/gcc
+        echo "==== make ===="
         make -j8
         # TODO: make check to make sure that what we publish works
         # make check
-        make -j8 dist
+        echo "==== make dist ===="
+        make dist
+        echo "==== make releaseDist ===="
         make DESTDIR=$GITHUB_WORKSPACE/releaseDist/icu releaseDist
+        echo "=========================="
         popd
 
     - name: Collect artifacts in one folder
