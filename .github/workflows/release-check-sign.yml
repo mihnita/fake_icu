@@ -35,8 +35,8 @@ jobs:
     - name: Get all release files
       run: |
         echo Download everything
-        # gh release download ${{ inputs.release_tag }} -p "*.zip" -p "*.tgz" -p "*.jar" --repo=${{ github.repository_owner }}
-        gh release download release-74-1 -p "*.zip" -p "*.tgz" -p "*.jar" --repo=unicode.org/icu
+        # gh release download ${{ inputs.release_tag }} -p "*.zip" -p "*.tgz" -p "*.jar" --repo=${{ github.repository }}
+        gh release download release-74-2 -p "*.zip" -p "*.tgz" -p "*.jar" --repo=unicode-org/icu
       env:
         GH_TOKEN: ${{ github.token }}
 
