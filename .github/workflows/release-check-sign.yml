@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: release-env
     permissions:
-      contents: read
+      contents: write
       packages: write
 
     steps:
@@ -63,10 +63,11 @@ jobs:
       run: |
         pushd tempFolder
         ls
-        find . -type f -name '*.asc' -exec gh release upload release-76-1beta {}  --repo=mihnita/fake_icu \;
-        gh release upload release-76-1beta *.md5         --repo=mihnita/fake_icu
-        gh release upload release-76-1beta SHASUM512.txt --repo=${{ github.repository }}
-        gh release upload release-76-1beta *.asc         --repo=mihnita/fake_icu
+        find . -type f -name '*.asc' -exec ls -ali {} \;
+        find . -type f -name '*.asc' -exec gh release upload release-76-1beta {} --clobber --repo=mihnita/fake_icu \;
+        gh release upload release-76-1beta *.md5         --clobber --repo=mihnita/fake_icu
+        gh release upload release-76-1beta SHASUM512.txt --clobber --repo=${{ github.repository }}
+        gh release upload release-76-1beta *.asc         --clobber --repo=mihnita/fake_icu
         popd
       env:
         GH_TOKEN: ${{ github.token }}
