@@ -19,6 +19,12 @@ jobs:
 
     steps:
 
+    # For gpg
+    - uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '11'
+
     - name: Get all release files
       run: |
         echo Download everything
