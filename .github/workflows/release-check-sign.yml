@@ -3,7 +3,7 @@ name: Release - Create checksums and GPG sign
 on:
   workflow_dispatch:
     inputs:
-      gitTag:
+      release_tag:
         # TODO: make this mandatory and validate that it is in a release* branch and looks like
         # 'release-\d+.\d+ or something like that.
         # For now we don't do it so that we can test.
@@ -19,27 +19,35 @@ jobs:
 
     steps:
 
-    # For gpg
-    - uses: actions/setup-java@v4
+    - name: Set up JDK
+      uses: actions/setup-java@v4.2.2
       with:
+        java-version: '8' # The custom Taglets for javadoc (tools/build) are still Java 8. They need updating to use a different JDK version.
         distribution: 'temurin'
-        java-version: '11'
-
-    - name: Get all release files
-      run: |
-        echo Download everything
-
-    - name: Checksums and sign
-      run: |
-        echo rm *.asc
-        echo rm *.md5
-        echo rm SHASUM512.txt
-
-    - name: Upload all release files
-      run: |
-        echo Upload  everything
+        gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }} # Value of the GPG private key to import
+        gpg-passphrase: MAVEN_GPG_PASSPHRASE # env variable for GPG private key passphrase
 
     - name: Do we have gpg?
       run: |
         gpg -k
         gpg -K
+
+    - name: Get all release files
+      run: |
+        echo Download everything
+        gh release download ${{ input.release_tag }} -p "*.zip" -p "*.tgz" -p "*.jar" --repo=${{ github.repository_owner }}
+
+    - name: Checksums and sign
+      run: |
+        sha512sum -b icu4c*                    > SHASUM512.txt
+        sha512sum -b *.jar                     > icu4j-75.1.md5
+        sha512sum -b icu4c-75_1-data-bin-*.zip > icu4c-75_1-binary.md5
+        sha512sum -b icu4c-75_1-src.*          > icu4c-75_1-sources.md5
+        find . -type f -name 'icu4c*' -exec gpg --pinentry-mode loopback --passphrase=$MAVEN_GPG_PASSPHRASE --output {}.asc --detach-sig {} \;
+        gpg --pinentry-mode loopback --passphrase=$MAVEN_GPG_PASSPHRASE --output SHASUM512.txt.asc --detach-sig SHASUM512.txt
+      env:
+        MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+
+    - name: Upload all release files
+      run: |
+        echo Upload  everything
