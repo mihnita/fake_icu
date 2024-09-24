@@ -50,11 +50,11 @@ jobs:
 
     - name: Checksums and sign
       run: |
+        source icu4j/releases_tools/shared.sh
         echo "============================"
         echo $PWD
         pushd tempFolder
         echo $PWD
-        source icu4j/releases_tools/shared.sh
         sha512sum -b icu4c*                 > SHASUM512.txt
         sha512sum -b *.jar                  > icu4j-${artifact_version}.md5
         sha512sum -b icu4c-*-data-bin-*.zip > icu4c-${artifact_version}-binary.md5
