@@ -19,6 +19,20 @@ jobs:
 
     steps:
 
+    - name: Get all release files
+      run: |
+        echo Download everything
+
+    - name: Checksums and sign
+      run: |
+        echo rm *.asc
+        echo rm *.md5
+        echo rm SHASUM512.txt
+
+    - name: Upload all release files
+      run: |
+        echo Upload  everything
+
     - name: Do we have gpg?
       run: |
         gpg -k
