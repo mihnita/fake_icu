@@ -17,13 +17,13 @@ jobs:
         username: ${{ secrets.DOCKER_CONTAINER_USER_NAME }}
         password: ${{ secrets.DOCKER_CONTAINER_REGISTRY_TOKEN }}
     steps:
-    - uses: release/icu4c
+    - uses: ./.github/actions/release/icu4c
       with:
         distro: fedora
 
   build_ubuntu:
     runs-on: ubuntu-latest
     steps:
-    - uses: release/icu4c
+    - uses: ./.github/actions/release/icu4c
       with:
         distro: ubuntu
