@@ -34,11 +34,16 @@ jobs:
 
     - name: Import GPG keys
       run: |
-        echo -r "$gpg-private-key" | gpg --passphrase=$MAVEN_GPG_PASSPHRASE --import
+        echo $gpg-private-key > foo
+        echo $gpg-passphrase >> foo
+        cat foo
+        echo $gpg-private-key > key.asc
+        gpg --passphrase=$gpg-passphrase --import key.asc
         gpg -k
         gpg -K
       env:
         gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+        gpg-passphrase: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
 
     - name: Get all release files
       run: |
