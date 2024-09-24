@@ -48,9 +48,7 @@ jobs:
       run: |
         source icu4j/releases_tools/shared.sh
         echo "============================"
-        echo $PWD
         pushd tempFolder
-        echo $PWD
         sha512sum -b icu4c*                 > SHASUM512.txt
         sha512sum -b *.jar                  > icu4j-${artifact_version}.md5
         sha512sum -b icu4c-*-data-bin-*.zip > icu4c-${artifact_version}-binary.md5
@@ -63,4 +61,10 @@ jobs:
 
     - name: Upload all release files
       run: |
-        echo Upload everything
+        pushd tempFolder
+        gh release upload release-76-1beta *.asc         --repo=mihnita/fake_icu
+        gh release upload release-76-1beta *.md5         --repo=${{ github.repository }}
+        gh release upload release-76-1beta SHASUM512.txt --repo=${{ github.repository }}
+        popd
+      env:
+        GH_TOKEN: ${{ github.token }}
