@@ -11,6 +11,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    environment: release-env
 
     container:
       image: ghcr.io/${{ github.repository_owner }}/fedora-docker-gcr:latest
