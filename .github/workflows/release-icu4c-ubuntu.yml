@@ -61,7 +61,7 @@ jobs:
     - name: Upload build results
       uses: actions/upload-artifact@v4.3.6
       with:
-        name: ubuntu-binaries
+        name: icu4c-ubuntu-binaries
         path: ${{ github.workspace }}/releaseDist/
         retention-days: 3 # TBD if we want to keep them longer
         overwrite: true
