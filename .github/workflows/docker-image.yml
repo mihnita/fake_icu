@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Create and publish a Fedora Docker Image CI
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Build the Docker image
     - uses: actions/checkout@v4
+    - name: Build the Docker image
       run: docker build . --file .github/Dockerfile_fedora --tag fedora-docker-icu:$(date +%s)
       
