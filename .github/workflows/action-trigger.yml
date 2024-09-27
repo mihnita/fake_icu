@@ -29,6 +29,9 @@ on:
       releaseTag:
         description: 'Tag used to create a release / post to it'
         type: string
+      bypassValidation:
+        description: 'Bypass name validation for branches (maint/maint-\d+) and tags (and release-\d+)'
+        type: boolean
 
 # permissions: write-all
 permissions:
@@ -39,10 +42,10 @@ env:
   OWNER: ${{ github.repository_owner }}
   REPO: ${{ github.event.repository.name }}
 
-
 jobs:
   test_releasing:
     runs-on: ubuntu-latest
+    if: false # Temporarily disabled
 
     steps:
       - name: Checkout repo files
@@ -105,6 +108,7 @@ jobs:
 
   test_releasing_with_gh:
     runs-on: ubuntu-latest
+    if: false # Temporarily disabled
     steps:
       - name: Show environment
         run: |
@@ -156,3 +160,13 @@ jobs:
           echo "- Lets add a bullet point" >> $GITHUB_STEP_SUMMARY
           echo "- Lets add a second bullet point" >> $GITHUB_STEP_SUMMARY
           echo "- How about a third one?" >> $GITHUB_STEP_SUMMARY
+
+  test_validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show that it works
+        run: |
+          echo WORKS!
+          echo ref_name ${{ github.ref_name }}
+          echo environ ${GITHUB_HEAD_REF}
+          set
