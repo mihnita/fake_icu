@@ -125,12 +125,11 @@ jobs:
     - name: Upload to release
       if: ${{ inputs.gitReleaseTag && startsWith(inputs.gitReleaseTag, 'release-') }}
       run: |
-        # pushd ${RELEASE_FOLDER}
-        # gh release upload ${{ inputs.gitReleaseTag }} * --clobber --repo=${{ github.repository }}
-        # popd
         echo ${RELEASE_FOLDER}
-        ls ${RELEASE_FOLDER}
         gh release upload ${{ inputs.gitReleaseTag }} LICENSE --clobber --repo=${{ github.repository }}
-        gh release upload ${{ inputs.gitReleaseTag }} ${RELEASE_FOLDER}/* --clobber --repo=${{ github.repository }}
+        pushd ${RELEASE_FOLDER}
+        ls
+        gh release upload ${{ inputs.gitReleaseTag }} * --clobber --repo=${{ github.repository }}
+        popd
       env:
         GH_TOKEN: ${{ github.token }}
