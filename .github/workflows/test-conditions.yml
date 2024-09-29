@@ -1,0 +1,77 @@
+name: A - Test Conditions
+
+on:
+  workflow_dispatch:
+    inputs:
+      skipTests:
+        description: 'Skip running the tests.'
+        type: boolean
+        default: false
+      deployToMaven:
+        description: 'Deploy to maven'
+        type: boolean
+        default: false
+      gitReleaseTag:
+        description: 'Release tag to upload to. Must start with "release-"'
+        type: string
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    environment: release-env
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+
+    - name: Checkout and setup
+      uses: actions/checkout@v4
+      with:
+        lfs: true
+
+    - name: Build release files
+      run: |
+        set > $GITHUB_WORKSPACE/releaseDist/environ.txt
+        echo SPY on SKIP_TESTS = $SKIP_TESTS
+        if [ $SKIP_TESTS = "true" ]; then
+          echo SKIPPING TESTS
+          echo SKIPPING TESTS > $GITHUB_WORKSPACE/releaseDist/skip_tests.txt
+        else
+          #tmp make check
+          echo RUNNING TESTS > $GITHUB_WORKSPACE/releaseDist/tested.txt
+          echo RUNNING TESTS
+        fi
+      env:
+        SKIP_TESTS: ${{ inputs.skipTests }}
+
+    - name: Collect artifacts in one folder
+      run: |
+        pushd releaseDist
+        echo Collect artifacts > $GITHUB_WORKSPACE/releaseDist/collect.txt
+        popd
+
+    # TODO: add them to the GitHub "Release" page automatically (on condition)
+    - name: Upload build results
+      uses: actions/upload-artifact@v4.3.6
+      with:
+        name: test-binaries
+        path: ${{ github.workspace }}/releaseDist/
+        retention-days: 3 # TBD if we want to keep them longer
+        overwrite: true
+
+    - name: Publish to maven
+      run: |
+        echo "=== $DEPLOY_TO_MAVEN ==="
+        echo Publishing to maven
+      env:
+        DEPLOY_TO_MAVEN: ${{ inputs.deployToMaven }}
+
+    - name: Upload to release
+      if: ${{ inputs.gitReleaseTag && startsWith(inputs.gitReleaseTag, 'release-') }}
+      run: |
+        echo Releasing
+      env:
+        GIT_RELEASE_TAG: ${{ inputs.gitReleaseTag }}
