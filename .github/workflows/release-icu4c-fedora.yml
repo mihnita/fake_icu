@@ -26,9 +26,8 @@ jobs:
         username: ${{ secrets.DOCKER_CONTAINER_USER_NAME }}
         password: ${{ secrets.DOCKER_CONTAINER_REGISTRY_TOKEN }}
 
-    permissions:
-      contents: read
-      packages: write
+    contents: write # So that we can upload to release
+    # packages: write # So that we can store the binaries of this build for a while
 
     steps:
 
@@ -42,9 +41,10 @@ jobs:
         pushd icu4c/source
         ./runConfigureICU Linux/gcc
         make -j8
-        # TODO: make check to make sure that what we publish works
-        # make check
-        make DESTDIR=$GITHUB_WORKSPACE/releaseDist/icu releaseDist
+        if [ "${{ inputs.runTests }}" == "true" ]; then
+          make check
+        fi
+        make DESTDIR=${RELEASE_FOLDER}/icu releaseDist
         popd
 
     - name: Collect artifacts in one folder
@@ -55,7 +55,7 @@ jobs:
         source icu4j/releases_tools/shared.sh
         # Convert 76.1 to 76_1
         underscore_version=$(echo $artifact_version | sed 's/\./_/g')
-        pushd releaseDist
+        pushd ${RELEASE_FOLDER}
         tar -czf icu4c-${underscore_version}-Fedora_Linux${VERSION_ID}-x64.tgz icu
         rm -fr icu
         popd
@@ -64,7 +64,7 @@ jobs:
       uses: actions/upload-artifact@v4.3.6
       with:
         name: icu4c-fedora-binaries
-        path: ${{ github.workspace }}/releaseDist/
+        path: ${{ env.RELEASE_FOLDER }}
         retention-days: 3 # TBD if we want to keep them longer
         overwrite: true
 

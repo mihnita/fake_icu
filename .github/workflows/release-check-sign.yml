@@ -16,8 +16,8 @@ jobs:
     environment: release-env
 
     permissions:
-      contents: write
-      packages: write
+      contents: write # So that we can upload to release
+      # packages: write # So that we can store the binaries of this build for a while
 
     steps:
 
@@ -36,8 +36,8 @@ jobs:
 
     - name: Get all release files
       run: |
-        mkdir tempFolder
-        pushd tempFolder
+        mkdir -p ${RELEASE_FOLDER}
+        pushd ${RELEASE_FOLDER}
         gh release download ${{ inputs.gitReleaseTag }} -p "*.zip" -p "*.tgz" -p "*.jar" --repo=${{ github.repository }}
         ls -al
         popd
@@ -47,7 +47,7 @@ jobs:
     - name: Checksums and sign
       run: |
         source icu4j/releases_tools/shared.sh
-        pushd tempFolder
+        pushd ${RELEASE_FOLDER}
         sha512sum -b icu4c*                 > SHASUM512.txt
         sha512sum -b *.jar                  > icu4j-${artifact_version}.md5
         sha512sum -b icu4c-*-data-bin-*.zip > icu4c-${artifact_version}-binary.md5
@@ -58,14 +58,13 @@ jobs:
       env:
         MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
 
-    - name: Upload all release files
+    - name: Upload to release
       if: ${{ inputs.gitReleaseTag && startsWith(inputs.gitReleaseTag, 'release-') }}
       run: |
         gh release upload ${{ inputs.gitReleaseTag }} LICENSE --clobber --repo=${{ github.repository }}
-        pushd tempFolder
-        gh release upload ${{ inputs.gitReleaseTag }} *.md5         --clobber --repo=${{ github.repository }}
-        gh release upload ${{ inputs.gitReleaseTag }} *.asc         --clobber --repo=${{ github.repository }}
-        gh release upload ${{ inputs.gitReleaseTag }} SHASUM512.txt --clobber --repo=${{ github.repository }}
+        gh release upload ${{ inputs.gitReleaseTag }} ${RELEASE_FOLDER}/*.md5         --clobber --repo=${{ github.repository }}
+        gh release upload ${{ inputs.gitReleaseTag }} ${RELEASE_FOLDER}/*.asc         --clobber --repo=${{ github.repository }}
+        gh release upload ${{ inputs.gitReleaseTag }} ${RELEASE_FOLDER}/SHASUM512.txt --clobber --repo=${{ github.repository }}
         popd
       env:
         GH_TOKEN: ${{ github.token }}
