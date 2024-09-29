@@ -53,7 +53,7 @@ jobs:
         echo -e "\e[1;94mGITHUB_REF_NAME     :\e[m ${GITHUB_REF_NAME}"
         echo "=============================="
         echo The current folder is $PWD
-        echo -e "Styles: "\e[1m bold \e[m \e[3m italic \e[m \e[4m Underline \e[m \e[9m strike \e[m \e[8m hide \e[m \e[7m invert \e[m \e[103m bk-yellow \e[m"
+        echo -e "Styles: \e[1m bold \e[m \e[3m italic \e[m \e[4m Underline \e[m \e[9m strike \e[m \e[8m hide \e[m \e[7m invert \e[m \e[103m bk-yellow \e[m"
       env:
         RUN_TESTS: ${{ inputs.runTests }}
         GIT_RELEASE_TAG: ${{ inputs.gitReleaseTag }}
