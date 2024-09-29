@@ -97,10 +97,6 @@ jobs:
     # So the jar files published in GitHub are binary identical to the ones in Maven Central.
     - name: Prepare release folder
       run: |
-        echo "RELEASE_FOLDER 1 : $RELEASE_FOLDER"
-        echo "RELEASE_FOLDER 2 : ${RELEASE_FOLDER}"
-        echo "RELEASE_FOLDER 3 : ${{ env.RELEASE_FOLDER }}"
-        mkdir -p ${RELEASE_FOLDER}
         pushd icu4j
         ICU_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
         # Copy the artifacts (with sources and javdoc .jar files) to the release folder
@@ -114,10 +110,10 @@ jobs:
           ${SHARED_MVN_ARGS} \
           -DskipITs -DskipTests \
           -P with_full_javadoc
+        # Archive the full doc in a jar. Should also be posted to the web as official doc.
         jar -Mcf ${RELEASE_FOLDER}/icu4j-${ICU_VERSION}-fulljavadoc.jar \
           -C target/site/apidocs/ .
         popd # out of icu4j
-        ls ${RELEASE_FOLDER}
 
     - name: Upload build results
       uses: actions/upload-artifact@v4.3.6
