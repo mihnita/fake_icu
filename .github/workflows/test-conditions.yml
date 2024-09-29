@@ -6,7 +6,7 @@ on:
       skipTests:
         description: 'Skip running the tests.'
         type: boolean
-        default: true
+        default: false
       deployToMaven:
         description: 'Deploy to maven'
         type: boolean
@@ -32,17 +32,17 @@ jobs:
     environment: release-env
 
     permissions:
-      contents: write
-      packages: write
+      contents: write # So that we can upload to release
+      packages: write # So that we can store the binaries of this build for a while
 
     steps:
 
     - name: Show input
       run: |
         echo "=============================="
-        echo "SKIP_TESTS      : $SKIP_TESTS"
-        echo "DEPLOY_TO_MAVEN : $DEPLOY_TO_MAVEN"
-        echo "GIT_RELEASE_TAG : $GIT_RELEASE_TAG"
+        echo "SKIP_TESTS          : $SKIP_TESTS"
+        echo "DEPLOY_TO_MAVEN     : $DEPLOY_TO_MAVEN"
+        echo "GIT_RELEASE_TAG     : $GIT_RELEASE_TAG"
         echo "env.SKIP_TESTS      : ${{ env.SKIP_TESTS }}"
         echo "env.DEPLOY_TO_MAVEN : ${{ env.DEPLOY_TO_MAVEN }}"
         echo "env.GIT_RELEASE_TAG : ${{ env.GIT_RELEASE_TAG }}"
@@ -55,7 +55,6 @@ jobs:
         echo We are in $PWD
       env:
         SKIP_TESTS: ${{ inputs.skipTests }}
-        DEPLOY_TO_MAVEN: ${{ inputs.deployToMaven }}
         GIT_RELEASE_TAG: ${{ inputs.gitReleaseTag }}
 
     - name: Running tests
@@ -74,6 +73,7 @@ jobs:
         popd
 
     - name: Upload build results
+      if: false # Temporarily disabled
       uses: actions/upload-artifact@v4.3.6
       with:
         name: test-binaries
@@ -84,12 +84,12 @@ jobs:
     - name: Publish to maven
       run: |
         if [ "${{ inputs.deployToMaven }}" != "true" ]; then
+          echo Publishing to LOCAL maven
           export MAVEN_LOCAL='-Durl=this_is_local'
+        else
+          echo Publishing to REAL maven
         fi
         echo mvn deploy $MAVEN_LOCAL -DskipTests -DskipITs
-        echo Publishing to maven
-      env:
-        DEPLOY_TO_MAVEN: ${{ inputs.deployToMaven }}
 
     - name: Upload to release
       if: ${{ inputs.gitReleaseTag && startsWith(inputs.gitReleaseTag, 'release-') }}
@@ -99,9 +99,7 @@ jobs:
         echo ${GITHUB_WORKSPACE}/releaseDist
         pushd ${{ github.workspace }}/releaseDist
         ls
-        echo "gh release upload ${{ inputs.gitReleaseTag }} * --clobber --repo=${{ github.repository }}"
         gh release upload ${{ inputs.gitReleaseTag }} * --clobber --repo=${{ github.repository }}
         popd
       env:
         GH_TOKEN: ${{ github.token }}
-        GIT_RELEASE_TAG: ${{ inputs.gitReleaseTag }}
