@@ -35,7 +35,7 @@ jobs:
     - name: Install gh (GitHub CLI)
       run: |
         # Don't install it in the docker image, to the latest (pros and cons)
-        dnf install -y
+        dnf install -y gh
 
     - name: Checkout and setup
       uses: actions/checkout@v4
