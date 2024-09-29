@@ -3,13 +3,9 @@ name: Release - Create checksums and GPG sign
 on:
   workflow_dispatch:
     inputs:
-      gitTag:
-        # TODO: make this mandatory and validate that it is in a release* branch and looks like
-        # 'release-\d+.\d+ or something like that.
-        # For now we don't do it so that we can test.
-        description: 'Git tag at which to sync for deploy and release'
+      gitReleaseTag:
+        description: 'Release tag to upload to. Must start with "release-"'
         type: string
-        required: true
 
 jobs:
   publish:
@@ -38,7 +34,7 @@ jobs:
       run: |
         mkdir tempFolder
         pushd tempFolder
-        gh release download ${{ inputs.gitTag }} -p "*.zip" -p "*.tgz" -p "*.jar" --repo=${{ github.repository }}
+        gh release download ${{ inputs.gitReleaseTag }} -p "*.zip" -p "*.tgz" -p "*.jar" --repo=${{ github.repository }}
         ls -al
         popd
       env:
@@ -61,9 +57,9 @@ jobs:
     - name: Upload all release files
       run: |
         pushd tempFolder
-        gh release upload ${{ inputs.gitTag }} *.md5         --clobber --repo=${{ github.repository }}
-        gh release upload ${{ inputs.gitTag }} *.asc         --clobber --repo=${{ github.repository }}
-        gh release upload ${{ inputs.gitTag }} SHASUM512.txt --clobber --repo=${{ github.repository }}
+        gh release upload ${{ inputs.gitReleaseTag }} *.md5         --clobber --repo=${{ github.repository }}
+        gh release upload ${{ inputs.gitReleaseTag }} *.asc         --clobber --repo=${{ github.repository }}
+        gh release upload ${{ inputs.gitReleaseTag }} SHASUM512.txt --clobber --repo=${{ github.repository }}
         popd
       env:
         GH_TOKEN: ${{ github.token }}

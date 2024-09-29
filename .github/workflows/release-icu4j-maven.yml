@@ -21,24 +21,21 @@ on:
   # https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow
   workflow_dispatch:
     inputs:
-      skipTests:
-        description: 'Skip running the tests.'
+      runTests:
+        description: 'Run the tests.'
+        type: boolean
+        default: true
+      deployToMaven:
+        description: 'Deploy to Maven Central (using Sonatype OSSRH)'
         type: boolean
         default: false
-      mavenDeploy:
-        description: 'Deploy to Sonatype. It will do it to a local folder.'
-        type: boolean
-        default: false
-      gitTag:
-        # TODO: make this mandatory and validate that it is in a release* branch and looks like
-        # 'release-\d+.\d+ or something like that.
-        # For now we don't do it so that we can test.
-        description: 'Git tag at which to sync for deploy and release'
+      gitReleaseTag:
+        description: 'Release tag to upload to. Must start with "release-"'
         type: string
 
 env:
   SHARED_MVN_ARGS: '--no-transfer-progress --show-version --batch-mode'
-  RELEASE_FOLDER: 'target/release_files'
+  RELEASE_FOLDER: '${{ github.workspace }}/releaseDist'
 
 jobs:
   publish:
@@ -107,7 +104,6 @@ jobs:
           -P with_full_javadoc
         jar -Mcf ${RELEASE_FOLDER}/icu4j-${ICU_VERSION}-fulljavadoc.jar \
           -C target/site/apidocs/ .
-        # Create the file with MD5 checksums
         popd # out of icu4j
 
     # TODO: add them to the GitHub "Release" page automatically

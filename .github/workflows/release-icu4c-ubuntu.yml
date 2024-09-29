@@ -3,14 +3,12 @@ name: Release - ICU4C artifacts on Ubuntu
 on:
   workflow_dispatch:
     inputs:
-      skipTests:
-        description: 'Skip running the tests.'
+      runTests:
+        description: 'Run the tests.'
         type: boolean
-        default: false
-      gitTag:
-        # TODO: make this mandatory and validate that it is in a release* branch and looks like
-        # For now we don't do it so that we can test.
-        description: 'Git tag at which to sync for deploy and release'
+        default: true
+      gitReleaseTag:
+        description: 'Release tag to upload to. Must start with "release-"'
         type: string
 
 jobs:
