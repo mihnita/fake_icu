@@ -39,7 +39,7 @@ jobs:
       run: |
         mkdir -p ${RELEASE_FOLDER}
         echo "=============================="
-        echo "RUN_TESTS           : $RUN_TESTS"
+        echo -e "\e[1;93mRUN_TESTS           :\e[m $RUN_TESTS"
         echo "DEPLOY_TO_MAVEN     : $DEPLOY_TO_MAVEN"
         echo "GIT_RELEASE_TAG     : $GIT_RELEASE_TAG"
         echo "env.RUN_TESTS       : ${{ env.RUN_TESTS }}"
