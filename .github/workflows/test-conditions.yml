@@ -10,7 +10,7 @@ on:
       deployToMaven:
         description: 'Deploy to maven'
         type: boolean
-        default: false
+        required: true
       gitReleaseTag:
         description: 'Release tag to upload to. Must start with "release-"'
         type: string
@@ -29,11 +29,49 @@ jobs:
 
     - name: Checkout and setup
       uses: actions/checkout@v4
-      with:
         lfs: true
+
+      - name: Show input
+        run: |
+          echo "=============================="
+          echo "SKIP_TESTS      : $SKIP_TESTS"
+          echo "DEPLOY_TO_MAVEN : $DEPLOY_TO_MAVEN"
+          echo "GIT_RELEASE_TAG : $GIT_RELEASE_TAG"
+          echo "env.SKIP_TESTS      : ${{ env.SKIP_TESTS }}"
+          echo "env.DEPLOY_TO_MAVEN : ${{ env.DEPLOY_TO_MAVEN }}"
+          echo "env.GIT_RELEASE_TAG : ${{ env.GIT_RELEASE_TAG }}"
+          echo "input skipTests     : ${{ inputs.skipTests }}
+          echo "input deployToMaven : ${{ inputs.deployToMaven }}
+          echo "input gitReleaseTag : ${{ inputs.gitReleaseTag }}
+          echo "GITHUB_SHA  : ${GITHUB_SHA}"
+          echo "GITHUB_REF  : ${GITHUB_REF}"
+          echo "=============================="
+          echo We are in $PWD
+        env:
+          SKIP_TESTS: ${{ inputs.skipTests }}
+          DEPLOY_TO_MAVEN: ${{ inputs.deployToMaven }}
+          GIT_RELEASE_TAG: ${{ inputs.gitReleaseTag }}
+
+    - name: Condition on boolean (skipTests)
+      if: ${{ inputs.skipTests }}
+      run: echo Running boolean
+
+    - name: Condition on NEGATED boolean (skipTests)
+      if: ${{ ! inputs.skipTests }}
+      run: echo Running NEGATED boolean
+
+    - name: Define something here
+      if: ${{ inputs.deployToMaven }}
+      run: |
+        export MAVE_DEFINED=works
+
+    - name: Test env defined somewhere else
+      if: ${{ inputs.deployToMaven }}
+      run: echo MAVE_DEFINED is $MAVE_DEFINED
 
     - name: Build release files
       run: |
+        mkdir $GITHUB_WORKSPACE/releaseDist
         set > $GITHUB_WORKSPACE/releaseDist/environ.txt
         echo SPY on SKIP_TESTS = $SKIP_TESTS
         if [ $SKIP_TESTS = "true" ]; then
