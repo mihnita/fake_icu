@@ -65,6 +65,5 @@ jobs:
         gh release upload ${{ inputs.gitReleaseTag }} ${RELEASE_FOLDER}/*.md5         --clobber --repo=${{ github.repository }}
         gh release upload ${{ inputs.gitReleaseTag }} ${RELEASE_FOLDER}/*.asc         --clobber --repo=${{ github.repository }}
         gh release upload ${{ inputs.gitReleaseTag }} ${RELEASE_FOLDER}/SHASUM512.txt --clobber --repo=${{ github.repository }}
-        popd
       env:
         GH_TOKEN: ${{ github.token }}
