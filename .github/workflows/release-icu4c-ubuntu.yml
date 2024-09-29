@@ -26,14 +26,14 @@ jobs:
 
     steps:
 
+    - name: Install doxygen
+      run: |
+        sudo apt-get -y install doxygen
+
     - name: Checkout and setup
       uses: actions/checkout@v4
       with:
         lfs: true
-
-    - name: Install doxygen
-      run: |
-        sudo apt-get -y install doxygen
 
     - name: Config and build ICU4C proper
       run: |
