@@ -80,12 +80,11 @@ jobs:
 
     - name: Build release files
       run: |
-        mkdir $GITHUB_WORKSPACE/releaseDist
-        set > $GITHUB_WORKSPACE/releaseDist/environ.txt
+        mkdir -p ${RELEASE_FOLDER}
+        set > ${RELEASE_FOLDER}/environ.txt
 
     - name: Collect artifacts in one folder
       run: |
-        echo Collect artifacts > $GITHUB_WORKSPACE/releaseDist/collect1.txt
         echo Collect artifacts > ${RELEASE_FOLDER}/collect2.txt
 
     - name: Dump GitHub context
