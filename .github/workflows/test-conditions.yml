@@ -31,26 +31,26 @@ jobs:
       uses: actions/checkout@v4
         lfs: true
 
-      - name: Show input
-        run: |
-          echo "=============================="
-          echo "SKIP_TESTS      : $SKIP_TESTS"
-          echo "DEPLOY_TO_MAVEN : $DEPLOY_TO_MAVEN"
-          echo "GIT_RELEASE_TAG : $GIT_RELEASE_TAG"
-          echo "env.SKIP_TESTS      : ${{ env.SKIP_TESTS }}"
-          echo "env.DEPLOY_TO_MAVEN : ${{ env.DEPLOY_TO_MAVEN }}"
-          echo "env.GIT_RELEASE_TAG : ${{ env.GIT_RELEASE_TAG }}"
-          echo "input skipTests     : ${{ inputs.skipTests }}
-          echo "input deployToMaven : ${{ inputs.deployToMaven }}
-          echo "input gitReleaseTag : ${{ inputs.gitReleaseTag }}
-          echo "GITHUB_SHA  : ${GITHUB_SHA}"
-          echo "GITHUB_REF  : ${GITHUB_REF}"
-          echo "=============================="
-          echo We are in $PWD
-        env:
-          SKIP_TESTS: ${{ inputs.skipTests }}
-          DEPLOY_TO_MAVEN: ${{ inputs.deployToMaven }}
-          GIT_RELEASE_TAG: ${{ inputs.gitReleaseTag }}
+    - name: Show input
+      run: |
+        echo "=============================="
+        echo "SKIP_TESTS      : $SKIP_TESTS"
+        echo "DEPLOY_TO_MAVEN : $DEPLOY_TO_MAVEN"
+        echo "GIT_RELEASE_TAG : $GIT_RELEASE_TAG"
+        echo "env.SKIP_TESTS      : ${{ env.SKIP_TESTS }}"
+        echo "env.DEPLOY_TO_MAVEN : ${{ env.DEPLOY_TO_MAVEN }}"
+        echo "env.GIT_RELEASE_TAG : ${{ env.GIT_RELEASE_TAG }}"
+        echo "input skipTests     : ${{ inputs.skipTests }}
+        echo "input deployToMaven : ${{ inputs.deployToMaven }}
+        echo "input gitReleaseTag : ${{ inputs.gitReleaseTag }}
+        echo "GITHUB_SHA  : ${GITHUB_SHA}"
+        echo "GITHUB_REF  : ${GITHUB_REF}"
+        echo "=============================="
+        echo We are in $PWD
+      env:
+        SKIP_TESTS: ${{ inputs.skipTests }}
+        DEPLOY_TO_MAVEN: ${{ inputs.deployToMaven }}
+        GIT_RELEASE_TAG: ${{ inputs.gitReleaseTag }}
 
     - name: Condition on boolean (skipTests)
       if: ${{ inputs.skipTests }}
