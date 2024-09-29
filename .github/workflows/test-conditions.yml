@@ -14,16 +14,6 @@ on:
       gitReleaseTag:
         description: 'Release tag to upload to. Must start with "release-"'
         type: string
-      tastsAndMaven:
-        description: 'Tests and maven publishing combinations'
-        required: true
-        default: 'tests_no_maven'
-        type: choice
-        options:
-        - tests_maven
-        - tests_no_maven
-        - no_tests_maven  # Unsafe, to remove
-        - no_tests_no_maven
 
 env:
   RELEASE_FOLDER: '${{ github.workspace }}/releaseDist'
@@ -35,7 +25,7 @@ jobs:
     environment: release-env
 
     # permissions:
-      # contents: write # So that we can upload to release
+      contents: write # So that we can upload to release
       # packages: write # So that we can store the binaries of this build for a while
 
     steps:
