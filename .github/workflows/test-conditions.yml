@@ -118,7 +118,7 @@ jobs:
       uses: actions/upload-artifact@v4.3.6
       with:
         name: test-binaries
-        path: {$RELEASE_FOLDER}/
+        path: {$RELEASE_FOLDER}/*
         retention-days: 1 # TBD if we want to keep them longer
         overwrite: true
 
