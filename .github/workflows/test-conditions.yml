@@ -86,16 +86,16 @@ jobs:
     - name: Collect artifacts in one folder
       run: |
         echo Collect artifacts > $GITHUB_WORKSPACE/releaseDist/collect1.txt
-        echo Collect artifacts > {$RELEASE_FOLDER}/collect2.txt
+        echo Collect artifacts > ${RELEASE_FOLDER}/collect2.txt
 
     - name: Dump GitHub context
       run: |
-        echo "$GITHUB_CONTEXT"    > {$RELEASE_FOLDER}/GITHUB_CONTEXT.json
-        echo "$JOB_CONTEXT"       > {$RELEASE_FOLDER}/JOB_CONTEXT.json
-        echo "$STEPS_CONTEXT"     > {$RELEASE_FOLDER}/STEPS_CONTEXT.json
-        echo "$RUNNER_CONTEXT"    > {$RELEASE_FOLDER}/RUNNER_CONTEXT.json
-        echo "$STRATEGY_CONTEXT"  > {$RELEASE_FOLDER}/STRATEGY_CONTEXT.json
-        echo "$MATRIX_CONTEXT"    > {$RELEASE_FOLDER}/MATRIX_CONTEXT.json
+        echo "$GITHUB_CONTEXT"    > ${RELEASE_FOLDER}/GITHUB_CONTEXT.json
+        echo "$JOB_CONTEXT"       > ${RELEASE_FOLDER}/JOB_CONTEXT.json
+        echo "$STEPS_CONTEXT"     > ${RELEASE_FOLDER}/STEPS_CONTEXT.json
+        echo "$RUNNER_CONTEXT"    > ${RELEASE_FOLDER}/RUNNER_CONTEXT.json
+        echo "$STRATEGY_CONTEXT"  > ${RELEASE_FOLDER}/STRATEGY_CONTEXT.json
+        echo "$MATRIX_CONTEXT"    > ${RELEASE_FOLDER}/MATRIX_CONTEXT.json
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
         JOB_CONTEXT: ${{ toJson(job) }}
@@ -118,17 +118,17 @@ jobs:
       uses: actions/upload-artifact@v4.3.6
       with:
         name: test-binaries
-        path: {$RELEASE_FOLDER}/*
+        path: ${RELEASE_FOLDER}
         retention-days: 1 # TBD if we want to keep them longer
         overwrite: true
 
     - name: Upload to release
       if: ${{ inputs.gitReleaseTag && startsWith(inputs.gitReleaseTag, 'release-') }}
       run: |
-        # pushd {$RELEASE_FOLDER}
+        # pushd ${RELEASE_FOLDER}
         # gh release upload ${{ inputs.gitReleaseTag }} * --clobber --repo=${{ github.repository }}
         # popd
         gh release upload ${{ inputs.gitReleaseTag }} LICENSE --clobber --repo=${{ github.repository }}
-        gh release upload ${{ inputs.gitReleaseTag }} {$RELEASE_FOLDER}/* --clobber --repo=${{ github.repository }}
+        gh release upload ${{ inputs.gitReleaseTag }} ${RELEASE_FOLDER}/* --clobber --repo=${{ github.repository }}
       env:
         GH_TOKEN: ${{ github.token }}
