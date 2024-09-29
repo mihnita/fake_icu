@@ -62,12 +62,11 @@ jobs:
       run: echo Running NEGATED boolean
 
     - name: Define something here
-      if: ${{ inputs.deployToMaven }}
+      if: ${{ !inputs.deployToMaven }}
       run: |
-        export MAVE_DEFINED=works
+        export MAVE_DEFINED=use_local_repo
 
     - name: Test env defined somewhere else
-      if: ${{ inputs.deployToMaven }}
       run: echo MAVE_DEFINED is $MAVE_DEFINED
 
     - name: Build release files
@@ -112,5 +111,11 @@ jobs:
       if: ${{ inputs.gitReleaseTag && startsWith(inputs.gitReleaseTag, 'release-') }}
       run: |
         echo Releasing
+        echo ${{ github.workspace }}/releaseDist
+        echo ${GITHUB_WORKSPACE}/releaseDist
+        pushd ${{ github.workspace }}/releaseDist
+        gh release upload ${{ inputs.gitReleaseTag }} * --clobber --repo=${{ github.repository }}
+        popd
       env:
+        GH_TOKEN: ${{ github.token }}
         GIT_RELEASE_TAG: ${{ inputs.gitReleaseTag }}
