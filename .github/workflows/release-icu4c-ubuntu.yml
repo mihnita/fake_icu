@@ -35,14 +35,23 @@ jobs:
       run: |
         sudo apt-get -y install doxygen
 
-    - name: Build release ICU4C
+    - name: Config and build ICU4C proper
       run: |
         pushd icu4c/source
         ./runConfigureICU Linux/gcc
         make -j8
-        if [ "${{ inputs.runTests }}" == "true" ]; then
-          make check
-        fi
+        popd
+
+    - name: Run tests
+      if: ${{ inputs.runTests }}
+      run: |
+        pushd icu4c/source
+        make check
+        popd
+
+    - name: Build release ICU4C
+      run: |
+        pushd icu4c/source
         make dist
         make DESTDIR=${RELEASE_FOLDER}/icu releaseDist
         popd
