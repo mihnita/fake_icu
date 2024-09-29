@@ -80,7 +80,7 @@ jobs:
       run: |
         if [ "${{ inputs.deployToMaven }}" != "true" ]; then
           # Run the deploy, but do it to a local folder, not to Sonatype / Maven Central
-          export MAVEN_LOCAL='-DaltDeploymentRepository=local::file:./local-deploy-folder'
+          export MAVEN_LOCAL='-DaltDeploymentRepository=tempid::file:./local-deploy-folder'
         fi
         mvn deploy --file icu4j \
           ${SHARED_MVN_ARGS} ${MAVEN_LOCAL} \
@@ -97,6 +97,7 @@ jobs:
     # So the jar files published in GitHub are binary identical to the ones in Maven Central.
     - name: Prepare release folder
       run: |
+        mkdir -p ${RELEASE_FOLDER}
         pushd icu4j
         ICU_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
         # Copy the artifacts (with sources and javdoc .jar files) to the release folder
@@ -113,6 +114,7 @@ jobs:
         jar -Mcf ${RELEASE_FOLDER}/icu4j-${ICU_VERSION}-fulljavadoc.jar \
           -C target/site/apidocs/ .
         popd # out of icu4j
+        ls ${RELEASE_FOLDER}
 
     - name: Upload build results
       uses: actions/upload-artifact@v4.3.6
