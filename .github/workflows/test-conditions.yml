@@ -47,6 +47,7 @@ jobs:
 
     - name: Show input
       run: |
+        mkdir -p ${RELEASE_FOLDER}
         echo "=============================="
         echo "RUN_TESTS           : $RUN_TESTS"
         echo "DEPLOY_TO_MAVEN     : $DEPLOY_TO_MAVEN"
@@ -80,7 +81,6 @@ jobs:
 
     - name: Build release files
       run: |
-        mkdir -p ${RELEASE_FOLDER}
         set > ${RELEASE_FOLDER}/environ.txt
 
     - name: Collect artifacts in one folder
