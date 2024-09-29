@@ -22,15 +22,10 @@ jobs:
     environment: release-env
 
     permissions:
-      contents: read
+      contents: write
       packages: write
 
     steps:
-
-    - name: Checkout and setup
-      uses: actions/checkout@v4
-      with:
-        lfs: true
 
     - name: Show input
       run: |
@@ -53,37 +48,14 @@ jobs:
         DEPLOY_TO_MAVEN: ${{ inputs.deployToMaven }}
         GIT_RELEASE_TAG: ${{ inputs.gitReleaseTag }}
 
-    - name: Condition on boolean (skipTests)
-      if: ${{ inputs.skipTests }}
-      run: echo Running boolean
-
-    - name: Condition on NEGATED boolean (skipTests)
+    - name: Running tests
       if: ${{ ! inputs.skipTests }}
-      run: echo Running NEGATED boolean
-
-    - name: Define something here
-      if: ${{ ! inputs.deployToMaven }}
-      run: |
-        export MAVE_DEFINED=use_local_repo
-
-    - name: Test env defined somewhere else
-      run: echo MAVE_DEFINED is $MAVE_DEFINED
+      run: echo Running TESTS
 
     - name: Build release files
       run: |
         mkdir $GITHUB_WORKSPACE/releaseDist
         set > $GITHUB_WORKSPACE/releaseDist/environ.txt
-        echo SPY on SKIP_TESTS = $SKIP_TESTS
-        if [ $SKIP_TESTS = "true" ]; then
-          echo SKIPPING TESTS
-          echo SKIPPING TESTS > $GITHUB_WORKSPACE/releaseDist/skip_tests.txt
-        else
-          #tmp make check
-          echo RUNNING TESTS > $GITHUB_WORKSPACE/releaseDist/tested.txt
-          echo RUNNING TESTS
-        fi
-      env:
-        SKIP_TESTS: ${{ inputs.skipTests }}
 
     - name: Collect artifacts in one folder
       run: |
@@ -91,7 +63,6 @@ jobs:
         echo Collect artifacts > $GITHUB_WORKSPACE/releaseDist/collect.txt
         popd
 
-    # TODO: add them to the GitHub "Release" page automatically (on condition)
     - name: Upload build results
       uses: actions/upload-artifact@v4.3.6
       with:
@@ -102,10 +73,9 @@ jobs:
 
     - name: Publish to maven
       run: |
-        if [ "${{ inputs.deployToMaven }}" == "true" ]; then
+        if [ "${{ inputs.deployToMaven }}" != "true" ]; then
           export MAVEN_LOCAL='-Durl=this_is_local'
         fi
-        echo "=== $DEPLOY_TO_MAVEN ==="
         echo mvn deploy $MAVEN_LOCAL -DskipTests -DskipITs
         echo Publishing to maven
       env:
@@ -120,7 +90,6 @@ jobs:
         pushd ${{ github.workspace }}/releaseDist
         ls
         echo "gh release upload ${{ inputs.gitReleaseTag }} * --clobber --repo=${{ github.repository }}"
-        gh release upload release-76.1 *.txt --clobber --repo=mihnita/fake_icu
         gh release upload ${{ inputs.gitReleaseTag }} * --clobber --repo=${{ github.repository }}
         popd
       env:
