@@ -3,10 +3,10 @@ name: A - Test Conditions
 on:
   workflow_dispatch:
     inputs:
-      skipTests:
-        description: 'Skip running the tests.'
+      runTests:
+        description: 'Run the tests.'
         type: boolean
-        default: false
+        default: true
       deployToMaven:
         description: 'Deploy to maven'
         type: boolean
@@ -40,13 +40,13 @@ jobs:
     - name: Show input
       run: |
         echo "=============================="
-        echo "SKIP_TESTS          : $SKIP_TESTS"
+        echo "RUN_TESTS           : $RUN_TESTS"
         echo "DEPLOY_TO_MAVEN     : $DEPLOY_TO_MAVEN"
         echo "GIT_RELEASE_TAG     : $GIT_RELEASE_TAG"
-        echo "env.SKIP_TESTS      : ${{ env.SKIP_TESTS }}"
+        echo "env.RUN_TESTS       : ${{ env.RUN_TESTS }}"
         echo "env.DEPLOY_TO_MAVEN : ${{ env.DEPLOY_TO_MAVEN }}"
         echo "env.GIT_RELEASE_TAG : ${{ env.GIT_RELEASE_TAG }}"
-        echo "input skipTests     : ${{ inputs.skipTests }}"
+        echo "input runTests      : ${{ inputs.runTests }}"
         echo "input deployToMaven : ${{ inputs.deployToMaven }}"
         echo "input gitReleaseTag : ${{ inputs.gitReleaseTag }}"
         echo "GITHUB_SHA  : ${GITHUB_SHA}"
@@ -54,11 +54,11 @@ jobs:
         echo "=============================="
         echo We are in $PWD
       env:
-        SKIP_TESTS: ${{ inputs.skipTests }}
+        RUN_TESTS: ${{ inputs.runTests }}
         GIT_RELEASE_TAG: ${{ inputs.gitReleaseTag }}
 
     - name: Running tests
-      if: ${{ ! inputs.skipTests }}
+      if: ${{ inputs.runTests }}
       run: echo Running TESTS
 
     - name: Build release files
@@ -73,7 +73,7 @@ jobs:
         popd
 
     - name: Upload build results
-      if: false # Temporarily disabled
+      # if: false # Temporarily disabled
       uses: actions/upload-artifact@v4.3.6
       with:
         name: test-binaries
@@ -89,7 +89,7 @@ jobs:
         else
           echo Publishing to REAL maven
         fi
-        echo mvn deploy $MAVEN_LOCAL -DskipTests -DskipITs
+        echo mvn deploy $MAVEN_LOCAL -DrunTests -DskipITs
 
     - name: Upload to release
       if: ${{ inputs.gitReleaseTag && startsWith(inputs.gitReleaseTag, 'release-') }}
