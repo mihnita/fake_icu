@@ -3,14 +3,20 @@ name: Release - Create checksums and GPG sign
 on:
   workflow_dispatch:
     inputs:
+  workflow_dispatch:
+    inputs:
       gitReleaseTag:
         description: 'Release tag to upload to. Must start with "release-"'
         type: string
+
+env:
+  RELEASE_FOLDER: '${{ github.workspace }}/releaseDist'
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     environment: release-env
+
     permissions:
       contents: write
       packages: write
@@ -55,7 +61,9 @@ jobs:
         MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
 
     - name: Upload all release files
+      if: ${{ inputs.gitReleaseTag && startsWith(inputs.gitReleaseTag, 'release-') }}
       run: |
+        gh release upload ${{ inputs.gitReleaseTag }} LICENSE --clobber --repo=${{ github.repository }}
         pushd tempFolder
         gh release upload ${{ inputs.gitReleaseTag }} *.md5         --clobber --repo=${{ github.repository }}
         gh release upload ${{ inputs.gitReleaseTag }} *.asc         --clobber --repo=${{ github.repository }}

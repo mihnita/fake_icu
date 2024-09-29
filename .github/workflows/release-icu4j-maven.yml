@@ -114,3 +114,10 @@ jobs:
         path: ./icu4j/${{ env.RELEASE_FOLDER }}/*
         retention-days: 3 # TBD if we want to keep them longer
         overwrite: true
+
+    - name: Upload to release
+      if: ${{ inputs.gitReleaseTag && startsWith(inputs.gitReleaseTag, 'release-') }}
+      run: |
+        gh release upload ${{ inputs.gitReleaseTag }} ${RELEASE_FOLDER}/* --clobber --repo=${{ github.repository }}
+      env:
+        GH_TOKEN: ${{ github.token }}

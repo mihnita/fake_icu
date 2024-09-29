@@ -11,6 +11,9 @@ on:
         description: 'Release tag to upload to. Must start with "release-"'
         type: string
 
+env:
+  RELEASE_FOLDER: '${{ github.workspace }}/releaseDist'
+
 jobs:
   build:
 
@@ -66,7 +69,6 @@ jobs:
         mv icu4c/source/dist/icu4c-76_1-d*    releaseDist/
         mv icu4c/source/dist/icu4c-76_1-src.* releaseDist/
 
-    # TODO: add them to the GitHub "Release" page automatically (on condition)
     - name: Upload build results
       uses: actions/upload-artifact@v4.3.6
       with:
@@ -74,3 +76,10 @@ jobs:
         path: ${{ github.workspace }}/releaseDist/
         retention-days: 3 # TBD if we want to keep them longer
         overwrite: true
+
+    - name: Upload to release
+      if: ${{ inputs.gitReleaseTag && startsWith(inputs.gitReleaseTag, 'release-') }}
+      run: |
+        gh release upload ${{ inputs.gitReleaseTag }} ${RELEASE_FOLDER}/* --clobber --repo=${{ github.repository }}
+      env:
+        GH_TOKEN: ${{ github.token }}
