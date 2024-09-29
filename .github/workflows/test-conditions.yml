@@ -114,6 +114,7 @@ jobs:
         echo ${{ github.workspace }}/releaseDist
         echo ${GITHUB_WORKSPACE}/releaseDist
         pushd ${{ github.workspace }}/releaseDist
+        ls
         gh release upload ${{ inputs.gitReleaseTag }} * --clobber --repo=${{ github.repository }}
         popd
       env:
