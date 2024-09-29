@@ -114,7 +114,6 @@ jobs:
           -C target/site/apidocs/ .
         popd # out of icu4j
 
-    # TODO: add them to the GitHub "Release" page automatically
     - name: Upload build results
       uses: actions/upload-artifact@v4.3.6
       with:

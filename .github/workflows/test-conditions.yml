@@ -39,20 +39,21 @@ jobs:
       run: |
         mkdir -p ${RELEASE_FOLDER}
         echo "=============================="
-        echo -e "\e[1;93mRUN_TESTS           :\e[m $RUN_TESTS"
-        echo "DEPLOY_TO_MAVEN     : $DEPLOY_TO_MAVEN"
-        echo "GIT_RELEASE_TAG     : $GIT_RELEASE_TAG"
-        echo "env.RUN_TESTS       : ${{ env.RUN_TESTS }}"
-        echo "env.DEPLOY_TO_MAVEN : ${{ env.DEPLOY_TO_MAVEN }}"
-        echo "env.GIT_RELEASE_TAG : ${{ env.GIT_RELEASE_TAG }}"
-        echo "input runTests      : ${{ inputs.runTests }}"
-        echo "input deployToMaven : ${{ inputs.deployToMaven }}"
-        echo "input gitReleaseTag : ${{ inputs.gitReleaseTag }}"
-        echo "GITHUB_SHA      : ${GITHUB_SHA}"
-        echo "GITHUB_REF      : ${GITHUB_REF}"
-        echo "GITHUB_REF_NAME : ${GITHUB_REF_NAME}"
+        echo -e "\e[1;91mRUN_TESTS           :\e[m $RUN_TESTS"
+        echo -e "\e[1;91mDEPLOY_TO_MAVEN     :\e[m $DEPLOY_TO_MAVEN"
+        echo -e "\e[1;91mGIT_RELEASE_TAG     :\e[m $GIT_RELEASE_TAG"
+        echo -e "\e[1;93menv.RUN_TESTS       :\e[m ${{ env.RUN_TESTS }}"
+        echo -e "\e[1;93menv.DEPLOY_TO_MAVEN :\e[m ${{ env.DEPLOY_TO_MAVEN }}"
+        echo -e "\e[1;93menv.GIT_RELEASE_TAG :\e[m ${{ env.GIT_RELEASE_TAG }}"
+        echo -e "\e[1;92minput runTests      :\e[m ${{ inputs.runTests }}"
+        echo -e "\e[1;92minput deployToMaven :\e[m ${{ inputs.deployToMaven }}"
+        echo -e "\e[1;92minput gitReleaseTag :\e[m ${{ inputs.gitReleaseTag }}"
+        echo -e "\e[1;94mGITHUB_SHA          :\e[m ${GITHUB_SHA}"
+        echo -e "\e[1;94mGITHUB_REF          :\e[m ${GITHUB_REF}"
+        echo -e "\e[1;94mGITHUB_REF_NAME     :\e[m ${GITHUB_REF_NAME}"
         echo "=============================="
         echo The current folder is $PWD
+        echo -e "Styles: "\e[1m bold \e[m \e[3m italic \e[m \e[4m Underline \e[m \e[9m strike \e[m \e[8m hide \e[m \e[7m invert \e[m \e[103m bk-yellow \e[m"
       env:
         RUN_TESTS: ${{ inputs.runTests }}
         GIT_RELEASE_TAG: ${{ inputs.gitReleaseTag }}
