@@ -20,9 +20,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: release-env
 
-    permissions:
-      contents: write # So that we can upload to release
-
     container:
       image: ghcr.io/${{ github.repository_owner }}/fedora-docker-gcr:latest
       credentials:
