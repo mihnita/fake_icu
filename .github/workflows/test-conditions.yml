@@ -102,7 +102,6 @@ jobs:
 
     - name: Publish to maven
       run: |
-        if [ ${{ inputs.deployToMaven }} = "true" ]
         if [ "${{ inputs.deployToMaven }}" == "true" ]; then
           export MAVEN_LOCAL='-Durl=this_is_local'
         fi
