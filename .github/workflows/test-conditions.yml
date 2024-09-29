@@ -54,8 +54,9 @@ jobs:
         echo "input runTests      : ${{ inputs.runTests }}"
         echo "input deployToMaven : ${{ inputs.deployToMaven }}"
         echo "input gitReleaseTag : ${{ inputs.gitReleaseTag }}"
-        echo "GITHUB_SHA  : ${GITHUB_SHA}"
-        echo "GITHUB_REF  : ${GITHUB_REF}"
+        echo "GITHUB_SHA      : ${GITHUB_SHA}"
+        echo "GITHUB_REF      : ${GITHUB_REF}"
+        echo "GITHUB_REF_NAME : ${GITHUB_REF_NAME}"
         echo "=============================="
         echo The current folder is $PWD
       env:
@@ -75,6 +76,22 @@ jobs:
       run: |
         echo Collect artifacts > $GITHUB_WORKSPACE/releaseDist/collect1.txt
         echo Collect artifacts > ${{ github.workspace }}/releaseDist/collect2.txt
+
+    - name: Dump GitHub context
+      run: |
+        echo "$GITHUB_CONTEXT"    > ${{ github.workspace }}/releaseDist/GITHUB_CONTEXT.json
+        echo "$JOB_CONTEXT"       > ${{ github.workspace }}/releaseDist/JOB_CONTEXT.json
+        echo "$STEPS_CONTEXT"     > ${{ github.workspace }}/releaseDist/STEPS_CONTEXT.json
+        echo "$RUNNER_CONTEXT"    > ${{ github.workspace }}/releaseDist/RUNNER_CONTEXT.json
+        echo "$STRATEGY_CONTEXT"  > ${{ github.workspace }}/releaseDist/STRATEGY_CONTEXT.json
+        echo "$MATRIX_CONTEXT"    > ${{ github.workspace }}/releaseDist/MATRIX_CONTEXT.json
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+        JOB_CONTEXT: ${{ toJson(job) }}
+        STEPS_CONTEXT: ${{ toJson(steps) }}
+        RUNNER_CONTEXT: ${{ toJson(runner) }}
+        STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+        MATRIX_CONTEXT: ${{ toJson(matrix) }}
 
     - name: Upload build results
       # if: false # Temporarily disabled
@@ -99,7 +116,7 @@ jobs:
         # pushd ${{ github.workspace }}/releaseDist
         # gh release upload ${{ inputs.gitReleaseTag }} * --clobber --repo=${{ github.repository }}
         # popd
-        ls
+        gh release upload ${{ inputs.gitReleaseTag }} LICENSE --clobber --repo=${{ github.repository }}
         gh release upload ${{ inputs.gitReleaseTag }} ${{ github.workspace }}/releaseDist/* --clobber --repo=${{ github.repository }}
       env:
         GH_TOKEN: ${{ github.token }}
