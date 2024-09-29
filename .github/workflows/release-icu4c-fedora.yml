@@ -26,8 +26,9 @@ jobs:
         username: ${{ secrets.DOCKER_CONTAINER_USER_NAME }}
         password: ${{ secrets.DOCKER_CONTAINER_REGISTRY_TOKEN }}
 
-    contents: write # So that we can upload to release
-    # packages: write # So that we can store the binaries of this build for a while
+    permissions:
+      contents: write # So that we can upload to release
+      # packages: write
 
     steps:
 
