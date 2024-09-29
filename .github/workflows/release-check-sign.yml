@@ -3,8 +3,6 @@ name: Release - Create checksums and GPG sign
 on:
   workflow_dispatch:
     inputs:
-  workflow_dispatch:
-    inputs:
       gitReleaseTag:
         description: 'Release tag to upload to. Must start with "release-"'
         type: string
