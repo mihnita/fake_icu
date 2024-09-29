@@ -29,6 +29,7 @@ jobs:
 
     - name: Checkout and setup
       uses: actions/checkout@v4
+      with:
         lfs: true
 
     - name: Show input
@@ -40,9 +41,9 @@ jobs:
         echo "env.SKIP_TESTS      : ${{ env.SKIP_TESTS }}"
         echo "env.DEPLOY_TO_MAVEN : ${{ env.DEPLOY_TO_MAVEN }}"
         echo "env.GIT_RELEASE_TAG : ${{ env.GIT_RELEASE_TAG }}"
-        echo "input skipTests     : ${{ inputs.skipTests }}
-        echo "input deployToMaven : ${{ inputs.deployToMaven }}
-        echo "input gitReleaseTag : ${{ inputs.gitReleaseTag }}
+        echo "input skipTests     : ${{ inputs.skipTests }}"
+        echo "input deployToMaven : ${{ inputs.deployToMaven }}"
+        echo "input gitReleaseTag : ${{ inputs.gitReleaseTag }}"
         echo "GITHUB_SHA  : ${GITHUB_SHA}"
         echo "GITHUB_REF  : ${GITHUB_REF}"
         echo "=============================="
