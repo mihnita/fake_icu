@@ -34,7 +34,7 @@ jobs:
 
     - name: Install gh (GitHub CLI)
       run: |
-        # Don't install it in the docker image, to the latest (pros and cons)
+        # Don't install it in the docker image, get the latest (pros and cons)
         dnf install -y gh
 
     - name: Checkout and setup
