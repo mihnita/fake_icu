@@ -3,6 +3,10 @@ name: Release - ICU4C artifacts on Fedora
 on:
   workflow_dispatch:
     inputs:
+      skipTests:
+        description: 'Skip running the tests.'
+        type: boolean
+        default: false
       gitTag:
         # TODO: make this mandatory and validate that it is in a release* branch and looks like
         # For now we don't do it so that we can test.
@@ -39,7 +43,6 @@ jobs:
         make -j8
         # TODO: make check to make sure that what we publish works
         # make check
-        make DESTDIR=/tmp/icu releaseDist
         make DESTDIR=$GITHUB_WORKSPACE/releaseDist/icu releaseDist
         popd
 

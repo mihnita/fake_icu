@@ -21,6 +21,14 @@ on:
   # https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow
   workflow_dispatch:
     inputs:
+      skipTests:
+        description: 'Skip running the tests.'
+        type: boolean
+        default: false
+      mavenDeploy:
+        description: 'Deploy to Sonatype. It will do it to a local folder.'
+        type: boolean
+        default: false
       gitTag:
         # TODO: make this mandatory and validate that it is in a release* branch and looks like
         # 'release-\d+.\d+ or something like that.

@@ -3,6 +3,10 @@ name: Release - ICU4C artifacts on Ubuntu
 on:
   workflow_dispatch:
     inputs:
+      skipTests:
+        description: 'Skip running the tests.'
+        type: boolean
+        default: false
       gitTag:
         # TODO: make this mandatory and validate that it is in a release* branch and looks like
         # For now we don't do it so that we can test.
@@ -33,18 +37,21 @@ jobs:
     - name: Build release ICU4C
       run: |
         pushd icu4c/source
-        echo "==== runConfigureICU ===="
-        ./runConfigureICU Linux/gcc
-        echo "==== make ===="
-        make -j8
-        # TODO: make check to make sure that what we publish works
-        # make check
-        echo "==== make dist ===="
-        make dist
-        echo "==== make releaseDist ===="
-        make DESTDIR=$GITHUB_WORKSPACE/releaseDist/icu releaseDist
-        echo "=========================="
+        #tmp ./runConfigureICU Linux/gcc
+        # make -j8
+        echo SPY on SKIP_TESTS = $SKIP_TESTS
+        if [ $SKIP_TESTS = "true" ]; then
+          echo SKIPPING TESTS
+        else
+          #tmp make check
+          echo RUNNING TESTS
+        fi
+        #tmp make dist
+        #tmp make DESTDIR=$GITHUB_WORKSPACE/releaseDist/icu releaseDist
         popd
+      env:
+        SKIP_TESTS: ${{ inputs.skipTests }}
+        GIT_TAG: ${{ inputs.gitTag }}
 
     - name: Collect artifacts in one folder
       run: |
@@ -52,6 +59,7 @@ jobs:
         source /etc/os-release
         # Get the ICU version in artifact_version
         source icu4j/releases_tools/shared.sh
+        # Convert 76.1 to 76_1
         underscore_version=$(echo $artifact_version | sed 's/\./_/g')
         pushd releaseDist
         tar -czf icu4c-${underscore_version}-Ubuntu${VERSION_ID}-x64.tgz icu
