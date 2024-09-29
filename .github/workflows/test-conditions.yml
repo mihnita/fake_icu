@@ -37,6 +37,11 @@ jobs:
 
     steps:
 
+    - name: Checkout repo files
+      uses: actions/checkout@v4.1.7
+      with:
+        lfs: true
+
     - name: Show input
       run: |
         echo "=============================="
@@ -52,7 +57,7 @@ jobs:
         echo "GITHUB_SHA  : ${GITHUB_SHA}"
         echo "GITHUB_REF  : ${GITHUB_REF}"
         echo "=============================="
-        echo We are in $PWD
+        echo The current folder is $PWD
       env:
         RUN_TESTS: ${{ inputs.runTests }}
         GIT_RELEASE_TAG: ${{ inputs.gitReleaseTag }}
@@ -68,9 +73,8 @@ jobs:
 
     - name: Collect artifacts in one folder
       run: |
-        pushd releaseDist
-        echo Collect artifacts > $GITHUB_WORKSPACE/releaseDist/collect.txt
-        popd
+        echo Collect artifacts > $GITHUB_WORKSPACE/releaseDist/collect1.txt
+        echo Collect artifacts > ${{ github.workspace }}/releaseDist/collect2.txt
 
     - name: Upload build results
       # if: false # Temporarily disabled
@@ -78,28 +82,24 @@ jobs:
       with:
         name: test-binaries
         path: ${{ github.workspace }}/releaseDist/
-        retention-days: 3 # TBD if we want to keep them longer
+        retention-days: 1 # TBD if we want to keep them longer
         overwrite: true
 
     - name: Publish to maven
       run: |
         if [ "${{ inputs.deployToMaven }}" != "true" ]; then
-          echo Publishing to LOCAL maven
+          # Run the deploy, but do it to a local folder, not to Sonatype / Maven Central
           export MAVEN_LOCAL='-Durl=this_is_local'
-        else
-          echo Publishing to REAL maven
         fi
         echo mvn deploy $MAVEN_LOCAL -DrunTests -DskipITs
 
     - name: Upload to release
       if: ${{ inputs.gitReleaseTag && startsWith(inputs.gitReleaseTag, 'release-') }}
       run: |
-        echo Releasing
-        echo ${{ github.workspace }}/releaseDist
-        echo ${GITHUB_WORKSPACE}/releaseDist
-        pushd ${{ github.workspace }}/releaseDist
+        # pushd ${{ github.workspace }}/releaseDist
+        # gh release upload ${{ inputs.gitReleaseTag }} * --clobber --repo=${{ github.repository }}
+        # popd
         ls
-        gh release upload ${{ inputs.gitReleaseTag }} * --clobber --repo=${{ github.repository }}
-        popd
+        gh release upload ${{ inputs.gitReleaseTag }} ${{ github.workspace }}/releaseDist/* --clobber --repo=${{ github.repository }}
       env:
         GH_TOKEN: ${{ github.token }}
