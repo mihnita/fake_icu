@@ -6,14 +6,24 @@ on:
       skipTests:
         description: 'Skip running the tests.'
         type: boolean
-        default: false
+        default: true
       deployToMaven:
         description: 'Deploy to maven'
         type: boolean
-        required: true
+        default: false
       gitReleaseTag:
         description: 'Release tag to upload to. Must start with "release-"'
         type: string
+      tastsAndMaven:
+        description: 'Tests and maven publishing combinations'
+        required: true
+        default: 'tests_no_maven'
+        type: choice
+        options:
+        - tests_maven
+        - tests_no_maven
+        - no_tests_maven  # Unsafe, to remove
+        - no_tests_no_maven
 
 jobs:
   build:
