@@ -96,6 +96,7 @@ jobs:
         echo "$RUNNER_CONTEXT"    > ${RELEASE_FOLDER}/RUNNER_CONTEXT.json
         echo "$STRATEGY_CONTEXT"  > ${RELEASE_FOLDER}/STRATEGY_CONTEXT.json
         echo "$MATRIX_CONTEXT"    > ${RELEASE_FOLDER}/MATRIX_CONTEXT.json
+        echo "$INPUTS_CONTEXT"    > ${RELEASE_FOLDER}/INPUTS_CONTEXT.json
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
         JOB_CONTEXT: ${{ toJson(job) }}
