@@ -54,6 +54,8 @@ jobs:
         echo "=============================="
         echo The current folder is $PWD
         echo -e "Styles: \e[1m bold \e[m \e[3m italic \e[m \e[4m Underline \e[m \e[9m strike \e[m \e[8m hide \e[m \e[7m invert \e[m \e[103m bk-yellow \e[m"
+        echo -e "Bright: \e[91m red \e[m \e[92m green \e[m \e[94m blue \e[m \e[95m cyan \e[m \e[96m magenta \e[m \e[93m yellow \e[m \e[90m black \e[m"
+        echo -e "Dark: \e[31m red \e[m \e[32m green \e[m \e[34m blue \e[m \e[35m cyan \e[m \e[36m magenta \e[m \e[33m yellow \e[m \e[30m black \e[m"
       env:
         RUN_TESTS: ${{ inputs.runTests }}
         GIT_RELEASE_TAG: ${{ inputs.gitReleaseTag }}
