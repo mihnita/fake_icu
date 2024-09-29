@@ -3,8 +3,10 @@ name: Release - ICU4C artifacts on Fedora
 on:
   workflow_dispatch:
     inputs:
-      foo:
-        description: 'Release tag'
+      gitTag:
+        # TODO: make this mandatory and validate that it is in a release* branch and looks like
+        # For now we don't do it so that we can test.
+        description: 'Git tag at which to sync for deploy and release'
         type: string
 
 jobs:
@@ -47,8 +49,10 @@ jobs:
         source /etc/os-release
         # Get the ICU version in artifact_version
         source icu4j/releases_tools/shared.sh
+        # Convert 76.1 to 76_1
+        underscore_version=$(echo $artifact_version | sed 's/\./_/g')
         pushd releaseDist
-        tar -czf icu4c-${artifact_version}-Fedora_Linux${VERSION_ID}-x64.tgz icu
+        tar -czf icu4c-${underscore_version}-Fedora_Linux${VERSION_ID}-x64.tgz icu
         rm -fr icu
         popd
 
