@@ -49,10 +49,10 @@ jobs:
         # Convert 76.1 to 76_1
         underscore_version=$(echo $artifact_version | sed 's/\./_/g')
         pushd ${RELEASE_FOLDER}
-        sha5sum -b icu4c*                 > SHASUM512.txt
-        sha5sum -b *.jar                  > icu4j-${artifact_version}.md5
-        sha5sum -b icu4c-*-data-bin-*.zip > icu4c-${underscore_version}-binary.md5
-        sha5sum -b icu4c-*-src.*          > icu4c-${underscore_version}-sources.md5
+        sha512sum -b icu4c*              > SHASUM512.txt
+        md5sum -b *.jar                  > icu4j-${artifact_version}.md5
+        md5sum -b icu4c-*-data-bin-*.zip > icu4c-${underscore_version}-binary.md5
+        md5sum -b icu4c-*-src.*          > icu4c-${underscore_version}-sources.md5
         find . -type f -name 'icu4c*' -exec gpg --no-tty --batch --pinentry-mode loopback --passphrase=$MAVEN_GPG_PASSPHRASE -a --output {}.asc --detach-sig {} \;
         gpg --no-tty --batch --pinentry-mode loopback --passphrase=$MAVEN_GPG_PASSPHRASE -a --output SHASUM512.txt.asc --detach-sig SHASUM512.txt
         popd
