@@ -428,6 +428,8 @@ jobs:
   # Windows MSVC distribution release
   windows-msvc-dist-release:
     runs-on: windows-latest
+    permissions:
+      contents: write # So that we can upload to release
     timeout-minutes: 30
     strategy:
       fail-fast: false
@@ -893,6 +895,8 @@ jobs:
   # Workflow for ICU Export Data for ICU4X
   icu4c-icuexportdata:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # So that we can upload to release
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
