@@ -12,7 +12,7 @@ env:
 
 jobs:
   sign_and_checksums:
-    if: ${{ inputs.gitReleaseTag && startsWith(inputs.gitReleaseTag, 'release-') }}
+  if: ${{ inputs.gitReleaseTag && startsWith(inputs.gitReleaseTag, 'release-') }}
 
     runs-on: ubuntu-latest
     environment: release-env
@@ -62,7 +62,6 @@ jobs:
         MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
 
     - name: Upload to release
-      if: ${{ inputs.gitReleaseTag && startsWith(inputs.gitReleaseTag, 'release-') }}
       run: |
         gh release upload ${{ inputs.gitReleaseTag }} LICENSE --clobber --repo=${{ github.repository }}
         gh release upload ${{ inputs.gitReleaseTag }} ${RELEASE_FOLDER}/*.md5         --clobber --repo=${{ github.repository }}
