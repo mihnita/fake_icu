@@ -12,14 +12,12 @@ env:
 
 jobs:
   sign_and_checksums:
-  if: ${{ inputs.gitReleaseTag && startsWith(inputs.gitReleaseTag, 'release-') }}
-
+    if: ${{ inputs.gitReleaseTag && startsWith(inputs.gitReleaseTag, 'release-') }}
     runs-on: ubuntu-latest
     environment: release-env
 
     permissions:
       contents: write # So that we can upload to release
-      # packages: write # So that we can store the binaries of this build for a while
 
     steps:
 

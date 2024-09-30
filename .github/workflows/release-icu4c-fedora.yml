@@ -16,7 +16,6 @@ env:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     environment: release-env
 
@@ -28,7 +27,6 @@ jobs:
 
     permissions:
       contents: write # So that we can upload to release
-      # packages: write
 
     steps:
 
