@@ -12,6 +12,8 @@ env:
 
 jobs:
   publish:
+    if: ${{ inputs.gitReleaseTag && startsWith(inputs.gitReleaseTag, 'release-') }}
+
     runs-on: ubuntu-latest
     environment: release-env
 
