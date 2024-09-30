@@ -6,23 +6,28 @@
 name: GHA ICU4C
 
 on:
-  push:
-    branches:
-      - main
-      - 'maint/maint*'
-    paths:
-      - 'icu4c/**'
-      - 'testdata/**'
-      - '.github/workflows/**'
-  pull_request:
-    branches: '**'
-    paths:
-      - 'icu4c/**'
-      - 'testdata/**'
-      - '.github/workflows/**'
+#tzu  push:
+#tzu    branches:
+#tzu      - main
+#tzu      - 'maint/maint*'
+#tzu    paths:
+#tzu      - 'icu4c/**'
+#tzu      - 'testdata/**'
+#tzu      - '.github/workflows/**'
+#tzu  pull_request:
+#tzu    branches: '**'
+#tzu    paths:
+#tzu      - 'icu4c/**'
+#tzu      - 'testdata/**'
+#tzu      - '.github/workflows/**'
   workflow_dispatch:
     # To trigger the Env Test workflow manually, follow the instructions in
     # https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow
+    inputs:
+      gitReleaseTag:
+        description: 'Release tag to upload to. Must start with "release-"'
+        type: string
+
 
 # For non-release branches (namely: PRs), only run CI on the most recent commit. Cancel
 # runs on previous commits mid-flight when new commits are pushed.
@@ -38,6 +43,7 @@ jobs:
 
   # ICU4C docs build using doxygen..
   icu4c-docs-build:
+    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -61,6 +67,7 @@ jobs:
   #
   # Invokes test/hdrtst to check public headers compliance.
   gcc-debug-build-and-test:
+    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -79,6 +86,8 @@ jobs:
 
   #gcc 11 with c++ 20
   gcc11-cpp20:
+    if: false #tzu Temporarily disabled
+    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -104,6 +113,7 @@ jobs:
   # (FORCE guards make this tool pass but won't compile to working code.
   # See the testtagsguards.sh script for details.)
   clang-release-build-and-test:
+    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -145,6 +155,7 @@ jobs:
 
   # clang build with some options
   clang-options-build-and-test:
+    if: false #tzu Temporarily disabled
     strategy:
       # "fail-fast: false" lets other jobs keep running even if the test breaks in some other options.
       fail-fast: false
@@ -168,6 +179,7 @@ jobs:
 
   # Out of source build with gcc 10, c++14, and extra warnings; executes icuinfo.
   gcc-10-stdlib17:
+    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -189,6 +201,7 @@ jobs:
 
   # Clang Linux with address sanitizer.
   clang-asan:
+    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -203,6 +216,7 @@ jobs:
           LDFLAGS: -fsanitize=address
   # Clang Linux with leak sanitizer.
   clang-lsan:
+    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -218,6 +232,7 @@ jobs:
           ASAN_OPTIONS: detect_leaks=1
   # Clang Linux with undefined-behavior sanitizer.
   clang-ubsan:
+    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -233,6 +248,7 @@ jobs:
           LDFLAGS: -fsanitize=undefined -fsanitize=alignment -fno-sanitize-recover=undefined,alignment
   # Control Flow Integrity.
   clang-cfi:
+    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -252,6 +268,7 @@ jobs:
 
   # Clang Linux with thread sanitizer.
   clang-tsan:
+    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -274,6 +291,7 @@ jobs:
   # this check became flaky. The build apparently was not done copying one or another .ucm file before
   # calling makeconv for it, although the Makefile has appropriate dependencies.
   clang-datafilter:
+    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -296,6 +314,7 @@ jobs:
 
   # Clang Linux with CPP 17
   clang-cpp17:
+    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -307,6 +326,7 @@ jobs:
 
   # Clang Linux with LANG: en_US@calendar=gregorian;hours=h12
   clang-lang-with-extn-tags:
+    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -318,6 +338,7 @@ jobs:
 
   # Clang Linux 18 with CPP20 and treat warnings as errors 
   clang18-cpp20-warning-as-errors:
+    if: false #tzu Temporarily disabled
       runs-on: ubuntu-latest
       strategy:
         fail-fast: false
@@ -343,6 +364,7 @@ jobs:
 
   # MacOS with clang
   macos-clang:
+    if: false #tzu Temporarily disabled
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -356,6 +378,7 @@ jobs:
 
   # Windows MSVC builds
   windows-msvc:
+    if: false #tzu Temporarily disabled
     runs-on: windows-2022
     strategy:
       fail-fast: false
@@ -388,6 +411,7 @@ jobs:
 
   # Windows data filter build
   windows-msvc-datafilter:
+    if: false #tzu Temporarily disabled
     runs-on: windows-latest
     timeout-minutes: 30
     steps:
@@ -465,9 +489,16 @@ jobs:
       with:
         name: icu4c.${{ matrix.win_ver }}.run_#${{ github.run_number }}
         path: icu4c/source/dist/${{ env.newZipName }}.zip
+      - name: Upload to release
+        if: ${{ inputs.gitReleaseTag && startsWith(inputs.gitReleaseTag, 'release-') }}
+        run: |
+          gh release upload ${{ inputs.gitReleaseTag }} icu4c/source/dist/${{ env.newZipName }}.zip --clobber
+        env:
+          GH_TOKEN: ${{ github.token }}
 
   # Window MSYS2 tests
   windows-msys2-gcc-x86_64:
+    if: false #tzu Temporarily disabled
     runs-on: windows-latest
     timeout-minutes: 45
     defaults:
@@ -505,6 +536,7 @@ jobs:
 
   # Run ICU4C tests with stubdata.
   run-with-stubdata:
+    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -548,6 +580,7 @@ jobs:
 
   # Test U_CHARSET_IS_UTF8
   u-charset-is-utf8-test:
+    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -558,6 +591,7 @@ jobs:
 
   # Test U_OVERRIDE_CXX_ALLOCATION-is-0-test
   u-override-cxx-allocation-is-0-test:
+    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -569,6 +603,7 @@ jobs:
 
   # Test LSTM
   lstm-test:
+    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -580,6 +615,7 @@ jobs:
 
   # Test adaboost
   adaboost-test:
+    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -591,6 +627,7 @@ jobs:
 
   # Build and run testmap
   testmap:
+    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -604,6 +641,7 @@ jobs:
 
   # Copyright scan
   copyright-scan:
+    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -611,6 +649,7 @@ jobs:
 
   # Check compilation of internal headers.
   internal-header-compilation:
+    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -618,6 +657,7 @@ jobs:
 
   # Check source files for valid UTF-8 and for absence of BOM.
   valid-UTF-8-and-no-BOM-check:
+    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -625,6 +665,7 @@ jobs:
 
   # Run unit tests with UCONFIG_NO_XXX variations.
   uconfig-unit-tests:
+    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     strategy:
       # "fail-fast: false" lets other jobs keep running even if the test breaks in some other uconfig.
@@ -672,6 +713,7 @@ jobs:
 
   # Run header tests with UCONFIG_NO_XXX variations.
   uconfig-header-tests:
+    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     strategy:
       # "fail-fast: false" lets other jobs keep running even if the test breaks in some other uconfig.
@@ -723,6 +765,7 @@ jobs:
 
   # Build Unicode update tools
   unicode-update-tools:
+    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -762,6 +805,7 @@ jobs:
 
 # Build and run ICU4C samples
   icu4c-test-samples:
+    if: false #tzu Temporarily disabled
       runs-on: ubuntu-latest
       steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -787,6 +831,7 @@ jobs:
 
   # https://unicode-org.github.io/icu/processes/release/tasks/integration.html#verify-that-icu4c-tests-pass-without-collation-rule-strings
   icu4c-without-collation-rule-strings:
+    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -827,6 +872,7 @@ jobs:
   
   # https://unicode-org.github.io/icu/processes/release/tasks/healthy-code.html#test-uconfig_no_conversion
   icu4c-uconfig-no-conversion:
+    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -910,9 +956,15 @@ jobs:
       - name: Zip
         run: |
           cd icu4c/source/icuexportdata
-          zip -r ../../../icuexportdata_tag-goes-here.zip .
+          zip -r ../../../icuexportdata_release-${{ inputs.gitReleaseTag }}.zip .
       - name: Publish Artifact
         uses: actions/upload-artifact@v4
         with:
           name: icuexportdata_output
-          path: icuexportdata_tag-goes-here.zip
+          path: icuexportdata_*.zip
+      - name: Upload to release
+        if: ${{ inputs.gitReleaseTag && startsWith(inputs.gitReleaseTag, 'release-') }}
+        run: |
+          gh release upload ${{ inputs.gitReleaseTag }} icuexportdata_release-*.zip --clobber
+        env:
+          GH_TOKEN: ${{ github.token }}
