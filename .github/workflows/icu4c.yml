@@ -28,7 +28,6 @@ on:
         description: 'Release tag to upload to. Must start with "release-"'
         type: string
 
-
 # For non-release branches (namely: PRs), only run CI on the most recent commit. Cancel
 # runs on previous commits mid-flight when new commits are pushed.
 # https://docs.github.com/en/actions/using-jobs/using-concurrency#example-only-cancel-in-progress-jobs-on-specific-branches
@@ -54,7 +53,7 @@ jobs:
           cd icu4c/source;
           ./runConfigureICU Linux --disable-renaming;
            # Fail if 'warning:' appears in doxygen's output, but ignore warnings from file Doxyfile.
-           # Regex note: (?! ... ) is a negative lookahead. Succeed if the pattern is not present. 
+           # Regex note: (?! ... ) is a negative lookahead. Succeed if the pattern is not present.
           set +o pipefail && make doc 2>&1 | tee doxygen.log && ( ! grep -P 'warning:(?! .* file .?Doxyfile)' doxygen.log )
 
   # gcc debug build.
@@ -335,14 +334,14 @@ jobs:
         run: |
           cd icu4c/source && ./runConfigureICU --enable-debug --disable-release Linux/clang && make -j -l4.5 check
 
-  # Clang Linux 18 with CPP20 and treat warnings as errors 
+  # Clang Linux 18 with CPP20 and treat warnings as errors
   clang18-cpp20-warning-as-errors:
       if: false #tzu Temporarily disabled
       runs-on: ubuntu-latest
       strategy:
         fail-fast: false
         matrix:
-          flags: 
+          flags:
             - '-std=c++20'
             - '-std=c++20 -stdlib=libc++'
       steps:
@@ -382,7 +381,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include: 
+        include:
           - test_flags: 'x64 Debug'
             build_flags: '/p:Configuration=Debug /p:Platform=x64'
           - test_flags: 'x86 Debug'
@@ -434,7 +433,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include: 
+        include:
           - arch: 'x64'
             plat: 'x64'
             win_ver: 'Win64'
@@ -513,9 +512,9 @@ jobs:
       with:
         update: true
         msystem: mingw64
-        install: > 
-          base-devel 
-          mingw-w64-x86_64-toolchain 
+        install: >
+          base-devel
+          mingw-w64-x86_64-toolchain
           make
     - name: 'Verify MinGW Installation'
       run: gcc --version
@@ -870,7 +869,7 @@ jobs:
         run: |
           cd icu4c/source
           make -j -l4.5 check
-  
+
   # https://unicode-org.github.io/icu/processes/release/tasks/healthy-code.html#test-uconfig_no_conversion
   icu4c-uconfig-no-conversion:
     if: false #tzu Temporarily disabled
@@ -959,7 +958,7 @@ jobs:
       - name: Zip
         run: |
           cd icu4c/source/icuexportdata
-          zip -r ../../../icuexportdata_release-${{ inputs.gitReleaseTag }}.zip .
+          zip -r ../../../icuexportdata_${{ inputs.gitReleaseTag }}.zip .
       - name: Publish Artifact
         uses: actions/upload-artifact@v4
         with:
@@ -968,6 +967,6 @@ jobs:
       - name: Upload to release
         if: ${{ inputs.gitReleaseTag && startsWith(inputs.gitReleaseTag, 'release-') }}
         run: |
-          gh release upload ${{ inputs.gitReleaseTag }} icuexportdata_release-*.zip --clobber
+          gh release upload ${{ inputs.gitReleaseTag }} icuexportdata_*.zip --clobber
         env:
           GH_TOKEN: ${{ github.token }}
