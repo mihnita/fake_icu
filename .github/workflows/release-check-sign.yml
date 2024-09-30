@@ -39,7 +39,6 @@ jobs:
         mkdir -p ${RELEASE_FOLDER}
         pushd ${RELEASE_FOLDER}
         gh release download ${{ inputs.gitReleaseTag }} -p "*.zip" -p "*.tgz" -p "*.jar" --repo=${{ github.repository }}
-        ls -al
         popd
       env:
         GH_TOKEN: ${{ github.token }}

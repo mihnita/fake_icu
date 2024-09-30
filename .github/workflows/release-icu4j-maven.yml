@@ -79,8 +79,11 @@ jobs:
     - name: Build and deploy to Maven Central
       run: |
         if [ "${{ inputs.deployToMaven }}" != "true" ]; then
+          echo Deploy to local folder
           # Run the deploy, but do it to a local folder, not to Sonatype / Maven Central
           export MAVEN_LOCAL='-DaltDeploymentRepository=tempid::file:./local-deploy-folder'
+        else
+          echo Deploy to Maven Central using Sonatype OSSRH
         fi
         mvn deploy --file icu4j \
           ${SHARED_MVN_ARGS} ${MAVEN_LOCAL} \
