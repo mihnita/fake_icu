@@ -12,6 +12,7 @@ env:
 
 jobs:
   publish:
+    if: ${{ inputs.gitReleaseTag && startsWith(inputs.gitReleaseTag, 'release-') }}
 
     runs-on: ubuntu-latest
     environment: release-env
@@ -21,7 +22,6 @@ jobs:
       # packages: write # So that we can store the binaries of this build for a while
 
     steps:
-    if: ${{ inputs.gitReleaseTag && startsWith(inputs.gitReleaseTag, 'release-') }}
 
     - name: Checkout and setup
       uses: actions/checkout@v4
