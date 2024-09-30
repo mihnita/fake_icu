@@ -12,7 +12,7 @@ on:
         type: boolean
         default: false
       gitReleaseTag:
-        description: 'Release tag to upload to. \n Must \r start with "release-"'
+        description: 'Release tag to upload to. Must start with "release-"'
         type: string
 
 env:
