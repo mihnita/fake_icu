@@ -11,7 +11,7 @@ env:
   RELEASE_FOLDER: '${{ github.workspace }}/releaseDist'
 
 jobs:
-  publish:
+  sign_and_checksums:
     if: ${{ inputs.gitReleaseTag && startsWith(inputs.gitReleaseTag, 'release-') }}
 
     runs-on: ubuntu-latest
