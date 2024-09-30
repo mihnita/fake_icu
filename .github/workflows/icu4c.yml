@@ -488,12 +488,12 @@ jobs:
       with:
         name: icu4c.${{ matrix.win_ver }}.run_#${{ github.run_number }}
         path: icu4c/source/dist/${{ env.newZipName }}.zip
-      - name: Upload to release
-        if: ${{ inputs.gitReleaseTag && startsWith(inputs.gitReleaseTag, 'release-') }}
-        run: |
-          gh release upload ${{ inputs.gitReleaseTag }} icu4c/source/dist/${{ env.newZipName }}.zip --clobber
-        env:
-          GH_TOKEN: ${{ github.token }}
+    - name: Upload to release
+      if: ${{ inputs.gitReleaseTag && startsWith(inputs.gitReleaseTag, 'release-') }}
+      run: |
+        gh release upload ${{ inputs.gitReleaseTag }} icu4c/source/dist/${{ env.newZipName }}.zip --clobber
+      env:
+        GH_TOKEN: ${{ github.token }}
 
   # Window MSYS2 tests
   windows-msys2-gcc-x86_64:
