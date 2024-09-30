@@ -87,7 +87,6 @@ jobs:
   #gcc 11 with c++ 20
   gcc11-cpp20:
     if: false #tzu Temporarily disabled
-    if: false #tzu Temporarily disabled
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -338,7 +337,7 @@ jobs:
 
   # Clang Linux 18 with CPP20 and treat warnings as errors 
   clang18-cpp20-warning-as-errors:
-    if: false #tzu Temporarily disabled
+      if: false #tzu Temporarily disabled
       runs-on: ubuntu-latest
       strategy:
         fail-fast: false
@@ -805,7 +804,7 @@ jobs:
 
 # Build and run ICU4C samples
   icu4c-test-samples:
-    if: false #tzu Temporarily disabled
+      if: false #tzu Temporarily disabled
       runs-on: ubuntu-latest
       steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
