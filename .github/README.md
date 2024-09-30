@@ -10,10 +10,10 @@ When prompted use these:
 * **User:** the github user
 * **Password:** the github key
 
-Update the timestamp (`20240923`) with the current date, ISO style:
+Update the timestamp (`20240929`) with the current date, ISO style:
 ```
-docker build --tag ghcr.io/mihnita/fedora-docker-gcr:20240923 -f Dockerfile_fedora .
-docker push ghcr.io/mihnita/fedora-docker-gcr:20240923
+docker build --tag ghcr.io/unicode-org/fedora-docker-gcr:20240929 -f Dockerfile_fedora .
+docker push ghcr.io/unicode-org/fedora-docker-gcr:20240929
 ```
 
 See:
